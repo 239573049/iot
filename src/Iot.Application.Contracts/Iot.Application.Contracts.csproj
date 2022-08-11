@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Iot</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Iot.Domain.Shared\Iot.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.ObjectExtending" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="5.3.3" />
+  </ItemGroup>
+
+</Project>

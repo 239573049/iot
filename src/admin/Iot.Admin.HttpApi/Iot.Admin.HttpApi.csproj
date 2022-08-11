@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Iot</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Iot.Admin.Application.Contracts\Iot.Admin.Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Iot.Application.Contracts\Iot.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.SettingManagement.HttpApi" Version="5.3.3" />
+  </ItemGroup>
+
+</Project>

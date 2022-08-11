@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Iot</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Iot.Domain\Iot.Domain.csproj" />
+    <ProjectReference Include="..\Iot.Application.Contracts\Iot.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="5.3.3" />
+  </ItemGroup>
+
+</Project>
