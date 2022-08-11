@@ -1,5 +1,4 @@
 using Iot.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
@@ -10,13 +9,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Iot.Admin.Application;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
-using Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Caching;
@@ -24,7 +20,6 @@ using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
-using Volo.Abp.VirtualFileSystem;
 
 namespace Iot;
 
@@ -33,7 +28,6 @@ namespace Iot;
     typeof(AbpAutofacModule),
     typeof(IotAdminApplicationModule),
     typeof(AbpCachingStackExchangeRedisModule),
-    typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
     typeof(IotApplicationModule),
     typeof(IotEntityFrameworkCoreModule),
     typeof(AbpAspNetCoreSerilogModule),
@@ -71,18 +65,30 @@ public class IotHttpApiHostModule : AbpModule
 
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
     {
-        context.Services.AddAbpSwaggerGenWithOAuth(
-            configuration["AuthServer:Authority"],
-            new Dictionary<string, string>
+        context.Services.AddAbpSwaggerGen(options =>
+        {
+            options.SwaggerDoc("v1", new OpenApiInfo { Title = "Iot API", Version = "v1" });
+            options.DocInclusionPredicate((docName, description) => true);
+            options.CustomSchemaIds(type => type.FullName);
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
-                { "Iot", "Iot API" }
-            },
-            options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Iot API", Version = "v1" });
-                options.DocInclusionPredicate((docName, description) => true);
-                options.CustomSchemaIds(type => type.FullName);
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference { Id = "Bearer", Type = ReferenceType.SecurityScheme }
+                    },
+                    Array.Empty<string>()
+                }
             });
+            options.AddSecurityDefinition("Bearer",
+                new OpenApiSecurityScheme
+                {
+                    Description = "请输入文字“Bearer”，后跟空格和JWT值，格式  : Bearer {token}",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+        });
     }
 
     private void ConfigureLocalization()
@@ -152,11 +158,6 @@ public class IotHttpApiHostModule : AbpModule
         app.UseAbpSwaggerUI(options =>
         {
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Iot API");
-
-            var configuration = context.GetConfiguration();
-            options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
-            options.OAuthClientSecret(configuration["AuthServer:SwaggerClientSecret"]);
-            options.OAuthScopes("Iot");
         });
 
         app.UseAuditing();
