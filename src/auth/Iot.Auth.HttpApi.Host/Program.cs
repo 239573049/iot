@@ -1,9 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Iot;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Iot.Auth.HttpApi.Host;
 using Serilog;
 using Serilog.Events;
 
@@ -23,12 +18,12 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Starting Iot.Admin.HttpApi.Host.");
+    Log.Information("Starting Iot.Auth.HttpApi.Host.");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
         .UseAutofac()
         .UseSerilog();
-    await builder.AddApplicationAsync<IotHttpApiHostModule>();
+    await builder.AddApplicationAsync<IotAuthHttpApiHostModule>();
     var app = builder.Build();
     await app.InitializeApplicationAsync();
     await app.RunAsync();

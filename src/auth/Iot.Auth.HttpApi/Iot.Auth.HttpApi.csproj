@@ -7,11 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Iot.Application.Contracts\Iot.Application.Contracts.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Volo.Abp.UI" Version="5.3.3" />
+      <ProjectReference Include="..\Iot.Auth.Application.Contracts\Iot.Auth.Application.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

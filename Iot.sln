@@ -59,6 +59,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{E732
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Common.Jwt", "src\modules\Iot.Common.Jwt\Iot.Common.Jwt.csproj", "{72179E4B-5E43-4857-BBB7-176769F8A4C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Auth.HttpApi.Host", "src\auth\Iot.Auth.HttpApi.Host\Iot.Auth.HttpApi.Host.csproj", "{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Auth.HttpApi", "src\auth\Iot.Auth.HttpApi\Iot.Auth.HttpApi.csproj", "{E5549D52-72B9-413F-89E5-A29D24569EBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +161,14 @@ Global
 		{72179E4B-5E43-4857-BBB7-176769F8A4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72179E4B-5E43-4857-BBB7-176769F8A4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72179E4B-5E43-4857-BBB7-176769F8A4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5549D52-72B9-413F-89E5-A29D24569EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5549D52-72B9-413F-89E5-A29D24569EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5549D52-72B9-413F-89E5-A29D24569EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5549D52-72B9-413F-89E5-A29D24569EBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,6 +200,8 @@ Global
 		{E5F633FE-B579-4C5E-A000-B971B887E869} = {F4BA585C-E7A2-43FA-BB5C-D0404731F2EF}
 		{E7322A14-E055-4D31-A490-7ACAF4DCE621} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{72179E4B-5E43-4857-BBB7-176769F8A4C5} = {E7322A14-E055-4D31-A490-7ACAF4DCE621}
+		{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C} = {F4BA585C-E7A2-43FA-BB5C-D0404731F2EF}
+		{E5549D52-72B9-413F-89E5-A29D24569EBF} = {F4BA585C-E7A2-43FA-BB5C-D0404731F2EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

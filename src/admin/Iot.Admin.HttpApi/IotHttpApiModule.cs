@@ -9,7 +9,6 @@ using Volo.Abp.SettingManagement;
 namespace Iot;
 
 [DependsOn(
-    typeof(IotApplicationContractsModule),
     typeof(IotAdminApplicationContractsModule),
     typeof(AbpFeatureManagementHttpApiModule),
     typeof(AbpSettingManagementHttpApiModule)

@@ -9,4 +9,5 @@ namespace Iot.Admin.Application;
     typeof(IotAdminApplicationContractsModule))]
 public class IotAdminApplicationModule : AbpModule
 {
+    
 }
