@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
+using Volo.Abp.AspNetCore.Mvc.Validation;
 using Volo.Abp.Modularity;
 
 namespace Iot.HttpApi;
@@ -28,8 +29,8 @@ public class IotHttpApiModule : AbpModule
         
         var ops = app.ApplicationServices.GetRequiredService<IOptions<MvcOptions>>().Value;
         var abpExceptionFilter = ops.Filters.FirstOrDefault(a => (a as ServiceFilterAttribute)?.ServiceType == (typeof(AbpExceptionFilter)));
-        var authorization = ops.Filters.FirstOrDefault(x =>
-            (x as ServiceFilterAttribute)?.ServiceType == typeof(AbpAutoValidateAntiforgeryTokenAuthorizationFilter));
+        var authorization = ops.Filters.FirstOrDefault(a =>
+            (a as ServiceFilterAttribute)?.ServiceType == typeof(AbpValidationActionFilter));
 
         if (abpExceptionFilter != null)
         {
