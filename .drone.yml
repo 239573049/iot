@@ -13,7 +13,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
       - name: auth
-        path: /drone/src/src
+        path: /drone/src/src/auth
     commands:
       - docker build -f ./src/auth/Iot.Auth.HttpApi.Host/Dockerfile -t registry.cn-shenzhen.aliyuncs.com/tokengo/iot-auth:dev .
 
@@ -42,7 +42,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
       - name: iot-admin
-        path: /drone/src/src
+        path: /drone/src/src/admin
     commands:
       - docker build -f ./src/admin/Iot.Admin.HttpApi.Host/Dockerfile -t registry.cn-shenzhen.aliyuncs.com/tokengo/iot-admin:dev .
 
