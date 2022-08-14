@@ -20,6 +20,11 @@ public class IotHttpApiModule : AbpModule
             options.Filters.Add<IotResponseFilter>();
             options.Filters.Add<IotExceptionFilter>();
         });
+        
+        Configure<AbpAntiForgeryOptions>(x =>
+        {
+            x.AutoValidate = false;
+        });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -29,17 +34,11 @@ public class IotHttpApiModule : AbpModule
         
         var ops = app.ApplicationServices.GetRequiredService<IOptions<MvcOptions>>().Value;
         var abpExceptionFilter = ops.Filters.FirstOrDefault(a => (a as ServiceFilterAttribute)?.ServiceType == (typeof(AbpExceptionFilter)));
-        var authorization = ops.Filters.FirstOrDefault(a =>
-            (a as ServiceFilterAttribute)?.ServiceType == typeof(AbpValidationActionFilter));
 
         if (abpExceptionFilter != null)
         {
             ops.Filters.Remove(abpExceptionFilter);
         }
 
-        if (authorization != null)
-        {
-            ops.Filters.Remove(authorization);
-        }
     }
 }
