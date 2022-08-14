@@ -151,12 +151,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
-#if DEBUG
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "auth API");
-#else
-            options.SwaggerEndpoint("swagger/v1/swagger.json", "auth API");
-            options.RoutePrefix = string.Empty;
-#endif
         });
 
         app.UseAuditing();
