@@ -21,9 +21,6 @@ volumes:
   - name: dockersock
     host:
       path: /var/run/docker.sock
-  - name: auth
-    host: 
-      path: /data/auth
       
 ---
 
@@ -50,9 +47,6 @@ volumes:
   - name: dockersock
     host:
       path: /var/run/docker.sock
-  - name: iot-admin
-    host:
-      path: /data/iot-admin
 
 
 
