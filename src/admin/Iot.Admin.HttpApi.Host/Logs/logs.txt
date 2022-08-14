@@ -5947,3 +5947,741 @@ System.Threading.Tasks.TaskCanceledException: A task was canceled.
 2022-08-14 23:27:55.269 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44394/swagger/index.html - - - 200 - text/html;charset=utf-8 26.8314ms
 2022-08-14 23:27:55.407 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44394/swagger/v1/swagger.json - -
 2022-08-14 23:27:55.506 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44394/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.3488ms
+2022-08-15 01:17:12.981 +08:00 [INF] Starting Iot.Admin.HttpApi.Host.
+2022-08-15 01:17:58.446 +08:00 [INF] Loaded ABP modules:
+2022-08-15 01:17:58.446 +08:00 [INF] - Iot.IotHttpApiHostModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Iot.IotAdminHttpApiModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Iot.Admin.Application.Contracts.IotAdminApplicationContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Iot.IotApplicationContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Iot.IotDomainSharedModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Settings.AbpSettingsModule
+2022-08-15 01:17:58.446 +08:00 [INF]               - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]               - Volo.Abp.Security.AbpSecurityModule
+2022-08-15 01:17:58.446 +08:00 [INF]               - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-15 01:17:58.446 +08:00 [INF]                 - Volo.Abp.Data.AbpDataModule
+2022-08-15 01:17:58.446 +08:00 [INF]                   - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-15 01:17:58.446 +08:00 [INF]                     - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]                   - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-15 01:17:58.446 +08:00 [INF]                   - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Validation.AbpValidationModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Json.AbpJsonModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Timing.AbpTimingModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.SettingManagement.AbpSettingManagementApplicationContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Features.AbpFeaturesModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementHttpApiModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Threading.AbpThreadingModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Http.AbpHttpModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Minify.AbpMinifyModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.UI.AbpUiModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-15 01:17:58.446 +08:00 [INF]               - Volo.Abp.Guids.AbpGuidsModule
+2022-08-15 01:17:58.446 +08:00 [INF]               - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-15 01:17:58.446 +08:00 [INF]               - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementHttpApiModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Iot.Admin.Application.IotAdminApplicationModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.EventBus.RabbitMq.AbpEventBusRabbitMqModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.RabbitMQ.AbpRabbitMqModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Iot.IotApplicationModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Iot.IotDomainModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementApplicationModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.Emailing.AbpEmailingModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2022-08-15 01:17:58.446 +08:00 [INF]           - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2022-08-15 01:17:58.446 +08:00 [INF]             - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Iot.EntityFrameworkCore.IotEntityFrameworkCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2022-08-15 01:17:58.446 +08:00 [INF]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2022-08-15 01:17:58.446 +08:00 [INF]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-15 01:17:58.446 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-15 01:17:58.962 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-15 01:17:59.039 +08:00 [INF] Initialized all ABP modules.
+2022-08-15 01:17:59.169 +08:00 [INF] Now listening on: https://localhost:44394
+2022-08-15 01:17:59.169 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-15 01:17:59.169 +08:00 [INF] Hosting environment: Development
+2022-08-15 01:17:59.169 +08:00 [INF] Content root path: D:\net core\Iot\src\admin\Iot.Admin.HttpApi.Host\
+2022-08-15 01:23:52.172 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:23:54.036 +08:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2022-08-15 01:23:54.070 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:23:57.747 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:23:58.161 +08:00 [ERR] message:Volo.Abp.BusinessException: 账号未授权
+   at Iot.Common.Jwt.Accessor.GetUserId() in D:\net core\Iot\src\modules\Iot.Common.Jwt\Accessor.cs:line 92
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 53
+   at lambda_method1052(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2022-08-15 01:23:58.164 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:23:58.174 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 424.0548ms
+2022-08-15 01:23:58.174 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:23:58.587 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:23:58.596 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:23:58.604 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 6431.8168ms
+2022-08-15 01:25:15.692 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:25:15.783 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:25:15.783 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:25:15.834 +08:00 [WRN] The property 'DHTxxLogs.Logs' is a collection or enumeration type with a value converter but with no value comparer. Set a value comparer to ensure the collection/enumeration elements are compared correctly.
+2022-08-15 01:25:15.868 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2022-08-15 01:25:15.868 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2022-08-15 01:25:15.896 +08:00 [ERR] Failed executing DbCommand (9ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[ConcurrencyStamp], [i].[CreationTime], [i].[CreatorId], [i].[DeletionTime], [i].[ExtraProperties], [i].[Icon], [i].[IsDeleted], [i].[Name], [i].[Remark], [i].[Stats], [i].[Type], [i].[UserInfoId]
+FROM [IotDevices] AS [i]
+WHERE ((@__ef_filter__p_0 = CAST(1 AS bit)) OR ([i].[IsDeleted] = CAST(0 AS bit))) AND ([i].[UserInfoId] = @__userId_0)
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-08-15 01:25:15.906 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Iot.EntityFrameworkCore.IotDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:25:16.000 +08:00 [ERR] message:Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 54
+   at lambda_method1052(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:25:16.000 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:25:16.002 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 218.2261ms
+2022-08-15 01:25:16.002 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:25:16.077 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:25:16.078 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:25:16.078 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 385.3762ms
+2022-08-15 01:26:48.056 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:26:48.059 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:48.059 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:26:48.067 +08:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[ConcurrencyStamp], [i].[CreationTime], [i].[CreatorId], [i].[DeletionTime], [i].[ExtraProperties], [i].[Icon], [i].[IsDeleted], [i].[Name], [i].[Remark], [i].[Stats], [i].[Type], [i].[UserInfoId]
+FROM [IotDevices] AS [i]
+WHERE ((@__ef_filter__p_0 = CAST(1 AS bit)) OR ([i].[IsDeleted] = CAST(0 AS bit))) AND ([i].[UserInfoId] = @__userId_0)
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-08-15 01:26:48.068 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Iot.EntityFrameworkCore.IotDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:48.113 +08:00 [ERR] message:Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 54
+   at lambda_method1052(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:48.113 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:26:48.114 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 54.7936ms
+2022-08-15 01:26:48.114 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:48.194 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:48.194 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:48.194 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 138.0442ms
+2022-08-15 01:26:50.796 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:26:50.798 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:50.798 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:26:50.805 +08:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[ConcurrencyStamp], [i].[CreationTime], [i].[CreatorId], [i].[DeletionTime], [i].[ExtraProperties], [i].[Icon], [i].[IsDeleted], [i].[Name], [i].[Remark], [i].[Stats], [i].[Type], [i].[UserInfoId]
+FROM [IotDevices] AS [i]
+WHERE ((@__ef_filter__p_0 = CAST(1 AS bit)) OR ([i].[IsDeleted] = CAST(0 AS bit))) AND ([i].[UserInfoId] = @__userId_0)
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-08-15 01:26:50.807 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Iot.EntityFrameworkCore.IotDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:50.860 +08:00 [ERR] message:Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 54
+   at lambda_method1052(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:50.860 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:26:50.860 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 62.2788ms
+2022-08-15 01:26:50.860 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:50.916 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:50.916 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:50.916 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 119.7689ms
+2022-08-15 01:26:51.847 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:26:51.849 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:51.849 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:26:51.859 +08:00 [ERR] Failed executing DbCommand (8ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[ConcurrencyStamp], [i].[CreationTime], [i].[CreatorId], [i].[DeletionTime], [i].[ExtraProperties], [i].[Icon], [i].[IsDeleted], [i].[Name], [i].[Remark], [i].[Stats], [i].[Type], [i].[UserInfoId]
+FROM [IotDevices] AS [i]
+WHERE ((@__ef_filter__p_0 = CAST(1 AS bit)) OR ([i].[IsDeleted] = CAST(0 AS bit))) AND ([i].[UserInfoId] = @__userId_0)
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-08-15 01:26:51.860 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Iot.EntityFrameworkCore.IotDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:51.912 +08:00 [ERR] message:Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 54
+   at lambda_method1052(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:51.912 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:26:51.912 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 63.2596ms
+2022-08-15 01:26:51.912 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:51.973 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:51.974 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:51.974 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 126.7772ms
+2022-08-15 01:26:52.337 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:26:52.338 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:52.338 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:26:52.346 +08:00 [ERR] Failed executing DbCommand (6ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[ConcurrencyStamp], [i].[CreationTime], [i].[CreatorId], [i].[DeletionTime], [i].[ExtraProperties], [i].[Icon], [i].[IsDeleted], [i].[Name], [i].[Remark], [i].[Stats], [i].[Type], [i].[UserInfoId]
+FROM [IotDevices] AS [i]
+WHERE ((@__ef_filter__p_0 = CAST(1 AS bit)) OR ([i].[IsDeleted] = CAST(0 AS bit))) AND ([i].[UserInfoId] = @__userId_0)
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-08-15 01:26:52.347 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Iot.EntityFrameworkCore.IotDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:52.397 +08:00 [ERR] message:Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 54
+   at lambda_method1052(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:7e1786ad-535a-4b49-86f2-6e55beb1dc3d
+Error Number:207,State:1,Class:16
+2022-08-15 01:26:52.397 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:26:52.397 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 58.8606ms
+2022-08-15 01:26:52.397 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:26:52.449 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:52.449 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:26:52.450 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 112.4956ms
+2022-08-15 01:27:34.412 +08:00 [INF] Starting Iot.Admin.HttpApi.Host.
+2022-08-15 01:27:40.942 +08:00 [INF] Loaded ABP modules:
+2022-08-15 01:27:40.942 +08:00 [INF] - Iot.IotHttpApiHostModule
+2022-08-15 01:27:40.942 +08:00 [INF]   - Iot.IotAdminHttpApiModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Iot.Admin.Application.Contracts.IotAdminApplicationContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Iot.IotApplicationContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Iot.IotDomainSharedModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Settings.AbpSettingsModule
+2022-08-15 01:27:40.942 +08:00 [INF]               - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]               - Volo.Abp.Security.AbpSecurityModule
+2022-08-15 01:27:40.942 +08:00 [INF]               - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-15 01:27:40.942 +08:00 [INF]                 - Volo.Abp.Data.AbpDataModule
+2022-08-15 01:27:40.942 +08:00 [INF]                   - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-15 01:27:40.942 +08:00 [INF]                     - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]                   - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-15 01:27:40.942 +08:00 [INF]                   - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Validation.AbpValidationModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Json.AbpJsonModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Timing.AbpTimingModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.SettingManagement.AbpSettingManagementApplicationContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Features.AbpFeaturesModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementHttpApiModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Threading.AbpThreadingModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Http.AbpHttpModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Minify.AbpMinifyModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.UI.AbpUiModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-15 01:27:40.942 +08:00 [INF]               - Volo.Abp.Guids.AbpGuidsModule
+2022-08-15 01:27:40.942 +08:00 [INF]               - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-15 01:27:40.942 +08:00 [INF]               - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementHttpApiModule
+2022-08-15 01:27:40.942 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-15 01:27:40.942 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-15 01:27:40.942 +08:00 [INF]   - Iot.Admin.Application.IotAdminApplicationModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.EventBus.RabbitMq.AbpEventBusRabbitMqModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Volo.Abp.RabbitMQ.AbpRabbitMqModule
+2022-08-15 01:27:40.942 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-15 01:27:40.942 +08:00 [INF]   - Iot.IotApplicationModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Iot.IotDomainModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2022-08-15 01:27:40.942 +08:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementApplicationModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2022-08-15 01:27:40.942 +08:00 [INF]       - Volo.Abp.Emailing.AbpEmailingModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2022-08-15 01:27:40.942 +08:00 [INF]         - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2022-08-15 01:27:40.942 +08:00 [INF]           - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2022-08-15 01:27:40.942 +08:00 [INF]             - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2022-08-15 01:27:40.943 +08:00 [INF]   - Iot.EntityFrameworkCore.IotEntityFrameworkCoreModule
+2022-08-15 01:27:40.943 +08:00 [INF]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2022-08-15 01:27:40.943 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-15 01:27:40.943 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-15 01:27:40.943 +08:00 [INF]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2022-08-15 01:27:40.943 +08:00 [INF]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2022-08-15 01:27:40.943 +08:00 [INF]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2022-08-15 01:27:40.943 +08:00 [INF]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2022-08-15 01:27:40.943 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-15 01:27:40.943 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-15 01:27:41.285 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-15 01:27:41.336 +08:00 [INF] Initialized all ABP modules.
+2022-08-15 01:27:41.448 +08:00 [INF] Now listening on: https://localhost:44394
+2022-08-15 01:27:41.448 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-15 01:27:41.448 +08:00 [INF] Hosting environment: Development
+2022-08-15 01:27:41.448 +08:00 [INF] Content root path: D:\net core\Iot\src\admin\Iot.Admin.HttpApi.Host\
+2022-08-15 01:27:41.893 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44394/index.html - -
+2022-08-15 01:27:42.660 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44394/index.html - - - 404 0 - 767.5334ms
+2022-08-15 01:27:45.457 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - -
+2022-08-15 01:27:45.571 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:27:45.603 +08:00 [INF] Route matched with {action = "GetList", controller = "Devices", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.IotDevicesDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetListInput) on controller Iot.Admin.Application.Devices.DevicesService (Iot.Admin.Application).
+2022-08-15 01:27:46.268 +08:00 [WRN] The property 'DHTxxLogs.Logs' is a collection or enumeration type with a value converter but with no value comparer. Set a value comparer to ensure the collection/enumeration elements are compared correctly.
+2022-08-15 01:27:46.516 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2022-08-15 01:27:46.517 +08:00 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2022-08-15 01:27:46.840 +08:00 [ERR] Failed executing DbCommand (249ms) [Parameters=[@__ef_filter__p_0='?' (DbType = Boolean), @__userId_0='?' (DbType = Guid), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [i].[Id], [i].[ConcurrencyStamp], [i].[CreationTime], [i].[CreatorId], [i].[DeletionTime], [i].[ExtraProperties], [i].[Icon], [i].[IsDeleted], [i].[Name], [i].[Remark], [i].[Stats], [i].[Type], [i].[UserInfoId]
+FROM [IotDevices] AS [i]
+WHERE ((@__ef_filter__p_0 = CAST(1 AS bit)) OR ([i].[IsDeleted] = CAST(0 AS bit))) AND ([i].[UserInfoId] = @__userId_0)
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2022-08-15 01:27:46.879 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Iot.EntityFrameworkCore.IotDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:f561bdc2-5bff-4873-8f79-6e9b13f7d782
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:f561bdc2-5bff-4873-8f79-6e9b13f7d782
+Error Number:207,State:1,Class:16
+2022-08-15 01:27:46.956 +08:00 [ERR] message:Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'CreationTime'.
+Invalid column name 'CreatorId'.
+Invalid column name 'ExtraProperties'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__188_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Iot.EntityFrameworkCore.Repositorys.DevicesRepository.GetListAsync(Guid userId, String keywords, Int32 skipCount, Int32 maxResultCount) in D:\net core\Iot\src\Iot.EntityFrameworkCore\EntityFrameworkCore\Repositorys\DevicesRepository.cs:line 22
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Admin.Application.Devices.DevicesService.GetListAsync(GetListInput input) in D:\net core\Iot\src\admin\Iot.Admin.Application\Devices\DevicesService.cs:line 54
+   at lambda_method1044(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+ClientConnectionId:f561bdc2-5bff-4873-8f79-6e9b13f7d782
+Error Number:207,State:1,Class:16
+2022-08-15 01:27:46.960 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 01:27:46.967 +08:00 [INF] Executed action Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application) in 1361.163ms
+2022-08-15 01:27:46.967 +08:00 [INF] Executed endpoint 'Iot.Admin.Application.Devices.DevicesService.GetListAsync (Iot.Admin.Application)'
+2022-08-15 01:27:47.238 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:27:47.246 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-15 01:27:47.250 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44394/api/app/devices?Keywords=&Page=&PageSize=&SkipCount=&MaxResultCount= - - - 200 - application/json;+charset=utf-8 1793.3363ms

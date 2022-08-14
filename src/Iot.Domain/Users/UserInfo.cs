@@ -44,13 +44,11 @@ public class UserInfo : IotAggregateRoot<Guid>
     /// </summary>
     public string? Name { get; protected set; }
 
-    public UserInfo(Guid id) : base(id)
-    {
-    }
 
     public UserInfo(Guid id, string accountNumber, string phoneNumber, string weChatOpenId, string password,
-        string avatar, string introduce, UserInfoState state, string name) : base(id)
+        string avatar, string introduce, UserInfoState state, string name)
     {
+        Id = id;
         AccountNumber = accountNumber;
         PhoneNumber = phoneNumber;
         WeChatOpenId = weChatOpenId;

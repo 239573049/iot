@@ -55,6 +55,7 @@ public static class IotEntityFrameworkCoreExtension
             x.HasKey(x => x.Id);
 
             x.HasIndex(x => x.UserInfoId);
+            
         });
 
         builder.ConfigureIotData();

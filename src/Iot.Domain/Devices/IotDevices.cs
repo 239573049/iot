@@ -40,7 +40,7 @@ public class IotDevices : IotAggregateRoot<Guid>
 
         Stats = stats;
     }
-    
+
     /// <summary>
     /// 绑定设备
     /// </summary>
@@ -53,7 +53,7 @@ public class IotDevices : IotAggregateRoot<Guid>
             throw new BusinessException(IotDomainErrorCodes.NotUserInfoId);
         }
     }
-    
+
     public virtual UserInfo UserInfo { get; set; }
 
     public IotDevices()
@@ -61,8 +61,9 @@ public class IotDevices : IotAggregateRoot<Guid>
     }
 
     public IotDevices(Guid id, string name, string icon, DeviceType type, string remark, DeviceStats stats,
-        Guid? userInfoId) : base(id)
+        Guid? userInfoId)
     {
+        Id = id;
         Name = name;
         Icon = icon;
         Type = type;
