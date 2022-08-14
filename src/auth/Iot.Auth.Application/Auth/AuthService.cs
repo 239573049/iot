@@ -14,12 +14,10 @@ public class AuthService : ApplicationService, IAuthService
 {
     private readonly IRepository<UserInfo, Guid> _userInfoRepository;
     private readonly Accessor _accessor;
-    private readonly IStringLocalizer<IotResource> _localizer;
-    public AuthService(IRepository<UserInfo, Guid> userInfoRepository, Accessor accessor, IStringLocalizer<IotResource> localizer)
+    public AuthService(IRepository<UserInfo, Guid> userInfoRepository, Accessor accessor)
     {
         _userInfoRepository = userInfoRepository;
         _accessor = accessor;
-        _localizer = localizer;
     }
 
 
@@ -33,7 +31,7 @@ public class AuthService : ApplicationService, IAuthService
 
         if (userInfo == null)
         {
-            throw new BusinessException(_localizer[IotDomainErrorCodes.NotUserName]);
+            throw new BusinessException(IotDomainErrorCodes.NotUserName);
         }
 
         var token =await _accessor.CreateTokenAsync(userInfo);
