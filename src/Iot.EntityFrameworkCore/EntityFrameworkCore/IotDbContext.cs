@@ -32,8 +32,8 @@ public class IotDbContext :
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builder);
 
+        builder.Ignore<ExtraPropertyDictionary>();
         /* Include modules to your migration db context */
 
         builder.ConfigureSettingManagement();
@@ -41,5 +41,7 @@ public class IotDbContext :
         builder.ConfigureFeatureManagement();
 
         builder.ConfigureIot();
+     
+        base.OnModelCreating(builder);
     }
 }

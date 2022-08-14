@@ -35,7 +35,8 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
 
         var query = dbContext.IotDevices
             .Where(x => x.UserInfoId == userId)
-            .WhereIf(!keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords));
+            .WhereIf(!keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords))
+            .OrderByDescending(x => x.CreationTime);
 
         return query;
     }

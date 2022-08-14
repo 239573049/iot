@@ -5769,3 +5769,164 @@ System.InvalidOperationException: Writing to the response body is invalid for re
 
 2022-08-15 01:25:11.892 +08:00 [INF] Request finished HTTP/1.1 POST https://localhost:7052/api/app/auth/auth application/json 59 - 200 - application/json;+charset=utf-8 2130.9013ms
 2022-08-15 01:30:18.921 +08:00 [INF] Application is shutting down...
+2022-08-15 01:37:18.166 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-08-15 01:37:23.716 +08:00 [INF] Loaded ABP modules:
+2022-08-15 01:37:23.717 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-15 01:37:23.717 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-08-15 01:37:23.717 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-15 01:37:23.717 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-15 01:37:23.717 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-15 01:37:23.717 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-15 01:37:23.717 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-08-15 01:37:23.717 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-15 01:37:23.717 +08:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-15 01:37:23.717 +08:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-15 01:37:23.717 +08:00 [INF]         - Volo.Abp.Features.AbpFeaturesModule
+2022-08-15 01:37:24.039 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-15 01:37:24.107 +08:00 [INF] Initialized all ABP modules.
+2022-08-15 01:37:24.275 +08:00 [INF] Now listening on: https://localhost:7052
+2022-08-15 01:37:24.275 +08:00 [INF] Now listening on: http://localhost:5125
+2022-08-15 01:37:24.275 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-15 01:37:24.275 +08:00 [INF] Hosting environment: Development
+2022-08-15 01:37:24.275 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-08-15 01:37:24.504 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-08-15 01:37:24.670 +08:00 [INF] Executing endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-15 01:37:24.695 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Iot.Controllers.HomeController (Iot.Auth.HttpApi.Host).
+2022-08-15 01:37:24.715 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2022-08-15 01:37:24.718 +08:00 [INF] Executed action Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host) in 21.0851ms
+2022-08-15 01:37:24.718 +08:00 [INF] Executed endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-15 01:37:24.730 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 302 0 - 226.5445ms
+2022-08-15 01:37:24.734 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger - -
+2022-08-15 01:37:24.736 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger - - - 301 0 - 2.2451ms
+2022-08-15 01:37:24.741 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/index.html - -
+2022-08-15 01:37:24.775 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;charset=utf-8 33.3961ms
+2022-08-15 01:37:24.969 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
+2022-08-15 01:37:25.076 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 107.3060ms
+2022-08-15 01:37:37.925 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-08-15 01:37:38.399 +08:00 [INF] Loaded ABP modules:
+2022-08-15 01:37:38.400 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-15 01:37:38.400 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-08-15 01:37:38.400 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-15 01:37:38.400 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-15 01:37:38.400 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-15 01:37:38.400 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-15 01:37:38.400 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-08-15 01:37:38.400 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-15 01:37:38.400 +08:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-15 01:37:38.400 +08:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-15 01:37:38.400 +08:00 [INF]         - Volo.Abp.Features.AbpFeaturesModule
+2022-08-15 01:37:38.613 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-15 01:37:38.667 +08:00 [INF] Initialized all ABP modules.
+2022-08-15 01:37:38.735 +08:00 [INF] Now listening on: https://localhost:7052
+2022-08-15 01:37:38.735 +08:00 [INF] Now listening on: http://localhost:5125
+2022-08-15 01:37:38.735 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-15 01:37:38.735 +08:00 [INF] Hosting environment: Development
+2022-08-15 01:37:38.735 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-08-15 01:37:39.107 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-08-15 01:37:39.252 +08:00 [INF] Executing endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-15 01:37:39.268 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Iot.Controllers.HomeController (Iot.Auth.HttpApi.Host).
+2022-08-15 01:37:39.301 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2022-08-15 01:37:39.307 +08:00 [INF] Executed action Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host) in 34.1431ms
+2022-08-15 01:37:39.307 +08:00 [INF] Executed endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-15 01:37:39.332 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 302 0 - 225.5113ms
+2022-08-15 01:37:39.338 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/index.html - -
+2022-08-15 01:37:39.397 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;charset=utf-8 59.1083ms
+2022-08-15 01:37:39.506 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
+2022-08-15 01:37:39.585 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 79.0617ms
+2022-08-15 01:42:59.852 +08:00 [INF] Application is shutting down...

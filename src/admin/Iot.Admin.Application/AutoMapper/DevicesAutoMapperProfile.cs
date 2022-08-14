@@ -10,5 +10,6 @@ public class DevicesAutoMapperProfile : Profile
     {
         CreateMap<CreateDeviceInput, IotDevices>();
         CreateMap<IotDevicesDto, IotDevices>();
+        CreateMap<IotDevices,IotDevicesDto>();
     }
 }
