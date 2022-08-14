@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime;
 using Volo.Abp.Auditing;
 using Volo.Abp.Domain.Entities;
 
@@ -26,8 +27,9 @@ public class DHTxxLogs : AggregateRoot<Guid>, IHasDeletionTime, IHasCreationTime
     {
     }
 
-    public DHTxxLogs(Guid id) : base(id)
+    public DHTxxLogs(Guid id,Guid deviceId) : base(id)
     {
+        DeviceId = deviceId;
     }
 
     public bool IsDeleted { get; set; }

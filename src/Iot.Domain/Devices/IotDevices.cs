@@ -1,5 +1,6 @@
 using System;
 using Iot.Users;
+using Volo.Abp;
 
 namespace Iot.Devices;
 
@@ -30,11 +31,29 @@ public class IotDevices : IotAggregateRoot<Guid>
     /// </summary>
     public DeviceStats Stats { get; protected set; }
 
+    public void SetStats(DeviceStats stats)
+    {
+        if (stats == Stats)
+        {
+            return;
+        }
+
+        Stats = stats;
+    }
+    
     /// <summary>
     /// 绑定设备
     /// </summary>
     public Guid? UserInfoId { get; protected set; }
 
+    public void SetUserInfoId(Guid userInfoId)
+    {
+        if (userInfoId == Guid.Empty)
+        {
+            throw new BusinessException(IotDomainErrorCodes.NotUserInfoId);
+        }
+    }
+    
     public virtual UserInfo UserInfo { get; set; }
 
     public IotDevices()

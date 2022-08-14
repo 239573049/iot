@@ -21,6 +21,7 @@ using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
+using Volo.Abp.RabbitMQ;
 
 namespace Iot;
 
@@ -41,7 +42,7 @@ public class IotHttpApiHostModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
         var hostingEnvironment = context.Services.GetHostingEnvironment();
-
+        ConfigureRabbitMq();
         ConfigureConventionalControllers();
         ConfigureLocalization();
         ConfigureCache(configuration);
@@ -55,7 +56,14 @@ public class IotHttpApiHostModule : AbpModule
         Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Iot:"; });
     }
 
-
+    private void ConfigureRabbitMq()
+    {
+        Configure<AbpRabbitMqOptions>(options =>
+        {
+            options.Connections.Default.UserName = "iot";
+            options.Connections.Default.Password = "dd666666";
+        });
+    }
     private void ConfigureConventionalControllers()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -107,7 +115,7 @@ public class IotHttpApiHostModule : AbpModule
         IWebHostEnvironment hostingEnvironment)
     {
         var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Iot");
-        if (!hostingEnvironment.IsDevelopment())
+        if(!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Iot-Protection-Keys");
@@ -141,7 +149,7 @@ public class IotHttpApiHostModule : AbpModule
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 
-        if (env.IsDevelopment())
+        if(env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }

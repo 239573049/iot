@@ -29,6 +29,17 @@ public class Accessor : ITransientDependency
 
     public Guid ID => Guid.Parse(GetClaimValueByType(Constants.Id).FirstOrDefault() ?? Guid.Empty.ToString());
 
+    public Guid? GetDeviceId()
+    {
+        var data = _contextAccessor.HttpContext?.Request.Headers[Constants.DeviceId];
+        if (data.HasValue)
+        {
+            return Guid.Parse(data);
+        }
+
+        return null;
+    }
+
     public bool? IsAuthenticated()
     {
         return _contextAccessor.HttpContext?.User.Identity?.IsAuthenticated;

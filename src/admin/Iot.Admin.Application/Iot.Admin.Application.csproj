@@ -11,4 +11,11 @@
       <ProjectReference Include="..\Iot.Admin.Application.Contracts\Iot.Admin.Application.Contracts.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="11.0.1" />
+      <PackageReference Include="Volo.Abp.AutoMapper" Version="5.3.3" />
+      <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.3.3" />
+      <PackageReference Include="Volo.Abp.EventBus.RabbitMQ" Version="5.3.3" />
+    </ItemGroup>
+
 </Project>

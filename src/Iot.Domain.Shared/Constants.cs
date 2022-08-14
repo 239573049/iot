@@ -27,4 +27,6 @@ public class Constants
 
     public const string DefaultFullDateStr = "yyyyMMddHHmmss";
 
+    public const string DeviceId = "DeviceId";
+
 }
