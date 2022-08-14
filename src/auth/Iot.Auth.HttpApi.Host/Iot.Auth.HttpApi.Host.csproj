@@ -5,16 +5,19 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>bef0d7b3-cd20-4f3f-ab34-bb006fd21f45</UserSecretsId>
+        <DockerfileContext>..\..\..</DockerfileContext>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Iot.Application\Iot.Application.csproj" />
+      <ProjectReference Include="..\..\Iot.HttpApi\Iot.HttpApi.csproj" />
       <ProjectReference Include="..\Iot.Auth.Application\Iot.Auth.Application.csproj" />
       <ProjectReference Include="..\Iot.Auth.EntityFrameworkCore\Iot.Auth.EntityFrameworkCore.csproj" />
       <ProjectReference Include="..\Iot.Auth.HttpApi\Iot.Auth.HttpApi.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
         <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
         <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />

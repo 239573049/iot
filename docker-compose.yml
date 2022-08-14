@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  iot-auth:
+    image: registry.cn-shenzhen.aliyuncs.com/tokengo/iot-auth:dev
+    container_name: iot-auth
+    restart: always
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Development"
+    networks:
+      - token
+
+  iot-admin:
+    image: registry.cn-shenzhen.aliyuncs.com/tokengo/iot-admin:dev
+    container_name: iot-admin
+    restart: always
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Development"
+    networks:
+      - token
+      
+networks:
+  token:
+    external: true

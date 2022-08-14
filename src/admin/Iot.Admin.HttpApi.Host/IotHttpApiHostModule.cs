@@ -11,6 +11,7 @@ using StackExchange.Redis;
 using System;
 using System.Linq;
 using Iot.Admin.Application;
+using Iot.HttpApi;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
@@ -24,8 +25,9 @@ using Volo.Abp.Swashbuckle;
 namespace Iot;
 
 [DependsOn(
-    typeof(IotHttpApiModule),
+    typeof(IotAdminHttpApiModule),
     typeof(AbpAutofacModule),
+    typeof(IotHttpApiModule),
     typeof(IotAdminApplicationModule),
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(IotApplicationModule),
@@ -95,7 +97,6 @@ public class IotHttpApiHostModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
         });
     }

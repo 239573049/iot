@@ -12,11 +12,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace Iot;
 
 [DependsOn(
-    typeof(AbpAuditLoggingDomainSharedModule),
-    typeof(AbpFeatureManagementDomainSharedModule),
-    typeof(AbpPermissionManagementDomainSharedModule),
-    typeof(AbpSettingManagementDomainSharedModule)
-    )]
+    typeof(AbpLocalizationModule))]
 public class IotDomainSharedModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
@@ -35,7 +31,7 @@ public class IotDomainSharedModule : AbpModule
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Add<IotResource>("en")
+                .Add<IotResource>("zh-Hans")
                 .AddBaseTypes(typeof(AbpValidationResource))
                 .AddVirtualJson("/Localization/Iot");
 
@@ -46,5 +42,7 @@ public class IotDomainSharedModule : AbpModule
         {
             options.MapCodeNamespace("Iot", typeof(IotResource));
         });
+        
+        
     }
 }

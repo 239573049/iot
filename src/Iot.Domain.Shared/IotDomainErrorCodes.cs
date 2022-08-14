@@ -2,5 +2,14 @@
 
 public static class IotDomainErrorCodes
 {
-    /* You can add your business exception error codes here, as constants */
+    #region Auth
+
+    private const string Auth = "Auth:";
+
+    /// <summary>
+    /// 账号不存在
+    /// </summary>
+    public const string NotUserName = Auth + "NotUserName";
+
+    #endregion
 }

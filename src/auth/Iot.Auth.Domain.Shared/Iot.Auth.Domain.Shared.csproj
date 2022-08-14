@@ -6,4 +6,12 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="5.3.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Iot.Domain.Shared\Iot.Domain.Shared.csproj" />
+    </ItemGroup>
+
 </Project>

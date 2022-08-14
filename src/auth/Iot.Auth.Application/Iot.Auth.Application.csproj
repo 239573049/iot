@@ -6,4 +6,14 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\modules\Iot.Common.Jwt\Iot.Common.Jwt.csproj" />
+      <ProjectReference Include="..\Iot.Auth.Application.Contracts\Iot.Auth.Application.Contracts.csproj" />
+      <ProjectReference Include="..\Iot.Auth.Domain\Iot.Auth.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.Ddd.Application" Version="5.3.3" />
+    </ItemGroup>
+
 </Project>

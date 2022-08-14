@@ -1,5 +1,7 @@
 using Iot.Auth.Application;
+using Iot.Auth.Domain;
 using Iot.Auth.EntityFrameworkCore.EntityFrameworkCore;
+using Iot.HttpApi;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.OpenApi.Models;
@@ -17,9 +19,10 @@ using Volo.Abp.Swashbuckle;
 namespace Iot.Auth.HttpApi.Host;
 
 [DependsOn(
-    typeof(IotAuthHttpApiModule),
     typeof(AbpAutofacModule),
-    typeof(IotApplicationModule),
+    typeof(IotAuthHttpApiModule),
+    typeof(IotHttpApiModule),
+    typeof(IotAuthDomainModule),
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(IotAuthApplicationModule),
     typeof(IotAuthEntityFrameworkCoreModule),
@@ -51,7 +54,6 @@ public class IotAuthHttpApiHostModule : AbpModule
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
-            options.ConventionalControllers.Create(typeof(IotApplicationModule).Assembly);
             options.ConventionalControllers.Create(typeof(IotAuthApplicationModule).Assembly);
         });
     }
@@ -88,7 +90,6 @@ public class IotAuthHttpApiHostModule : AbpModule
     {
         Configure<AbpLocalizationOptions>(options =>
         {
-            options.Languages.Add(new LanguageInfo("en", "en", "English"));
             options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
         });
     }

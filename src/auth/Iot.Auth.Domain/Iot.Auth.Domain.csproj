@@ -13,6 +13,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Iot.Domain\Iot.Domain.csproj" />
+      <ProjectReference Include="..\Iot.Auth.Domain.Shared\Iot.Auth.Domain.Shared.csproj" />
     </ItemGroup>
 
 </Project>

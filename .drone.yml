@@ -1,0 +1,78 @@
+kind: pipeline
+name: auth
+type: docker
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: compose
+    image: linuxserver/docker-compose
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker build -f ./src/auth/Iot.Auth.HttpApi.Host/Dockerfile -t registry.cn-shenzhen.aliyuncs.com/tokengo/iot-auth:dev .
+      - docker-compose down && docker-compose up -d
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
+      
+      
+---
+
+kind: pipeline
+name: admin
+type: docker
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: compose
+    image: linuxserver/docker-compose
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker build -f ./src/admin/Iot.Admin.HttpApi.Host/Dockerfile -t registry.cn-shenzhen.aliyuncs.com/tokengo/iot-admin:dev .
+      - docker-compose down && docker-compose up -d
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
+
+
+
+---
+
+kind: pipeline
+name: docker
+type: docker
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: compose
+    image: linuxserver/docker-compose
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker system prune -f
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
+      
+depends_on:
+  - admin
+  - auth

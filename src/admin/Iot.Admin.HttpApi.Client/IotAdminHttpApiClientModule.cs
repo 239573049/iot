@@ -13,7 +13,7 @@ namespace Iot;
     typeof(AbpFeatureManagementHttpApiClientModule),
     typeof(AbpSettingManagementHttpApiClientModule)
 )]
-public class IotHttpApiClientModule : AbpModule
+public class IotAdminHttpApiClientModule : AbpModule
 {
     public const string RemoteServiceName = "Default";
 
@@ -29,6 +29,6 @@ public class IotHttpApiClientModule : AbpModule
             RemoteServiceName
         );
 
-        Configure<AbpVirtualFileSystemOptions>(options => { options.FileSets.AddEmbedded<IotHttpApiClientModule>(); });
+        Configure<AbpVirtualFileSystemOptions>(options => { options.FileSets.AddEmbedded<IotAdminHttpApiClientModule>(); });
     }
 }

@@ -10,4 +10,9 @@
       <ProjectReference Include="..\Iot.Auth.Application.Contracts\Iot.Auth.Application.Contracts.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="5.3.3" />
+      <PackageReference Include="Volo.Abp.SettingManagement.HttpApi" Version="5.3.3" />
+    </ItemGroup>
+
 </Project>

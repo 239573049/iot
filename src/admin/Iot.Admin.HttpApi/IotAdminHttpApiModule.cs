@@ -13,7 +13,7 @@ namespace Iot;
     typeof(AbpFeatureManagementHttpApiModule),
     typeof(AbpSettingManagementHttpApiModule)
     )]
-public class IotHttpApiModule : AbpModule
+public class IotAdminHttpApiModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {

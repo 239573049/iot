@@ -12,14 +12,14 @@ using Volo.Abp.Domain.Entities;
 
 namespace Iot.Common.Jwt;
 
-public class PrincipalAccessor : ITransientDependency
+public class Accessor : ITransientDependency
 {
     private readonly IHttpContextAccessor _contextAccessor;
     private readonly TokenOptions _tokenOptions;
 
     private readonly string _xTenantId = Constants.TenantHeader;
 
-    public PrincipalAccessor(IHttpContextAccessor contextAccessor, IOptions<TokenOptions> tokenOptions)
+    public Accessor(IHttpContextAccessor contextAccessor, IOptions<TokenOptions> tokenOptions)
     {
         _contextAccessor = contextAccessor;
         _tokenOptions = tokenOptions.Value;

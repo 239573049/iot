@@ -1,5 +1,11 @@
-﻿namespace Iot.Auth.Domain.Shared;
+﻿using Volo.Abp.Modularity;
 
-public class IotAuthDomainSharedModule
+namespace Iot.Auth.Domain.Shared;
+
+[DependsOn(typeof(IotDomainSharedModule))]
+public class IotAuthDomainSharedModule : AbpModule
 {
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+    }
 }

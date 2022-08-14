@@ -10,7 +10,7 @@ namespace Iot.HttpApi.Client.ConsoleTestApp;
 
 [DependsOn(
     typeof(AbpAutofacModule),
-    typeof(IotHttpApiClientModule),
+    typeof(IotAdminHttpApiClientModule),
     typeof(AbpHttpClientIdentityModelModule)
     )]
 public class IotConsoleApiClientModule : AbpModule
