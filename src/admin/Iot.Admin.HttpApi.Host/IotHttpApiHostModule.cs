@@ -64,6 +64,7 @@ public class IotHttpApiHostModule : AbpModule
             options.Connections.Default.Password = "dd666666";
         });
     }
+
     private void ConfigureConventionalControllers()
     {
         Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -115,7 +116,7 @@ public class IotHttpApiHostModule : AbpModule
         IWebHostEnvironment hostingEnvironment)
     {
         var dataProtectionBuilder = context.Services.AddDataProtection().SetApplicationName("Iot");
-        if(!hostingEnvironment.IsDevelopment())
+        if (!hostingEnvironment.IsDevelopment())
         {
             var redis = ConnectionMultiplexer.Connect(configuration["Redis:Configuration"]);
             dataProtectionBuilder.PersistKeysToStackExchangeRedis(redis, "Iot-Protection-Keys");
@@ -149,7 +150,7 @@ public class IotHttpApiHostModule : AbpModule
         var app = context.GetApplicationBuilder();
         var env = context.GetEnvironment();
 
-        if(env.IsDevelopment())
+        if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }
@@ -166,7 +167,11 @@ public class IotHttpApiHostModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options =>
         {
+#if DEBUG
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Iot API");
+#else
+            options.SwaggerEndpoint("swagger/v1/swagger.json", "Iot API");
+#endif
         });
 
         app.UseAuditing();

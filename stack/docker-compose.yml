@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./cert:/cert
+      - ./wwwroot:/wwwroot
+      - /etc/localtime:/etc/localtime
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - token
+
+networks:
+  token:
+    external: true
