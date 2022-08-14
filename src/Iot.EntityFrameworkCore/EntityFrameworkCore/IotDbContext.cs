@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Iot.Devices;
+using Iot.Users;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
@@ -15,14 +17,17 @@ public class IotDbContext :
 
     #region Entities from the modules
 
-    
+    public DbSet<IotDevices> IotDevices { get; set; }
+
+    public DbSet<DHTxxLogs> DhTxxLogs { get; set; }
+
+    public DbSet<UserInfo> UserInfo { get; set; }
 
     #endregion
 
     public IotDbContext(DbContextOptions<IotDbContext> options)
         : base(options)
     {
-
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -36,6 +41,5 @@ public class IotDbContext :
         builder.ConfigureFeatureManagement();
 
         builder.ConfigureIot();
-
     }
 }

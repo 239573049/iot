@@ -5681,3 +5681,4 @@ System.InvalidOperationException: Writing to the response body is invalid for re
     {"input":{"accountNumber":"admin","password":"dd666666"}}
 
 2022-08-15 00:40:21.876 +08:00 [INF] Request finished HTTP/1.1 POST https://localhost:7052/api/app/auth/auth application/json 59 - 200 - application/json;+charset=utf-8 1740.6038ms
+2022-08-15 00:47:37.527 +08:00 [INF] Application is shutting down...

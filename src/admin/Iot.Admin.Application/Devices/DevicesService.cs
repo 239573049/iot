@@ -5,10 +5,9 @@ using Iot.Common.Jwt;
 using Iot.Devices;
 using Iot.Events;
 using Volo.Abp;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
-using Volo.Abp.Domain.Repositories;
 using Volo.Abp.EventBus.Distributed;
-using Volo.Abp.EventBus.RabbitMq;
 
 namespace Iot.Admin.Application.Devices;
 
@@ -46,5 +45,19 @@ public class DevicesService : ApplicationService, IDevicesService
         }
 
         await _distributedEventBus.PublishAsync(new CreateDevicesEto((Guid)deviceId, data));
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResultDto<IotDevicesDto>> GetListAsync(GetListInput input)
+    {
+        var userId = _accessor.GetUserId();
+        var result =
+            await _devicesRepository.GetListAsync(userId, input.Keywords, input.SkipCount, input.MaxResultCount);
+
+        var count = await _devicesRepository.GetCountAsync(userId, input.Keywords);
+
+        var dto = ObjectMapper.Map<List<IotDevices>, List<IotDevicesDto>>(result);
+        
+        return new PagedResultDto<IotDevicesDto>(count, dto);
     }
 }
