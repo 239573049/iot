@@ -51,6 +51,7 @@ public class DevicesService : ApplicationService, IDevicesService
     public async Task<PagedResultDto<IotDevicesDto>> GetListAsync(GetListInput input)
     {
         var userId = _accessor.GetUserId();
+        
         var result =
             await _devicesRepository.GetListAsync(userId, input.Keywords, input.SkipCount, input.MaxResultCount);
 

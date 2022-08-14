@@ -1,4 +1,5 @@
-﻿using Iot.Admin.Application.Contracts;
+﻿using Iot.Admin.Application.AutoMapper;
+using Iot.Admin.Application.Contracts;
 using Iot.Common.Jwt;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.EventBus.RabbitMq;
@@ -9,6 +10,7 @@ namespace Iot.Admin.Application;
 [DependsOn(
     typeof(IotCommonJwtModule),
     typeof(AbpEventBusRabbitMqModule),
+    typeof(AbpAutoMapperModule),
     typeof(IotAdminApplicationContractsModule))]
 public class IotAdminApplicationModule : AbpModule
 {
@@ -17,6 +19,8 @@ public class IotAdminApplicationModule : AbpModule
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddMaps<IotAdminApplicationModule>();
+            
+            options.AddProfile<DevicesAutoMapperProfile>();
         });
     }
 }
