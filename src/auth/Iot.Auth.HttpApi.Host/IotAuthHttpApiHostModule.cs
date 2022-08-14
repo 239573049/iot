@@ -40,7 +40,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         ConfigureLocalization();
         ConfigureCache(configuration);
         ConfigureDataProtection(context, configuration, hostingEnvironment);
-        ConfigureCors(context, configuration);
+        ConfigureCors(context);
         ConfigureSwaggerServices(context, configuration);
     }
 
@@ -107,7 +107,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         }
     }
 
-    private void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
+    private void ConfigureCors(ServiceConfigurationContext context)
     {
         context.Services.AddCors(options =>
         {
@@ -139,10 +139,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         app.UseAuthorization();
 
         app.UseSwagger();
-        app.UseAbpSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "auth API");
-        });
+        app.UseAbpSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "auth API"); });
 
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();

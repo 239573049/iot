@@ -4479,3 +4479,824 @@ Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was t
     {"input":{"accountNumber":"admin","password":"dd666666"}}
 
 2022-08-14 16:42:37.237 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 56 - 200 - application/json;+charset=utf-8 295.3647ms
+2022-08-14 23:44:23.757 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-08-14 23:44:33.392 +08:00 [INF] Loaded ABP modules:
+2022-08-14 23:44:33.393 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-14 23:44:33.393 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-08-14 23:44:33.393 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-14 23:44:33.393 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-14 23:44:33.393 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-14 23:44:33.393 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-14 23:44:33.393 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-08-14 23:44:33.393 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-14 23:44:33.393 +08:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-14 23:44:33.393 +08:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-14 23:44:33.393 +08:00 [INF]         - Volo.Abp.Features.AbpFeaturesModule
+2022-08-14 23:44:33.832 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-14 23:44:33.893 +08:00 [INF] Initialized all ABP modules.
+2022-08-14 23:44:34.067 +08:00 [INF] Now listening on: https://localhost:7052
+2022-08-14 23:44:34.067 +08:00 [INF] Now listening on: http://localhost:5125
+2022-08-14 23:44:34.067 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-14 23:44:34.067 +08:00 [INF] Hosting environment: Development
+2022-08-14 23:44:34.067 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-08-14 23:44:34.344 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-08-14 23:44:34.588 +08:00 [INF] Executing endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-14 23:44:34.613 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Iot.Controllers.HomeController (Iot.Auth.HttpApi.Host).
+2022-08-14 23:44:34.634 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2022-08-14 23:44:34.637 +08:00 [INF] Executed action Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host) in 21.1864ms
+2022-08-14 23:44:34.637 +08:00 [INF] Executed endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-14 23:44:34.647 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 302 0 - 302.9128ms
+2022-08-14 23:44:34.651 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger - -
+2022-08-14 23:44:34.653 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger - - - 301 0 - 2.0863ms
+2022-08-14 23:44:34.657 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/index.html - -
+2022-08-14 23:44:34.693 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;charset=utf-8 35.7120ms
+2022-08-14 23:44:34.897 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
+2022-08-14 23:44:35.022 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 125.1627ms
+2022-08-14 23:46:00.656 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/abp/Swashbuckle/SetCsrfCookie application/json -
+2022-08-14 23:46:00.661 +08:00 [INF] Executing endpoint 'Volo.Abp.Swashbuckle.AbpSwashbuckleController.SetCsrfCookie (Volo.Abp.Swashbuckle)'
+2022-08-14 23:46:00.663 +08:00 [INF] Route matched with {area = "Abp", action = "SetCsrfCookie", controller = "AbpSwashbuckle"}. Executing controller action with signature Void SetCsrfCookie() on controller Volo.Abp.Swashbuckle.AbpSwashbuckleController (Volo.Abp.Swashbuckle).
+2022-08-14 23:46:00.674 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-14 23:46:00.688 +08:00 [INF] Executed action Volo.Abp.Swashbuckle.AbpSwashbuckleController.SetCsrfCookie (Volo.Abp.Swashbuckle) in 25.5425ms
+2022-08-14 23:46:00.689 +08:00 [INF] Executed endpoint 'Volo.Abp.Swashbuckle.AbpSwashbuckleController.SetCsrfCookie (Volo.Abp.Swashbuckle)'
+2022-08-14 23:46:00.691 +08:00 [WRN] An exception occurred, but response has already started!
+2022-08-14 23:46:00.723 +08:00 [INF] AUDIT LOG: [204: GET    ] /abp/Swashbuckle/SetCsrfCookie
+- UserName - UserId                 :  - 
+- ClientIpAddress        : 127.0.0.1
+- ExecutionDuration      : 32
+- Exceptions:
+  - Writing to the response body is invalid for responses with status code 204.
+    System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+
+2022-08-14 23:46:00.727 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-08-14 23:46:00.727 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2022-08-14 23:46:00.727 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-08-14 23:46:00.727 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2022-08-14 23:46:00.732 +08:00 [ERR] Connection id "0HMJU1FHEC2SS", Request id "0HMJU1FHEC2SS:00000009": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-08-14 23:46:00.733 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/abp/Swashbuckle/SetCsrfCookie application/json - - 204 - application/json;+charset=utf-8 77.5819ms
+2022-08-14 23:46:00.765 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55
+2022-08-14 23:46:00.767 +08:00 [INF] CORS policy execution failed.
+2022-08-14 23:46:00.767 +08:00 [INF] Request origin https://localhost:7052 does not have permission to access the resource.
+2022-08-14 23:46:00.769 +08:00 [INF] Executing endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-14 23:46:00.780 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Auth(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.Application.Auth.AuthService (Iot.Auth.Application).
+2022-08-14 23:46:02.435 +08:00 [ERR] message:Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2022-08-14 23:46:02.435 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-14 23:46:02.436 +08:00 [INF] Executed action Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application) in 1656.0368ms
+2022-08-14 23:46:02.437 +08:00 [INF] Executed endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-14 23:46:02.442 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/app/auth/auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : 127.0.0.1
+- ExecutionDuration      : 1672
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.Auth (1369 ms.)
+    {"input":{"accountNumber":"string","password":"string"}}
+- Exceptions:
+  - Exception of type 'Volo.Abp.BusinessException' was thrown.
+    Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+2022-08-14 23:46:02.444 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55 - 200 - application/json;+charset=utf-8 1679.2590ms
+2022-08-14 23:46:15.144 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 56
+2022-08-14 23:46:15.147 +08:00 [INF] CORS policy execution failed.
+2022-08-14 23:46:15.147 +08:00 [INF] Request origin https://localhost:7052 does not have permission to access the resource.
+2022-08-14 23:46:15.148 +08:00 [INF] Executing endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-14 23:46:15.148 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Auth(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.Application.Auth.AuthService (Iot.Auth.Application).
+2022-08-14 23:46:15.410 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-14 23:46:15.410 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-14 23:46:15.411 +08:00 [INF] Executed action Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application) in 262.7118ms
+2022-08-14 23:46:15.411 +08:00 [INF] Executed endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-14 23:46:15.411 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-08-14 23:46:15.452 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/app/auth/auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : 127.0.0.1
+- ExecutionDuration      : 304
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.Auth (260 ms.)
+    {"input":{"accountNumber":"admin","password":"dd666666"}}
+
+2022-08-14 23:46:15.453 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 56 - 200 - application/json;+charset=utf-8 308.5140ms
+2022-08-14 23:57:25.756 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-08-14 23:57:27.068 +08:00 [INF] Loaded ABP modules:
+2022-08-14 23:57:27.069 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-14 23:57:27.069 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-08-14 23:57:27.069 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-14 23:57:27.069 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-14 23:57:27.069 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-14 23:57:27.069 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-14 23:57:27.069 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-08-14 23:57:27.069 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-14 23:57:27.069 +08:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-14 23:57:27.069 +08:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-14 23:57:27.069 +08:00 [INF]         - Volo.Abp.Features.AbpFeaturesModule
+2022-08-14 23:57:27.332 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-14 23:57:27.381 +08:00 [INF] Initialized all ABP modules.
+2022-08-14 23:57:27.512 +08:00 [INF] Now listening on: https://localhost:7052
+2022-08-14 23:57:27.512 +08:00 [INF] Now listening on: http://localhost:5125
+2022-08-14 23:57:27.512 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-14 23:57:27.512 +08:00 [INF] Hosting environment: Development
+2022-08-14 23:57:27.512 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-08-14 23:57:27.877 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-08-14 23:57:28.025 +08:00 [INF] Executing endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-14 23:57:28.043 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Iot.Controllers.HomeController (Iot.Auth.HttpApi.Host).
+2022-08-14 23:57:28.069 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2022-08-14 23:57:28.072 +08:00 [INF] Executed action Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host) in 26.0673ms
+2022-08-14 23:57:28.072 +08:00 [INF] Executed endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-14 23:57:28.088 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 302 0 - 211.1208ms
+2022-08-14 23:57:28.095 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/index.html - -
+2022-08-14 23:57:28.136 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;charset=utf-8 40.9885ms
+2022-08-14 23:57:28.289 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
+2022-08-14 23:57:28.364 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 75.0895ms
+2022-08-15 00:04:23.448 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-08-15 00:04:24.900 +08:00 [INF] Loaded ABP modules:
+2022-08-15 00:04:24.901 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-08-15 00:04:24.901 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-08-15 00:04:24.901 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-08-15 00:04:24.901 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-08-15 00:04:24.901 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.Auditing.AbpAuditingModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-08-15 00:04:24.901 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-08-15 00:04:24.901 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-08-15 00:04:24.901 +08:00 [INF]   - Volo.Abp.Swashbuckle.AbpSwashbuckleModule
+2022-08-15 00:04:24.901 +08:00 [INF]     - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.UI.AbpUiModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-08-15 00:04:24.901 +08:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-08-15 00:04:24.901 +08:00 [INF]         - Volo.Abp.Features.AbpFeaturesModule
+2022-08-15 00:04:25.179 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-15 00:04:25.228 +08:00 [INF] Initialized all ABP modules.
+2022-08-15 00:04:25.379 +08:00 [INF] Now listening on: https://localhost:7052
+2022-08-15 00:04:25.379 +08:00 [INF] Now listening on: http://localhost:5125
+2022-08-15 00:04:25.379 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-15 00:04:25.379 +08:00 [INF] Hosting environment: Development
+2022-08-15 00:04:25.379 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-08-15 00:04:25.529 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-08-15 00:04:25.684 +08:00 [INF] Executing endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-15 00:04:25.706 +08:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller Iot.Controllers.HomeController (Iot.Auth.HttpApi.Host).
+2022-08-15 00:04:25.732 +08:00 [INF] Executing RedirectResult, redirecting to /swagger.
+2022-08-15 00:04:25.735 +08:00 [INF] Executed action Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host) in 26.4958ms
+2022-08-15 00:04:25.735 +08:00 [INF] Executed endpoint 'Iot.Controllers.HomeController.Index (Iot.Auth.HttpApi.Host)'
+2022-08-15 00:04:25.745 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 302 0 - 215.8875ms
+2022-08-15 00:04:25.753 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/index.html - -
+2022-08-15 00:04:25.790 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;charset=utf-8 36.9074ms
+2022-08-15 00:04:25.935 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
+2022-08-15 00:04:26.010 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 75.0324ms
+2022-08-15 00:04:57.853 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/abp/Swashbuckle/SetCsrfCookie application/json -
+2022-08-15 00:04:57.856 +08:00 [INF] Executing endpoint 'Volo.Abp.Swashbuckle.AbpSwashbuckleController.SetCsrfCookie (Volo.Abp.Swashbuckle)'
+2022-08-15 00:04:57.857 +08:00 [INF] Route matched with {area = "Abp", action = "SetCsrfCookie", controller = "AbpSwashbuckle"}. Executing controller action with signature Void SetCsrfCookie() on controller Volo.Abp.Swashbuckle.AbpSwashbuckleController (Volo.Abp.Swashbuckle).
+2022-08-15 00:04:57.868 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 00:04:57.879 +08:00 [INF] Executed action Volo.Abp.Swashbuckle.AbpSwashbuckleController.SetCsrfCookie (Volo.Abp.Swashbuckle) in 21.8983ms
+2022-08-15 00:04:57.881 +08:00 [INF] Executed endpoint 'Volo.Abp.Swashbuckle.AbpSwashbuckleController.SetCsrfCookie (Volo.Abp.Swashbuckle)'
+2022-08-15 00:04:57.882 +08:00 [WRN] An exception occurred, but response has already started!
+2022-08-15 00:04:57.922 +08:00 [INF] AUDIT LOG: [204: GET    ] /abp/Swashbuckle/SetCsrfCookie
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 27
+- Exceptions:
+  - Writing to the response body is invalid for responses with status code 204.
+    System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+
+2022-08-15 00:04:57.926 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-08-15 00:04:57.926 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2022-08-15 00:04:57.926 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-08-15 00:04:57.926 +08:00 [WRN] The response has already started, the error page middleware will not be executed.
+2022-08-15 00:04:57.929 +08:00 [ERR] Connection id "0HMJU1QKDMNV5", Request id "0HMJU1QKDMNV5:00000007": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Writing to the response body is invalid for responses with status code 204.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.FirstWriteAsyncInternal(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.WritePipeAsync(ReadOnlyMemory`1 data, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpResponseStream.WriteAsync(ReadOnlyMemory`1 source, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at System.Text.Json.JsonSerializer.WriteStreamAsync[TValue](Stream utf8Json, TValue value, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Volo.Abp.AspNetCore.Mvc.Json.AbpHybridJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Volo.Abp.AspNetCore.Uow.AbpUnitOfWorkMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.ExceptionHandling.AbpExceptionHandlingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Serilog.AbpSerilogMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Volo.Abp.AspNetCore.Auditing.AbpAuditingMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RequestLocalization.AbpRequestLocalizationMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-08-15 00:04:57.931 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/abp/Swashbuckle/SetCsrfCookie application/json - - 204 - application/json;+charset=utf-8 78.3038ms
+2022-08-15 00:04:57.956 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55
+2022-08-15 00:04:57.957 +08:00 [INF] CORS policy execution successful.
+2022-08-15 00:04:57.959 +08:00 [INF] Executing endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-15 00:04:57.973 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Auth(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.Application.Auth.AuthService (Iot.Auth.Application).
+2022-08-15 00:04:59.760 +08:00 [ERR] message:Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2022-08-15 00:04:59.761 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 00:04:59.762 +08:00 [INF] Executed action Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application) in 1788.8208ms
+2022-08-15 00:04:59.762 +08:00 [INF] Executed endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-15 00:04:59.768 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/app/auth/auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 1808
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.Auth (1502 ms.)
+    {"input":{"accountNumber":"string","password":"string"}}
+- Exceptions:
+  - Exception of type 'Volo.Abp.BusinessException' was thrown.
+    Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+2022-08-15 00:04:59.770 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55 - 200 - application/json;+charset=utf-8 1814.0120ms
+2022-08-15 00:05:01.277 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55
+2022-08-15 00:05:01.278 +08:00 [INF] CORS policy execution successful.
+2022-08-15 00:05:01.278 +08:00 [INF] Executing endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-15 00:05:01.278 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Auth(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.Application.Auth.AuthService (Iot.Auth.Application).
+2022-08-15 00:05:01.442 +08:00 [ERR] message:Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2022-08-15 00:05:01.442 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 00:05:01.443 +08:00 [INF] Executed action Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application) in 164.2028ms
+2022-08-15 00:05:01.443 +08:00 [INF] Executed endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-15 00:05:01.443 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/app/auth/auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 165
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.Auth (161 ms.)
+    {"input":{"accountNumber":"string","password":"string"}}
+- Exceptions:
+  - Exception of type 'Volo.Abp.BusinessException' was thrown.
+    Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+2022-08-15 00:05:01.443 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55 - 200 - application/json;+charset=utf-8 166.2996ms
+2022-08-15 00:05:01.993 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55
+2022-08-15 00:05:01.994 +08:00 [INF] CORS policy execution successful.
+2022-08-15 00:05:01.994 +08:00 [INF] Executing endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-15 00:05:01.994 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Auth(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.Application.Auth.AuthService (Iot.Auth.Application).
+2022-08-15 00:05:02.153 +08:00 [ERR] message:Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2022-08-15 00:05:02.153 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-08-15 00:05:02.153 +08:00 [INF] Executed action Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application) in 158.6826ms
+2022-08-15 00:05:02.153 +08:00 [INF] Executed endpoint 'Iot.Auth.Application.Auth.AuthService.Auth (Iot.Auth.Application)'
+2022-08-15 00:05:02.154 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/app/auth/auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 159
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.Auth (157 ms.)
+    {"input":{"accountNumber":"string","password":"string"}}
+- Exceptions:
+  - Exception of type 'Volo.Abp.BusinessException' was thrown.
+    Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.Application.Auth.AuthService.Auth(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 34
+   at lambda_method923(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+2022-08-15 00:05:02.154 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/app/auth/auth application/json 55 - 200 - application/json;+charset=utf-8 160.3094ms

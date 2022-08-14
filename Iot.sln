@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Auth.HttpApi", "src\aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.HttpApi", "src\Iot.HttpApi\Iot.HttpApi.csproj", "{DAFD198D-9995-4484-8A6E-185349C36E23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Nacos", "src\modules\Iot.Nacos\Iot.Nacos.csproj", "{798437EA-8F1D-4343-B3DD-29AF02738C76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +177,10 @@ Global
 		{DAFD198D-9995-4484-8A6E-185349C36E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAFD198D-9995-4484-8A6E-185349C36E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAFD198D-9995-4484-8A6E-185349C36E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{798437EA-8F1D-4343-B3DD-29AF02738C76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798437EA-8F1D-4343-B3DD-29AF02738C76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798437EA-8F1D-4343-B3DD-29AF02738C76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798437EA-8F1D-4343-B3DD-29AF02738C76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +215,7 @@ Global
 		{342BEFB0-3BC2-4FAA-A2B7-3EC82D24879C} = {F4BA585C-E7A2-43FA-BB5C-D0404731F2EF}
 		{E5549D52-72B9-413F-89E5-A29D24569EBF} = {F4BA585C-E7A2-43FA-BB5C-D0404731F2EF}
 		{DAFD198D-9995-4484-8A6E-185349C36E23} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{798437EA-8F1D-4343-B3DD-29AF02738C76} = {E7322A14-E055-4D31-A490-7ACAF4DCE621}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
