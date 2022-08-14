@@ -171,6 +171,7 @@ public class IotHttpApiHostModule : AbpModule
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Iot API");
 #else
             options.SwaggerEndpoint("swagger/v1/swagger.json", "Iot API");
+            options.RoutePrefix = string.Empty;
 #endif
         });
 

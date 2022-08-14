@@ -5701,3 +5701,5 @@ RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified end
 2022-08-14 23:03:16.951 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44394/swagger/index.html - - - 200 - text/html;charset=utf-8 35.0140ms
 2022-08-14 23:03:17.079 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44394/swagger/v1/swagger.json - -
 2022-08-14 23:03:17.187 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44394/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.3067ms
+2022-08-14 23:08:02.495 +08:00 [INF] Application is shutting down...
+2022-08-14 23:08:02.514 +08:00 [DBG] Disposed channel pool with no channels in the pool.
