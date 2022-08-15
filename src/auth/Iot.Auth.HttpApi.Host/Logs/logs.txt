@@ -6388,3 +6388,4 @@ System.InvalidOperationException: Writing to the response body is invalid for re
 2022-08-15 02:13:51.832 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;charset=utf-8 60.8369ms
 2022-08-15 02:13:51.976 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
 2022-08-15 02:13:52.122 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 146.3453ms
+2022-08-15 02:19:26.329 +08:00 [INF] Application is shutting down...

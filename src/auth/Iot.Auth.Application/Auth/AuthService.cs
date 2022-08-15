@@ -14,6 +14,7 @@ public class AuthService : ApplicationService, IAuthService
 {
     private readonly IRepository<UserInfo, Guid> _userInfoRepository;
     private readonly Accessor _accessor;
+
     public AuthService(IRepository<UserInfo, Guid> userInfoRepository, Accessor accessor)
     {
         _userInfoRepository = userInfoRepository;
@@ -26,15 +27,15 @@ public class AuthService : ApplicationService, IAuthService
     {
         var userInfo = await
             _userInfoRepository.FirstOrDefaultAsync(x =>
-                (x.AccountNumber == input.AccountNumber || x.PhoneNumber == input.AccountNumber) &&
-                x.Password == x.Password);
+                x.Password == x.Password &&
+                (x.AccountNumber == input.AccountNumber || x.PhoneNumber == input.AccountNumber));
 
         if (userInfo == null)
         {
             throw new BusinessException(IotDomainErrorCodes.NotUserName);
         }
 
-        var token =await _accessor.CreateTokenAsync(userInfo);
+        var token = await _accessor.CreateTokenAsync(userInfo);
 
         return token;
     }
