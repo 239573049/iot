@@ -24,4 +24,11 @@ public interface IDevicesRepository : IRepository<IotDevices, Guid>
     /// <param name="keywords"></param>
     /// <returns></returns>
     Task<int> GetCountAsync(Guid userId, string keywords);
+
+    /// <summary>
+    /// 获取设备最近运行信息
+    /// </summary>
+    /// <param name="deviceId"></param>
+    /// <returns></returns>
+    Task<DeviceLogView> GetDeviceLogAsync(Guid deviceId);
 }

@@ -61,4 +61,14 @@ public class DevicesService : ApplicationService, IDevicesService
         
         return new PagedResultDto<IotDevicesDto>(count, dto);
     }
+
+    /// <inheritdoc />
+    public async Task<DeviceLogDto> GetDeviceLogAsync(Guid deviceId)
+    {
+        var result = await _devicesRepository.GetDeviceLogAsync(deviceId);
+
+        var dto = ObjectMapper.Map<DeviceLogView, DeviceLogDto>(result);
+
+        return dto;
+    }
 }

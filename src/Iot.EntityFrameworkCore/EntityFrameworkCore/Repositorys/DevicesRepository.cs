@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Iot.Devices;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Volo.Abp;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -27,6 +30,47 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
         var query = await CreateQueryAsync(userId, keywords);
 
         return await query.CountAsync();
+    }
+
+    public async Task<DeviceLogView> GetDeviceLogAsync(Guid deviceId)
+    {
+        var dbContext = await GetDbContextAsync();
+
+        var device = await dbContext.IotDevices.FirstOrDefaultAsync(x => x.Id == deviceId);
+        if (device == null)
+        {
+            throw new NoNullAllowedException("device");
+        }
+
+        switch (device.Type)
+        {
+            case DeviceType.DHT:
+                return await CreateDHTxxAsync(dbContext,deviceId);
+                break;
+        }
+
+        throw new BusinessException(message: "未存在设备类型");
+    }
+
+    /// <summary>
+    /// 创建查询DHT日志
+    /// </summary>
+    /// <param name="dbContext"></param>
+    /// <param name="deviceId"></param>
+    /// <returns></returns>
+    private async Task<DeviceLogView> CreateDHTxxAsync(IotDbContext dbContext, Guid deviceId)
+    {
+        var query = await dbContext.DhTxxLogs.Where(x => x.DeviceId == deviceId)
+            .OrderByDescending(x => x.CreationTime).Select(x => new DeviceLogView
+            {
+                Id = x.Id,
+                Type = DeviceType.DHT,
+                CreationTime = x.CreationTime,
+                Data = JsonConvert.SerializeObject(x.Logs)
+            })
+            .FirstOrDefaultAsync();
+
+        return query;
     }
 
     private async Task<IQueryable<IotDevices>> CreateQueryAsync(Guid userId, string keywords)

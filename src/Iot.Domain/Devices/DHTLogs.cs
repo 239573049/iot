@@ -34,6 +34,6 @@ public class DHTxxLogs : AggregateRoot<Guid>, IHasDeletionTime, IHasCreationTime
 
     public bool IsDeleted { get; set; }
     public DateTime? DeletionTime { get; set; }
-    public DateTime CreationTime { get; }
+    public DateTime CreationTime { get; set; }
     public Guid? CreatorId { get; }
 }

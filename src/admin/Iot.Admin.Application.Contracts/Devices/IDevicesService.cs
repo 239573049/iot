@@ -25,4 +25,11 @@ public interface IDevicesService
     /// </summary>
     /// <returns></returns>
     Task<PagedResultDto<IotDevicesDto>> GetListAsync(GetListInput input);
+
+    /// <summary>
+    /// 获取设备运行信息
+    /// </summary>
+    /// <param name="deviceId"></param>
+    /// <returns></returns>
+    Task<DeviceLogDto> GetDeviceLogAsync(Guid deviceId);
 }
