@@ -23,7 +23,7 @@ public class AuthService : ApplicationService, IAuthService
 
 
     /// <inheritdoc />
-    public async Task<string> Auth(AuthInput input)
+    public async Task<string> AuthAsync(AuthInput input)
     {
         var userInfo = await
             _userInfoRepository.FirstOrDefaultAsync(x =>
@@ -38,5 +38,16 @@ public class AuthService : ApplicationService, IAuthService
         var token = await _accessor.CreateTokenAsync(userInfo);
 
         return token;
+    }
+
+    /// <inheritdoc />
+    public async Task<string> RefreshAsync()
+    {
+        var userInfo = _accessor.GetUserInfo<UserInfo>();
+        
+        var token = await _accessor.CreateTokenAsync(userInfo);
+
+        return token;
+        
     }
 }

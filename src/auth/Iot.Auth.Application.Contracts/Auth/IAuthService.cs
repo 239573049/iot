@@ -8,5 +8,11 @@ public interface IAuthService
     /// 授权
     /// </summary>
     /// <returns></returns>
-    Task<string> Auth(AuthInput input);
+    Task<string> AuthAsync(AuthInput input);
+
+    /// <summary>
+    /// 刷新token
+    /// </summary>
+    /// <returns></returns>
+    Task<string> RefreshAsync();
 }
