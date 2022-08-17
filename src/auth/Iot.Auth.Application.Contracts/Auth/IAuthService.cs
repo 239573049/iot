@@ -15,4 +15,11 @@ public interface IAuthService
     /// </summary>
     /// <returns></returns>
     Task<string> RefreshAsync();
+
+    /// <summary>
+    /// 微信一键登录
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<string> WeChatAuthAsync(WeChatAuthInput input);
 }

@@ -50,4 +50,10 @@ public class AuthService : ApplicationService, IAuthService
         return token;
         
     }
+
+    /// <inheritdoc />
+    public Task<string> WeChatAuthAsync(WeChatAuthInput input)
+    {
+        throw new Exception();
+    }
 }
