@@ -1,7 +1,7 @@
 # 生成 Iot 库的迁移文件 （需将 Init 修改为实际的改动名字）
 
 ```shell
-dotnet ef migrations add ExtraProperties --project ../Iot.EntityFrameworkCore.DbMigrator
+dotnet ef migrations add log-create --project ../Iot.EntityFrameworkCore.DbMigrator
 ```
 
 # 执行 HappyCat 库的最近一次迁移

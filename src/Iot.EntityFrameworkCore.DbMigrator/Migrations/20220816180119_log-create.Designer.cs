@@ -4,6 +4,7 @@ using Iot.EntityFrameworkCore.DbMigrator.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
 {
     [DbContext(typeof(IotMigrationsDbContext))]
-    partial class IotMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220816180119_log-create")]
+    partial class logcreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
