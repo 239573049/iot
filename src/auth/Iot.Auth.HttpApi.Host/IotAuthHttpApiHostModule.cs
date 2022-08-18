@@ -1,6 +1,7 @@
 using Iot.Auth.Application;
 using Iot.Auth.Domain;
 using Iot.Auth.EntityFrameworkCore.EntityFrameworkCore;
+using Iot.Consul;
 using Iot.HttpApi;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
@@ -19,6 +20,7 @@ using Volo.Abp.Swashbuckle;
 namespace Iot.Auth.HttpApi.Host;
 
 [DependsOn(
+    typeof(IotConsulModule),
     typeof(AbpAutofacModule),
     typeof(IotAuthHttpApiModule),
     typeof(IotHttpApiModule),
