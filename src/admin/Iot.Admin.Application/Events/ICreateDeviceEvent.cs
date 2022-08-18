@@ -34,6 +34,8 @@ public class ICreateDeviceEvent : IDistributedEventHandler<CreateDevicesEto>, IT
         if (device == null)
         {
             _logger.LogWarning("未找到{0} , 写入数据：{1}", eventData.DeviceId, eventData.Data);
+
+            return;
         }
 
         switch (device.Type)
