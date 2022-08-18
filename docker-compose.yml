@@ -4,6 +4,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/tokengo/iot-auth:dev
     container_name: iot-auth
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
     environment:
       - "ASPNETCORE_ENVIRONMENT=Development"
     networks:
@@ -13,6 +15,8 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/tokengo/iot-admin:dev
     container_name: iot-admin
     restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
     environment:
       - "ASPNETCORE_ENVIRONMENT=Development"
     networks:
