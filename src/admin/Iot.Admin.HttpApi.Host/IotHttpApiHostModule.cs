@@ -28,13 +28,13 @@ namespace Iot;
 
 [DependsOn(
     typeof(IotConsulModule),
-    typeof(IotAdminHttpApiModule),
     typeof(AbpAutofacModule),
     typeof(IotHttpApiModule),
     typeof(IotAdminApplicationModule),
     typeof(AbpCachingStackExchangeRedisModule),
     typeof(IotApplicationModule),
     typeof(IotEntityFrameworkCoreModule),
+    typeof(IotAdminHttpApiModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
 )]

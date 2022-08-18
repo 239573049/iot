@@ -4,6 +4,7 @@ using Iot.Devices;
 using Iot.Users;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace Iot.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ public static class IotEntityFrameworkCoreExtension
         {
             x.ToTable("IotUserInfo");
             x.HasComment("用户信息");
+            x.ConfigureByConvention();
 
             x.HasIndex(x => x.Id);
             x.HasKey(x => x.Id);
@@ -33,10 +35,10 @@ public static class IotEntityFrameworkCoreExtension
         {
             x.ToTable("DHTLogs");
             x.HasComment("DHT运行记录");
-
+            x.ConfigureByConvention();
+            
             x.HasIndex(x => x.Id);
             x.HasKey(x => x.Id);
-
             x.HasIndex(x => x.DeviceId);
 
             // 将字典类型转换字符串存储在数据库
@@ -50,7 +52,9 @@ public static class IotEntityFrameworkCoreExtension
         {
             x.ToTable("IotDevices");
             x.HasComment("设备信息");
+            x.ConfigureByConvention();
 
+            x.Ignore(log=>log.ExtraProperties);
             x.HasIndex(x => x.Id);
             x.HasKey(x => x.Id);
 

@@ -19,7 +19,7 @@ public class DHTxxLogs : AggregateRoot<Guid>, IHasDeletionTime, IHasCreationTime
     /// <summary>
     /// 运行信息
     /// </summary>
-    public Dictionary<string, string> Logs { get; protected set; }
+    public Dictionary<string, string> Logs { get; set; } = new();
 
     public virtual IotDevices Device { get; protected set; }
 
@@ -34,6 +34,7 @@ public class DHTxxLogs : AggregateRoot<Guid>, IHasDeletionTime, IHasCreationTime
 
     public bool IsDeleted { get; set; }
     public DateTime? DeletionTime { get; set; }
-    public DateTime CreationTime { get; set; }
-    public Guid? CreatorId { get; }
+    public  DateTime CreationTime { get; set; }
+    
+    public  Guid? CreatorId { get; set; }
 }

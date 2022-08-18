@@ -13,9 +13,8 @@ public class IotConsulModule :AbpModule
     {
         var services = context.Services;
 
+        // 加载配置
         services.Configure<ConsulOptions>(services.GetConfiguration().GetSection(ConsulOptions.Name));
-        
-        
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -43,7 +42,6 @@ public class IotConsulModule :AbpModule
                 Timeout = TimeSpan.FromSeconds(5)
             }
         };
-        
         
         consulClient.Agent.ServiceRegister(registration).Wait();
         

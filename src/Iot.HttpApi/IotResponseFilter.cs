@@ -25,7 +25,7 @@ public class IotResponseFilter : ActionFilterAttribute
             }
             else if (context.Result is EmptyResult)
             {
-                context.Result = new ObjectResult(new Result("200"));
+                // context.Result = new ObjectResult(new Result("200"));
             }
             else if (context.Result is Result modelStateResult2)
             {

@@ -44,7 +44,7 @@ public class DevicesService : ApplicationService, IDevicesService
             throw new BusinessException(IotDomainErrorCodes.NotNullDeviceId);
         }
 
-        await _distributedEventBus.PublishAsync(new CreateDevicesEto((Guid)deviceId, data));
+        await _distributedEventBus.PublishAsync(new CreateDevicesEto((Guid)deviceId, data),false);
     }
 
     /// <inheritdoc />

@@ -1,28 +1,34 @@
 using Iot.Admin.Application.Contracts.Events;
 using Iot.Devices;
 using Iot.Events;
-using Microsoft.Extensions.Logging;using Volo.Abp.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.EventBus.Distributed;
+using Volo.Abp.Uow;
 
 namespace Iot.Admin.Application.Events;
 
 public class ICreateDeviceEvent : IDistributedEventHandler<CreateDevicesEto>, ITransientDependency
 {
+    private readonly ILogger<ICreateDeviceEvent> _logger;
+    private readonly IUnitOfWorkManager _uowManager;
     private readonly IDevicesRepository _devicesRepository;
     private readonly IDHTLogsRepository _dhtLogsRepository;
-    private readonly ILogger<ICreateDeviceEvent> _logger;
-
-    public ICreateDeviceEvent(IDevicesRepository devicesRepository, ILogger<ICreateDeviceEvent> logger,
-        IDHTLogsRepository dhtLogsRepository)
+    public ICreateDeviceEvent(ILogger<ICreateDeviceEvent> logger,  IDevicesRepository devicesRepository, IDHTLogsRepository dhtLogsRepository, IUnitOfWorkManager uowManager)
     {
-        _devicesRepository = devicesRepository;
         _logger = logger;
+        _devicesRepository = devicesRepository;
         _dhtLogsRepository = dhtLogsRepository;
+        _uowManager = uowManager;
     }
 
     public async Task HandleEventAsync(CreateDevicesEto eventData)
     {
+        using var uow = _uowManager.Begin(new(), true);
+        
         var device = await _devicesRepository.FirstOrDefaultAsync(x => x.Id == eventData.DeviceId);
 
         if (device == null)
@@ -36,6 +42,8 @@ public class ICreateDeviceEvent : IDistributedEventHandler<CreateDevicesEto>, IT
                 await DHTxxx(eventData);
                 break;
         }
+
+        await uow.CompleteAsync();
     }
 
     /// <summary>
@@ -44,11 +52,14 @@ public class ICreateDeviceEvent : IDistributedEventHandler<CreateDevicesEto>, IT
     /// <param name="data"></param>
     private async Task DHTxxx(CreateDevicesEto data)
     {
-        var dto = data.Data as DHTDto;
+        var dto = JsonConvert.DeserializeObject<DHTDto>(data.Data.ToString());
 
+        _logger.LogWarning("添加Dht日志 {data}", dto);
         var dht = new DHTxxLogs(Guid.NewGuid(), data.DeviceId);
+        
         dht.Logs.Add(nameof(dto.Humidity), dto.Humidity);
         dht.Logs.Add(nameof(dto.Temperature), dto.Humidity);
+        dht.IsDeleted = false;
         await _dhtLogsRepository.InsertAsync(dht);
     }
 }
