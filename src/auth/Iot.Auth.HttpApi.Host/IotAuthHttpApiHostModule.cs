@@ -36,6 +36,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         var configuration = context.Services.GetConfiguration();
         var hostingEnvironment = context.Services.GetHostingEnvironment();
 
+        context.Services.AddHealthChecks();
         ConfigureConventionalControllers();
         ConfigureLocalization();
         ConfigureCache(configuration);
@@ -141,6 +142,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         app.UseSwagger();
         app.UseAbpSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "auth API"); });
 
+        app.UseHealthChecks("/healthCheck");
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseUnitOfWork();

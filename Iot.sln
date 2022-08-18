@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Auth.HttpApi", "src\aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.HttpApi", "src\Iot.HttpApi\Iot.HttpApi.csproj", "{DAFD198D-9995-4484-8A6E-185349C36E23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Nacos", "src\modules\Iot.Nacos\Iot.Nacos.csproj", "{798437EA-8F1D-4343-B3DD-29AF02738C76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Consul", "src\modules\Iot.Consul\Iot.Consul.csproj", "{798437EA-8F1D-4343-B3DD-29AF02738C76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

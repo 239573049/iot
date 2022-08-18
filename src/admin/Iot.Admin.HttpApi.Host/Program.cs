@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Iot;
+using Iot.Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
-
+using Winton.Extensions.Configuration.Consul;
 
 Log.Logger = new LoggerConfiguration()
 #if DEBUG
@@ -26,6 +26,7 @@ try
     Log.Information("Starting Iot.Admin.HttpApi.Host.");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
+        .AddConsul("iot/admin")
         .UseAutofac()
         .UseSerilog();
     await builder.AddApplicationAsync<IotHttpApiHostModule>();

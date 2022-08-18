@@ -1,4 +1,5 @@
 using Iot.Auth.HttpApi.Host;
+using Iot.Consul;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Serilog;
@@ -23,6 +24,7 @@ try
     Log.Information("Starting Iot.Auth.HttpApi.Host.");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
+        .AddConsul("iot/auth")
         .UseAutofac()
         .UseSerilog();
     await builder.AddApplicationAsync<IotAuthHttpApiHostModule>();

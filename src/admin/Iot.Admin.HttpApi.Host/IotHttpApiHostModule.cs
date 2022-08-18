@@ -12,6 +12,7 @@ using System;
 using System.Linq;
 using Iot.Admin.Application;
 using Iot.HttpApi;
+using Iot.Consul;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
@@ -26,6 +27,7 @@ using Volo.Abp.RabbitMQ;
 namespace Iot;
 
 [DependsOn(
+    typeof(IotConsulModule),
     typeof(IotAdminHttpApiModule),
     typeof(AbpAutofacModule),
     typeof(IotHttpApiModule),
@@ -42,6 +44,9 @@ public class IotHttpApiHostModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
         var hostingEnvironment = context.Services.GetHostingEnvironment();
+        
+        context.Services.AddHealthChecks();
+        
         ConfigureRabbitMq();
         ConfigureConventionalControllers();
         ConfigureLocalization();
@@ -160,6 +165,8 @@ public class IotHttpApiHostModule : AbpModule
             options.SwaggerEndpoint("/swagger/v1/swagger.json", "Iot API");
         });
 
+        app.UseHealthChecks("/healthCheck");
+        
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseUnitOfWork();

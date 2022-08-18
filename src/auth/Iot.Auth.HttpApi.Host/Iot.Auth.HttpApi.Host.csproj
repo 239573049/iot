@@ -11,6 +11,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Iot.HttpApi\Iot.HttpApi.csproj" />
+      <ProjectReference Include="..\..\modules\Iot.Consul\Iot.Consul.csproj" />
       <ProjectReference Include="..\Iot.Auth.Application\Iot.Auth.Application.csproj" />
       <ProjectReference Include="..\Iot.Auth.EntityFrameworkCore\Iot.Auth.EntityFrameworkCore.csproj" />
       <ProjectReference Include="..\Iot.Auth.HttpApi\Iot.Auth.HttpApi.csproj" />
