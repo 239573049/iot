@@ -58,7 +58,7 @@ public class ICreateDeviceEvent : IDistributedEventHandler<CreateDevicesEto>, IT
         var dht = new DHTxxLogs(Guid.NewGuid(), data.DeviceId);
         
         dht.Logs.Add(nameof(dto.Humidity), dto.Humidity);
-        dht.Logs.Add(nameof(dto.Temperature), dto.Humidity);
+        dht.Logs.Add(nameof(dto.Temperature), dto.Temperature);
         dht.IsDeleted = false;
         await _dhtLogsRepository.InsertAsync(dht);
     }
