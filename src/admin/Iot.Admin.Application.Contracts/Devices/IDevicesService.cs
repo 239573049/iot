@@ -18,7 +18,7 @@ public interface IDevicesService
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    Task CreateLogsAsync(DHTDto data);
+    Task<bool> CreateLogsAsync(DHTDto data);
 
     /// <summary>
     /// 获取设备列表

@@ -36,7 +36,7 @@ public class DevicesService : ApplicationService, IDevicesService
     }
 
     /// <inheritdoc />
-    public async Task CreateLogsAsync(DHTDto data)
+    public async Task<bool> CreateLogsAsync(DHTDto data)
     {
         var deviceId = _accessor.GetDeviceId();
         if (deviceId == null)
@@ -45,6 +45,7 @@ public class DevicesService : ApplicationService, IDevicesService
         }
 
         await _distributedEventBus.PublishAsync(new CreateDevicesEto((Guid)deviceId, data),false);
+        return true;
     }
 
     /// <inheritdoc />
