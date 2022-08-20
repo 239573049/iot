@@ -31,4 +31,26 @@ public interface IDevicesRepository : IRepository<IotDevices, Guid>
     /// <param name="deviceId"></param>
     /// <returns></returns>
     Task<DeviceLogView> GetDeviceLogAsync(Guid deviceId);
+
+    /// <summary>
+    /// 获取设备运行日志列表
+    /// </summary>
+    /// <param name="deviceId"></param>
+    /// <param name="startTime"></param>
+    /// <param name="endTime"></param>
+    /// <param name="skipCount"></param>
+    /// <param name="maxResultCount"></param>
+    /// <returns></returns>
+    Task<List<DeviceLogView>> GetDeviceLogListAsync(Guid deviceId, DateTime? startTime, DateTime? endTime,
+        int skipCount,
+        int maxResultCount);
+
+    /// <summary>
+    /// 获取设备运行日志总数
+    /// </summary>
+    /// <param name="deviceId"></param>
+    /// <param name="startTime"></param>
+    /// <param name="endTime"></param>
+    /// <returns></returns>
+    Task<int> GetDeviceLogCountAsync(Guid deviceId, DateTime? startTime, DateTime? endTime);
 }

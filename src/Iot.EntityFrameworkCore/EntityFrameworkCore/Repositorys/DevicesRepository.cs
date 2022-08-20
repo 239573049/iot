@@ -36,7 +36,8 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
     {
         var dbContext = await GetDbContextAsync();
 
-        var device = await dbContext.IotDevices.Where(x => x.Id == deviceId).OrderByDescending(x=>x.CreationTime).FirstOrDefaultAsync();
+        var device = await dbContext.IotDevices.Where(x => x.Id == deviceId).OrderByDescending(x => x.CreationTime)
+            .FirstOrDefaultAsync();
         if (device == null)
         {
             throw new NoNullAllowedException("device");
@@ -45,30 +46,72 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
         switch (device.Type)
         {
             case DeviceType.DHT:
-                return await CreateDHTxxAsync(dbContext,deviceId);
+                return await (await CreateDHTxxAsync(deviceId)).FirstOrDefaultAsync();
                 break;
         }
 
+
+        throw new BusinessException(message: "未存在设备类型");
+    }
+
+    /// <inheritdoc />
+    public async Task<List<DeviceLogView>> GetDeviceLogListAsync(Guid deviceId, DateTime? startTime, DateTime? endTime,
+        int skipCount, int maxResultCount)
+    {
+        var query = await CreateLogAsync(deviceId, startTime, endTime);
+
+        return await query.PageBy(skipCount, maxResultCount).ToListAsync();
+    }
+
+    /// <inheritdoc />
+    public async Task<int> GetDeviceLogCountAsync(Guid deviceId, DateTime? startTime, DateTime? endTime)
+    {
+        var query = await CreateLogAsync(deviceId, startTime, endTime);
+
+        return await query.CountAsync();
+    }
+
+    private async Task<IQueryable<DeviceLogView>> CreateLogAsync(Guid deviceId, DateTime? startTime, DateTime? endTime)
+    {
+        var dbContext = await GetDbContextAsync();
+
+        var device = await dbContext.IotDevices.Where(x => x.Id == deviceId).OrderByDescending(x => x.CreationTime)
+            .FirstOrDefaultAsync();
+        if (device == null)
+        {
+            throw new NoNullAllowedException("device");
+        }
+
+        switch (device.Type)
+        {
+            case DeviceType.DHT:
+                return (await CreateDHTxxAsync(deviceId))
+                    .WhereIf(startTime.HasValue, x => x.CreationTime > startTime)
+                    .WhereIf(endTime.HasValue, x => x.CreationTime < endTime);
+                break;
+        }
+        
         throw new BusinessException(message: "未存在设备类型");
     }
 
     /// <summary>
     /// 创建查询DHT日志
     /// </summary>
-    /// <param name="dbContext"></param>
     /// <param name="deviceId"></param>
     /// <returns></returns>
-    private async Task<DeviceLogView> CreateDHTxxAsync(IotDbContext dbContext, Guid deviceId)
+    private async Task<IQueryable<DeviceLogView>> CreateDHTxxAsync(Guid deviceId)
     {
-        var query = await dbContext.DhTxxLogs.Where(x => x.DeviceId == deviceId)
-            .OrderByDescending(x => x.CreationTime).Select(x => new DeviceLogView
-            {
-                Id = x.Id,
-                Type = DeviceType.DHT,
-                CreationTime = x.CreationTime,
-                Data = JsonConvert.SerializeObject(x.Logs)
-            })
-            .FirstOrDefaultAsync();
+        var dbContext = await GetDbContextAsync();
+
+        var query = dbContext.DhTxxLogs.Where(x => x.DeviceId == deviceId)
+                .OrderByDescending(x => x.CreationTime).Select(x => new DeviceLogView
+                {
+                    Id = x.Id,
+                    Type = DeviceType.DHT,
+                    CreationTime = x.CreationTime,
+                    Data = JsonConvert.SerializeObject(x.Logs)
+                })
+            ;
 
         return query;
     }

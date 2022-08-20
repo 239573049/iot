@@ -82,4 +82,15 @@ public class DevicesService : ApplicationService, IDevicesService
 
         return dto;
     }
+
+    public async Task<PagedResultDto<DeviceLogDto>> GetDeviceLogListAsync(GetDeviceLogListInput input)
+    {
+        var result = await _devicesRepository.GetDeviceLogListAsync(input.DeviceId,input.StartTime,input.EndTime,input.SkipCount,input.MaxResultCount);
+
+        var count = await _devicesRepository.GetDeviceLogCountAsync(input.DeviceId, input.StartTime, input.EndTime);
+
+        var dto = ObjectMapper.Map<List<DeviceLogView>, List<DeviceLogDto>>(result);
+
+        return new PagedResultDto<DeviceLogDto>(count,dto);
+    }
 }

@@ -39,4 +39,11 @@ public interface IDevicesService
     /// <param name="deviceId"></param>
     /// <returns></returns>
     Task<DeviceLogDto> GetDeviceLogAsync(Guid deviceId);
+
+    /// <summary>
+    /// 获取设备运行列表
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<PagedResultDto<DeviceLogDto>> GetDeviceLogListAsync(GetDeviceLogListInput input);
 }
