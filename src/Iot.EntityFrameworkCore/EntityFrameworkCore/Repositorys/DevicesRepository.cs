@@ -36,7 +36,7 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
     {
         var dbContext = await GetDbContextAsync();
 
-        var device = await dbContext.IotDevices.FirstOrDefaultAsync(x => x.Id == deviceId);
+        var device = await dbContext.IotDevices.Where(x => x.Id == deviceId).OrderByDescending(x=>x.CreationTime).FirstOrDefaultAsync();
         if (device == null)
         {
             throw new NoNullAllowedException("device");

@@ -36,6 +36,16 @@ public class DevicesService : ApplicationService, IDevicesService
     }
 
     /// <inheritdoc />
+    public async Task<IotDevicesDto> GetAsync(Guid id)
+    {
+        var data = await _devicesRepository.GetAsync(id);
+
+        var dto = ObjectMapper.Map<IotDevices, IotDevicesDto>(data);
+
+        return dto;
+    }
+
+    /// <inheritdoc />
     public async Task<bool> CreateLogsAsync(DHTDto data)
     {
         var deviceId = _accessor.GetDeviceId();
@@ -44,7 +54,7 @@ public class DevicesService : ApplicationService, IDevicesService
             throw new BusinessException(IotDomainErrorCodes.NotNullDeviceId);
         }
 
-        await _distributedEventBus.PublishAsync(new CreateDevicesEto((Guid)deviceId, data),false);
+        await _distributedEventBus.PublishAsync(new CreateDevicesEto((Guid)deviceId, data), false);
         return true;
     }
 
@@ -52,14 +62,14 @@ public class DevicesService : ApplicationService, IDevicesService
     public async Task<PagedResultDto<IotDevicesDto>> GetListAsync(GetListInput input)
     {
         var userId = _accessor.GetUserId();
-        
+
         var result =
             await _devicesRepository.GetListAsync(userId, input.Keywords, input.SkipCount, input.MaxResultCount);
 
         var count = await _devicesRepository.GetCountAsync(userId, input.Keywords);
 
         var dto = ObjectMapper.Map<List<IotDevices>, List<IotDevicesDto>>(result);
-        
+
         return new PagedResultDto<IotDevicesDto>(count, dto);
     }
 

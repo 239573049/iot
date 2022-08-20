@@ -14,6 +14,13 @@ public interface IDevicesService
     Task CreateAsync(CreateDeviceInput input);
 
     /// <summary>
+    /// 获取设备信息
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task<IotDevicesDto> GetAsync(Guid id);
+    
+    /// <summary>
     /// 创建设备记录
     /// </summary>
     /// <param name="data"></param>
