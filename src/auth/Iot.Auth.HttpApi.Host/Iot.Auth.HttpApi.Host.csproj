@@ -29,4 +29,12 @@
         <PackageReference Include="Volo.Abp.Swashbuckle" Version="5.3.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Logs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Logs\logs.txt" />
+    </ItemGroup>
+
 </Project>

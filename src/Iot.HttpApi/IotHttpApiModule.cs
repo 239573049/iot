@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
 using Volo.Abp.AspNetCore.Mvc.Validation;
+using Volo.Abp.Json;
 using Volo.Abp.Modularity;
 
 namespace Iot.HttpApi;
@@ -21,6 +23,11 @@ public class IotHttpApiModule : AbpModule
             options.Filters.Add<IotExceptionFilter>();
         });
         
+        Configure<AbpJsonOptions>(x =>
+        {
+            x.DefaultDateTimeFormat = Constants.DefaultFullDateFormat;
+        });
+
         Configure<AbpAntiForgeryOptions>(x =>
         {
             x.AutoValidate = false;
