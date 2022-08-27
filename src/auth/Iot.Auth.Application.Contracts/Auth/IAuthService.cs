@@ -14,7 +14,7 @@ public interface IAuthService
     /// 刷新token
     /// </summary>
     /// <returns></returns>
-    Task<string> RefreshAsync();
+    Task<string> PutRefreshAsync();
 
     /// <summary>
     /// 微信一键登录

@@ -11,6 +11,11 @@ public static class IotDomainErrorCodes
     /// </summary>
     public const string NotUserName = Auth + "NotUserName";
 
+    /// <summary>
+    /// 未授权
+    /// </summary>
+    public const string Unauthorized = Auth + "Unauthorized";
+    
     #endregion
 
     #region Admin

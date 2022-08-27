@@ -5,7 +5,7 @@ namespace Iot.Auth.Domain.Roles.Functions;
 
 public class UserRoleFunction : AggregateRoot<Guid>
 {
-    public Guid UserId { get; set; }
+    public Guid UserInfoId { get; set; }
 
     public Guid RoleId { get; set; }
 

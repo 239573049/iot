@@ -247,9 +247,8 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -322,12 +321,12 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
             migrationBuilder.InsertData(
                 table: "IotUserInfo",
                 columns: new[] { "Id", "AccountNumber", "Avatar", "CreationTime", "CreatorId", "DeletionTime", "Introduce", "Name", "Password", "PhoneNumber", "State", "WeChatOpenId" },
-                values: new object[] { new Guid("48e38e4a-4a56-4fdc-9083-5732ee5cf95f"), "admin", "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "超级管理员", "管理员", "dd666666", "13049809673", 0, null });
+                values: new object[] { new Guid("502be95e-c3bf-421b-a9a9-9578f83fbf86"), "admin", "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "超级管理员", "管理员", "dd666666", "13049809673", 0, null });
 
             migrationBuilder.InsertData(
                 table: "IotDevices",
                 columns: new[] { "Id", "CreationTime", "CreatorId", "DeletionTime", "Icon", "Name", "Remark", "Stats", "Type", "UserInfoId" },
-                values: new object[] { new Guid("2aa40cba-6486-4e52-bb21-0b54f3d802a8"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png", "温度计", "", 1, 0, new Guid("48e38e4a-4a56-4fdc-9083-5732ee5cf95f") });
+                values: new object[] { new Guid("4c2f2eda-1c24-4af8-b27b-31f4eb1d285a"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png", "温度计", "", 1, 0, new Guid("502be95e-c3bf-421b-a9a9-9578f83fbf86") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogActions_AuditLogId",

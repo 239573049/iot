@@ -1,6 +1,8 @@
+using Iot.Auth.Domain;
 using Iot.Auth.Domain.Roles;
 using Iot.Auth.Domain.Roles.Functions;
 using Microsoft.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace Iot.Auth.EntityFrameworkCore.EntityFrameworkCore;
 
@@ -26,6 +28,14 @@ public static class IotAuthEntityFrameworkCoreExtension
             x.Property(x => x.ParentId).HasComment("上一级id");
         });
 
+        builder.Entity<AuthUserInfo>(x =>
+        {
+            x.ToTable("IotUserInfo");
+            x.HasComment("用户信息");
+            x.ConfigureByConvention();
+            
+        });
+        
         builder.Entity<Menu>(x =>
         {
             x.ToTable("Menus");
@@ -65,5 +75,7 @@ public static class IotAuthEntityFrameworkCoreExtension
             x.HasIndex(x => x.Id);
 
         });
+        
     }
+
 }

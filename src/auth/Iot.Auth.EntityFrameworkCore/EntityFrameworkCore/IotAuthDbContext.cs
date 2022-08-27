@@ -1,3 +1,4 @@
+using Iot.Auth.Domain;
 using Iot.Auth.Domain.Roles;
 using Iot.Auth.Domain.Roles.Functions;
 using Iot.Users;
@@ -16,7 +17,7 @@ public class IotAuthDbContext :
 
     public DbSet<Menu> Menu { get; set; }
 
-    public DbSet<UserInfo> UserInfo { get; set; }
+    public DbSet<AuthUserInfo> AuthUserInfo { get; set; }
     
     public DbSet<MenuRoleFunction> MenuRoleFunction { get; set; }
 
@@ -30,10 +31,6 @@ public class IotAuthDbContext :
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Ignore<ExtraPropertyDictionary>();
-        builder.Entity<UserInfo>(x =>
-        {
-            x.ToTable("IotUserInfo");
-        });
         
         builder.ConfigureAuth();
     }

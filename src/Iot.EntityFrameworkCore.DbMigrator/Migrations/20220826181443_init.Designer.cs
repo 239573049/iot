@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
 {
     [DbContext(typeof(IotMigrationsDbContext))]
-    [Migration("20220818150143_init")]
+    [Migration("20220826181443_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,9 +62,6 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserInfoId")
@@ -277,7 +274,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2aa40cba-6486-4e52-bb21-0b54f3d802a8"),
+                            Id = new Guid("4c2f2eda-1c24-4af8-b27b-31f4eb1d285a"),
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Icon = "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
                             IsDeleted = false,
@@ -285,7 +282,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                             Remark = "",
                             Stats = 1,
                             Type = 0,
-                            UserInfoId = new Guid("48e38e4a-4a56-4fdc-9083-5732ee5cf95f")
+                            UserInfoId = new Guid("502be95e-c3bf-421b-a9a9-9578f83fbf86")
                         });
                 });
 
@@ -358,7 +355,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("48e38e4a-4a56-4fdc-9083-5732ee5cf95f"),
+                            Id = new Guid("502be95e-c3bf-421b-a9a9-9578f83fbf86"),
                             AccountNumber = "admin",
                             Avatar = "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg",
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),

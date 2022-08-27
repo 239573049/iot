@@ -11,4 +11,12 @@ namespace Iot.Auth.Application;
     typeof(IotCommonJwtModule))]
 public class IotAuthApplicationModule : AbpModule
 {
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        Configure<AbpAutoMapperOptions>(options =>
+        {
+            options.AddMaps<IotAuthApplicationModule>();
+            
+        });
+    }
 }

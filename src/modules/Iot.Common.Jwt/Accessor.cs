@@ -86,6 +86,18 @@ public class Accessor : ITransientDependency
             : null;
     }
 
+    public List<Guid> GetRoleIds()
+    {
+        var data = GetClaimValueByType(Constants.Role).FirstOrDefault();
+
+        if (data.IsNullOrEmpty())
+        {
+            throw new BusinessException(IotDomainErrorCodes.Unauthorized);
+        }
+        
+        return JsonConvert.DeserializeObject<List<Guid>>(data);
+    }
+    
     public Guid GetUserId()
     {
         var user = ID;
@@ -101,14 +113,8 @@ public class Accessor : ITransientDependency
         return JsonConvert.DeserializeObject<T>(result);
     }
 
-    public Task<string> CreateTokenAsync<T>(T t) where T : IEntity<Guid>
+    public Task<string> CreateTokenAsync(Claim[] claims)
     {
-        var claims = new[]
-        {
-            new Claim(Constants.User, JsonConvert.SerializeObject(t)),
-            new Claim(Constants.Id, t.Id.ToString())
-        };
-
         var keyBytes = Encoding.UTF8.GetBytes(_tokenOptions.SecretKey!);
         var cred = new SigningCredentials(new SymmetricSecurityKey(keyBytes),
             SecurityAlgorithms.HmacSha256);

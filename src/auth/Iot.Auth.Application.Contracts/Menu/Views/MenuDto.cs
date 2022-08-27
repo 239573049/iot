@@ -1,12 +1,9 @@
-using Volo.Abp;
-using Volo.Abp.Auditing;
-using Volo.Abp.Domain.Entities;
+namespace Iot.Auth.Application.Contracts.Menu.Views;
 
-namespace Iot.Auth.Domain.Roles;
-
-public class Menu : AggregateRoot<Guid>,ISoftDelete,IHasCreationTime
+public class MenuDto
 {
-    
+    public Guid Id { get; set; }
+
     public int Index { get; set; }
 
     /// <summary>
@@ -39,7 +36,8 @@ public class Menu : AggregateRoot<Guid>,ISoftDelete,IHasCreationTime
     /// </summary>
     public Guid? ParentId { get; set; }
 
-    public bool IsDeleted { get; set; }
-    
+
     public DateTime CreationTime { get; }
+
+    public List<MenuDto> Routes { get; set; } = new();
 }
