@@ -55,6 +55,11 @@ public class MenuService : ApplicationService, IMenuService
                 Key = d.Id,
                 Icon = d.Icon,
                 Title = d.Title,
+                Name = d.Name,
+                Path = d.Path,
+                ParentId = d.ParentId,
+                Component = d.Component
+                
             };
             dto.Children.AddRange(GetMenuTree(menus, d.Id));
             result.Add(dto);

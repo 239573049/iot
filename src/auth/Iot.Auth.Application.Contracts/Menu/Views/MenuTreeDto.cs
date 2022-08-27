@@ -17,6 +17,28 @@ public class MenuTreeDto
     /// </summary>
     public string? Icon { get; set; }
 
+    public int Index { get; set; }
+
+    /// <summary>
+    /// 组件
+    /// </summary>
+    public string? Component { get; set; }
+
+    /// <summary>
+    /// 名称
+    /// </summary>
+    public string? Name { get; set; }
+
+    /// <summary>
+    /// 路由
+    /// </summary>
+    public string? Path { get; set; }
+
+    /// <summary>
+    /// 父级id
+    /// </summary>
+    public Guid? ParentId { get; set; }
+    
     /// <summary>
     /// 子集
     /// </summary>
