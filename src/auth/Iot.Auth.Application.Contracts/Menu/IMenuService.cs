@@ -15,4 +15,10 @@ public interface IMenuService
     /// </summary>
     /// <returns></returns>
     Task<List<MenuTreeDto>> GetMenuTreeAsync();
+
+    /// <summary>
+    /// 更新节点
+    /// </summary>
+    /// <returns></returns>
+    Task UpdateMenuParentIdAsync(Guid id,UpdateMenuParentIdInput input);
 }
