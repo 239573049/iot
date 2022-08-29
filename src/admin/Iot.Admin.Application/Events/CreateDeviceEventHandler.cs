@@ -10,13 +10,13 @@ using Volo.Abp.Uow;
 
 namespace Iot.Admin.Application.Events;
 
-public class ICreateDeviceEvent : IDistributedEventHandler<CreateDevicesEto>, ITransientDependency
+public class CreateDeviceEventHandler : IDistributedEventHandler<CreateDevicesEto>, ITransientDependency
 {
-    private readonly ILogger<ICreateDeviceEvent> _logger;
+    private readonly ILogger<CreateDeviceEventHandler> _logger;
     private readonly IUnitOfWorkManager _uowManager;
     private readonly IDevicesRepository _devicesRepository;
     private readonly IDHTLogsRepository _dhtLogsRepository;
-    public ICreateDeviceEvent(ILogger<ICreateDeviceEvent> logger,  IDevicesRepository devicesRepository, IDHTLogsRepository dhtLogsRepository, IUnitOfWorkManager uowManager)
+    public CreateDeviceEventHandler(ILogger<CreateDeviceEventHandler> logger,  IDevicesRepository devicesRepository, IDHTLogsRepository dhtLogsRepository, IUnitOfWorkManager uowManager)
     {
         _logger = logger;
         _devicesRepository = devicesRepository;

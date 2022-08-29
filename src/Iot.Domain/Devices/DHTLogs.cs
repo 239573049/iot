@@ -21,8 +21,6 @@ public class DHTxxLogs : AggregateRoot<Guid>, IHasDeletionTime, IHasCreationTime
     /// </summary>
     public Dictionary<string, string> Logs { get; set; } = new();
 
-    public virtual IotDevices Device { get; protected set; }
-
     public DHTxxLogs()
     {
     }
@@ -33,6 +31,7 @@ public class DHTxxLogs : AggregateRoot<Guid>, IHasDeletionTime, IHasCreationTime
     }
 
     public bool IsDeleted { get; set; }
+    
     public DateTime? DeletionTime { get; set; }
     public  DateTime CreationTime { get; set; }
     

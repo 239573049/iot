@@ -1,3 +1,5 @@
+using Iot.Common.Core.Extensions;
+
 namespace Iot.Admin.Application.Contracts.Devices.Views;
 
 public class IotDevicesDto
@@ -18,6 +20,14 @@ public class IotDevicesDto
     /// 设备类型
     /// </summary>
     public DeviceType Type { get; set; }
+    
+    public string TypeName
+    {
+        get
+        {
+            return Type.GetDescription();
+        }
+    }
 
     /// <summary>
     /// 备注
@@ -28,6 +38,14 @@ public class IotDevicesDto
     /// 状态
     /// </summary>
     public DeviceStats Stats { get; set; }
+
+    public string StatsName
+    {
+        get
+        {
+            return Stats.GetDescription();
+        }
+    }
 
     /// <summary>
     /// 绑定设备

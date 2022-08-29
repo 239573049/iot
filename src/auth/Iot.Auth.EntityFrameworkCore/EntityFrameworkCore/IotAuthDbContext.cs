@@ -5,6 +5,7 @@ using Iot.Users;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace Iot.Auth.EntityFrameworkCore.EntityFrameworkCore;
 
@@ -31,6 +32,15 @@ public class IotAuthDbContext :
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Ignore<ExtraPropertyDictionary>();
+        
+        
+        builder.Entity<AuthUserInfo>(x =>
+        {
+            x.ToTable("IotUserInfo");
+            x.HasComment("用户信息");
+            x.ConfigureByConvention();
+            
+        });
         
         builder.ConfigureAuth();
     }

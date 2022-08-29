@@ -28,13 +28,6 @@ public static class IotAuthEntityFrameworkCoreExtension
             x.Property(x => x.ParentId).HasComment("上一级id");
         });
 
-        builder.Entity<AuthUserInfo>(x =>
-        {
-            x.ToTable("IotUserInfo");
-            x.HasComment("用户信息");
-            x.ConfigureByConvention();
-            
-        });
         
         builder.Entity<Menu>(x =>
         {

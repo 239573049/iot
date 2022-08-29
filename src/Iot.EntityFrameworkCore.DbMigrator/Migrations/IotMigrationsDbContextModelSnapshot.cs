@@ -272,7 +272,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4c2f2eda-1c24-4af8-b27b-31f4eb1d285a"),
+                            Id = new Guid("f5a5eb25-9e7c-4898-a94c-0e899b315d68"),
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Icon = "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
                             IsDeleted = false,
@@ -280,7 +280,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                             Remark = "",
                             Stats = 1,
                             Type = 0,
-                            UserInfoId = new Guid("502be95e-c3bf-421b-a9a9-9578f83fbf86")
+                            UserInfoId = new Guid("887607d2-c49a-4318-a878-500dac01f1ba")
                         });
                 });
 
@@ -353,7 +353,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("502be95e-c3bf-421b-a9a9-9578f83fbf86"),
+                            Id = new Guid("887607d2-c49a-4318-a878-500dac01f1ba"),
                             AccountNumber = "admin",
                             Avatar = "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg",
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -730,17 +730,6 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("UserInfo");
-                });
-
-            modelBuilder.Entity("Iot.Devices.DHTxxLogs", b =>
-                {
-                    b.HasOne("Iot.Devices.IotDevices", "Device")
-                        .WithMany()
-                        .HasForeignKey("DeviceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Device");
                 });
 
             modelBuilder.Entity("Iot.Devices.IotDevices", b =>
