@@ -30,7 +30,7 @@ public class IotConsulModule :AbpModule
         
         var registration = new AgentServiceRegistration()
         {
-            ID = Guid.NewGuid().ToString(),
+            ID = consulOption.Id,
             Name = consulOption.ServiceName,// 服务名
             Address = consulOption.ServiceIP, // 服务绑定IP
             Port = consulOption.ServicePort, // 服务绑定端口

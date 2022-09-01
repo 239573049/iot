@@ -3,6 +3,8 @@ namespace Iot.Consul;
 public class ConsulOptions
 {
     public const string Name = "Consul";
+
+    public string? Id { get; set; }
     
     public string? ServiceName { get; set; }
 
