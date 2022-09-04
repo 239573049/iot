@@ -23,4 +23,14 @@ public class MenuRoleFunction
     ///
     /// </summary>
     public virtual Role? Role { get; set; }
+
+    public MenuRoleFunction(Guid menuId, Guid roleId)
+    {
+        MenuId = menuId;
+        RoleId = roleId;
+    }
+
+    public MenuRoleFunction()
+    {
+    }
 }

@@ -14,10 +14,10 @@ public static class IotAuthEntityFrameworkCoreExtension
         {
             x.ToTable("Roles");
             x.ConfigureByConvention();
-            
+
             x.HasComment("角色");
 
-            
+
             x.HasKey(x => x.Id);
 
             x.HasIndex(x => x.Id);
@@ -78,10 +78,11 @@ public static class IotAuthEntityFrameworkCoreExtension
         var roles = new Role(Guid.NewGuid(), "管理员", "admin", "系统管理员", 0, null, false, DateTime.Now);
         builder.Entity<Role>().HasData(roles);
 
+        builder.Entity<UserRoleFunction>().HasData(new UserRoleFunction(Constants.AdminId, roles.Id));
 
         #region Device
 
-        var home = new Menu(Guid.NewGuid(), 0, "@/pages/home/index", "首页", "首页", "HomeOutlined", "/", null);
+        var home = new Menu(Guid.NewGuid(), 0, "@/pages/home/index", "首页", "首页", "HomeOutlined", "/admin", null);
 
         var authority = new Menu(Guid.NewGuid(), 1, "", "权限管理", "权限管理", "SettingOutlined", "/authority",
             null);
@@ -99,10 +100,20 @@ public static class IotAuthEntityFrameworkCoreExtension
         var deviceTemplate = new Menu(Guid.NewGuid(), 0, "@/pages/devices/template/index", "设备模板", "设备模板", null,
             "/devices/template", device.Id);
 
-        var deviceAdmin = new Menu(Guid.NewGuid(), 1, "@/pages/devices/admin/index", "设备管理", "设备管理", null,
+        var deviceRoles = new Menu(Guid.NewGuid(), 1, "@/pages/devices/running-log/index", "设备运行日志", "设备运行日志", null,
+            "/devices/running-log", device.Id);
+
+        var deviceAdmin = new Menu(Guid.NewGuid(), 2, "@/pages/devices/admin/index", "设备管理", "设备管理", null,
             "/devices/admin", device.Id);
 
-        builder.Entity<Menu>().HasData(home, authority, role, user, menu, device, deviceTemplate, deviceAdmin);
+        builder.Entity<Menu>()
+            .HasData(home, authority, role, user, menu, device, deviceTemplate, deviceAdmin, deviceRoles);
+
+        builder.Entity<MenuRoleFunction>().HasData(new MenuRoleFunction(home.Id, roles.Id),
+            new MenuRoleFunction(authority.Id, roles.Id), new MenuRoleFunction(role.Id, roles.Id),
+            new MenuRoleFunction(user.Id, roles.Id), new MenuRoleFunction(menu.Id, roles.Id),
+            new MenuRoleFunction(device.Id, roles.Id), new MenuRoleFunction(deviceTemplate.Id, roles.Id),
+            new MenuRoleFunction(deviceRoles.Id, roles.Id), new MenuRoleFunction(deviceAdmin.Id, roles.Id));
 
         #endregion
     }

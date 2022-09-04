@@ -12,4 +12,14 @@ public class UserRoleFunction
     public virtual UserInfo UserInfo { get; set; }
 
     public virtual Role Role { get; set; }
+
+    public UserRoleFunction()
+    {
+    }
+
+    public UserRoleFunction(Guid userInfoId, Guid roleId)
+    {
+        UserInfoId = userInfoId;
+        RoleId = roleId;
+    }
 }

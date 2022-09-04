@@ -124,8 +124,10 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -143,9 +145,10 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     Remark = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "备注"),
                     Index = table.Column<int>(type: "int", nullable: false, comment: "排序"),
                     ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "上一级id"),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -233,14 +236,12 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 name: "menuRoleFunctions",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MenuId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_menuRoleFunctions", x => x.Id);
+                    table.PrimaryKey("PK_menuRoleFunctions", x => new { x.MenuId, x.RoleId });
                     table.ForeignKey(
                         name: "FK_menuRoleFunctions_Menus_MenuId",
                         column: x => x.MenuId,
@@ -260,14 +261,12 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 name: "UserRoleFunctions",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserRoleFunctions", x => x.Id);
+                    table.PrimaryKey("PK_UserRoleFunctions", x => new { x.UserInfoId, x.RoleId });
                     table.ForeignKey(
                         name: "FK_UserRoleFunctions_IotUserInfo_UserInfoId",
                         column: x => x.UserInfoId,
@@ -341,17 +340,59 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
             migrationBuilder.InsertData(
                 table: "IotUserInfo",
                 columns: new[] { "Id", "AccountNumber", "Avatar", "CreationTime", "CreatorId", "DeletionTime", "Introduce", "Name", "Password", "PhoneNumber", "State", "WeChatOpenId" },
-                values: new object[] { new Guid("7f730715-c83e-4998-ac60-fb326e769bf2"), "admin", "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "超级管理员", "管理员", "dd666666", "13049809673", 0, null });
+                values: new object[] { new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3"), "admin", "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "超级管理员", "管理员", "dd666666", "13049809673", 0, null });
+
+            migrationBuilder.InsertData(
+                table: "Menus",
+                columns: new[] { "Id", "Component", "ConcurrencyStamp", "CreationTime", "ExtraProperties", "Icon", "Index", "Name", "ParentId", "Path", "Title" },
+                values: new object[,]
+                {
+                    { new Guid("044b20ff-34ed-432f-a61c-84f46f1f5cbf"), "@/pages/authority/menus/index", "227cb7998c7f4d178e0fa857d5e64ff1", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3689), "{}", null, 2, "菜单管理", new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"), "/admin/authority/menu", "菜单管理" },
+                    { new Guid("1d55c6a4-95ef-4ec7-924a-5f43a0dae42f"), "@/pages/devices/running-log/index", "2541dd6b6e0f47db86917db802146c56", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3710), "{}", null, 1, "设备运行日志", new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"), "/admin/devices/admin", "设备运行日志" },
+                    { new Guid("4b3b6690-d5d6-4693-83f8-fb41c1c47bdb"), "@/pages/devices/template/index", "3a85f04cda0d49399c9bab7d9f3b345d", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3702), "{}", null, 0, "设备模板", new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"), "/admin/devices/template", "设备模板" },
+                    { new Guid("5af12e31-2ce9-4160-84e0-c642b606e76d"), "@/pages/home/index", "eb465ace49a14e639b5a8fa6b615c2d2", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3661), "{}", "HomeOutlined", 0, "首页", null, "/admin", "首页" },
+                    { new Guid("5c1939e7-3143-4c6f-8489-5f05c4d5d938"), "@/pages/authority/users/index", "f1bf35c59fbf49199d3d85b1694640cb", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3684), "{}", null, 1, "用户管理", new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"), "/admin/authority/user", "用户管理" },
+                    { new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"), null, "67fa0977e0f949b897ed874b5a886bca", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3693), "{}", "DashboardOutlined", 2, "设备", null, "/admin/devices", "设备" },
+                    { new Guid("b9a97cb5-3161-41fc-9d08-f1e2aebfbd2a"), "@/pages/authority/roles/index", "f6407f39e7f34fd097b823f871d78608", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3676), "{}", null, 0, "角色管理", new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"), "/admin/authority/role", "角色管理" },
+                    { new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"), "", "b0c9652638234eec87200ff38b53d939", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3666), "{}", "SettingOutlined", 1, "权限管理", null, "/admin/authority", "权限管理" },
+                    { new Guid("fcc79e87-cd8e-431c-b38f-3135fabff3e2"), "@/pages/devices/admin/index", "63df7f5b74324fffb90a891f5f766fb9", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3714), "{}", null, 2, "设备管理", new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"), "/admin/devices/admin", "设备管理" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "Code", "ConcurrencyStamp", "CreationTime", "ExtraProperties", "Index", "Name", "ParentId", "Remark" },
+                values: new object[] { new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791"), "admin", "e4f30f8cc16b4e8888a9ff5df7b00a8a", new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3561), "{}", 0, "管理员", null, "系统管理员" });
 
             migrationBuilder.InsertData(
                 table: "DeviceTemplates",
                 columns: new[] { "Id", "CreationTime", "CreatorId", "DeletionTime", "Icon", "Name", "Remark", "Type", "UserId" },
-                values: new object[] { new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png", "温度计", "", 0, new Guid("7f730715-c83e-4998-ac60-fb326e769bf2") });
+                values: new object[] { new Guid("58815bdd-614a-4d71-a1e0-d999c40479d0"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png", "温度计", "", 0, new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3") });
+
+            migrationBuilder.InsertData(
+                table: "UserRoleFunctions",
+                columns: new[] { "RoleId", "UserInfoId" },
+                values: new object[] { new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791"), new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3") });
+
+            migrationBuilder.InsertData(
+                table: "menuRoleFunctions",
+                columns: new[] { "MenuId", "RoleId" },
+                values: new object[,]
+                {
+                    { new Guid("044b20ff-34ed-432f-a61c-84f46f1f5cbf"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("1d55c6a4-95ef-4ec7-924a-5f43a0dae42f"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("4b3b6690-d5d6-4693-83f8-fb41c1c47bdb"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("5af12e31-2ce9-4160-84e0-c642b606e76d"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("5c1939e7-3143-4c6f-8489-5f05c4d5d938"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("b9a97cb5-3161-41fc-9d08-f1e2aebfbd2a"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") },
+                    { new Guid("fcc79e87-cd8e-431c-b38f-3135fabff3e2"), new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791") }
+                });
 
             migrationBuilder.InsertData(
                 table: "IotDevices",
                 columns: new[] { "Id", "CreationTime", "CreatorId", "DeletionTime", "DeviceTemplateId", "LastTime", "Name", "Remark", "Stats", "UserInfoId" },
-                values: new object[] { new Guid("1c53df06-641c-4125-97dd-b10ebcc22fbc"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"), null, null, "", 1, new Guid("7f730715-c83e-4998-ac60-fb326e769bf2") });
+                values: new object[] { new Guid("fee8dc18-d869-4e9a-b345-98fe148065ca"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, new Guid("58815bdd-614a-4d71-a1e0-d999c40479d0"), null, null, "", 1, new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogActions_AuditLogId",
@@ -448,14 +489,9 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 column: "WeChatOpenId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_menuRoleFunctions_Id",
+                name: "IX_menuRoleFunctions_MenuId_RoleId",
                 table: "menuRoleFunctions",
-                column: "Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_menuRoleFunctions_MenuId",
-                table: "menuRoleFunctions",
-                column: "MenuId");
+                columns: new[] { "MenuId", "RoleId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_menuRoleFunctions_RoleId",
@@ -478,19 +514,14 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 column: "Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserRoleFunctions_Id",
-                table: "UserRoleFunctions",
-                column: "Id");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserRoleFunctions_RoleId",
                 table: "UserRoleFunctions",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserRoleFunctions_UserInfoId",
+                name: "IX_UserRoleFunctions_UserInfoId_RoleId",
                 table: "UserRoleFunctions",
-                column: "UserInfoId");
+                columns: new[] { "UserInfoId", "RoleId" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

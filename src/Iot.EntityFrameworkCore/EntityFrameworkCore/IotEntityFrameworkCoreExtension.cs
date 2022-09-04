@@ -79,16 +79,15 @@ public static class IotEntityFrameworkCoreExtension
 
     private static void ConfigureIotData(this ModelBuilder builder)
     {
-        var userId = Guid.NewGuid();
-        var iotUser = new UserInfo(userId, "admin", "13049809673", null, "dd666666",
+        var iotUser = new UserInfo(Constants.AdminId, "admin", "13049809673", null, "dd666666",
             "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", "超级管理员", UserInfoState.InUse, "管理员");
         builder.Entity<UserInfo>().HasData(iotUser);
 
         var iotId = Guid.NewGuid();
         var iot = new DeviceTemplate(iotId, "温度计", "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
-            DeviceType.Thermometer, "", userId);
+            DeviceType.Thermometer, "", Constants.AdminId);
 
-        var device = new Device.Devices(Guid.NewGuid(),"", DeviceStats.OffLine, userId, iotId);
+        var device = new Device.Devices(Guid.NewGuid(),"", DeviceStats.OffLine, Constants.AdminId, iotId);
 
         builder.Entity<DeviceTemplate>().HasData(iot);
         builder.Entity<Device.Devices>().HasData(device);

@@ -21,10 +21,14 @@ public class IotExceptionFilter : ExceptionFilterAttribute
     public override Task OnExceptionAsync(ExceptionContext context)
     {
         string error = string.Empty;
-
+        string code = "500";
         if (context.Exception is BusinessException ex)
         {
             error = _localizer[ex.Code];
+            if (ex.Code == IotDomainErrorCodes.Unauthorized)
+            {
+                code = "401";
+            }
         }
         else
         {
@@ -32,7 +36,7 @@ public class IotExceptionFilter : ExceptionFilterAttribute
         }
 
         _logger.LogError("message:{0}", context.Exception);
-        context.Result = new ObjectResult(new Result(code: "500", message: error));
+        context.Result = new ObjectResult(new Result(code: code, message: error));
 
         context.ExceptionHandled = true;
 

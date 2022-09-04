@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
 {
     [DbContext(typeof(IotMigrationsDbContext))]
-    [Migration("20220904142248_init")]
+    [Migration("20220904151651_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,58 +26,94 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
 
             modelBuilder.Entity("Iot.Auth.Domain.Roles.Functions.MenuRoleFunction", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("MenuId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id");
-
-                    b.HasIndex("MenuId");
+                    b.HasKey("MenuId", "RoleId");
 
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("MenuId", "RoleId");
 
                     b.ToTable("menuRoleFunctions", (string)null);
 
                     b.HasComment("菜单角色配置");
+
+                    b.HasData(
+                        new
+                        {
+                            MenuId = new Guid("5af12e31-2ce9-4160-84e0-c642b606e76d"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("b9a97cb5-3161-41fc-9d08-f1e2aebfbd2a"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("5c1939e7-3143-4c6f-8489-5f05c4d5d938"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("044b20ff-34ed-432f-a61c-84f46f1f5cbf"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("4b3b6690-d5d6-4693-83f8-fb41c1c47bdb"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("1d55c6a4-95ef-4ec7-924a-5f43a0dae42f"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        },
+                        new
+                        {
+                            MenuId = new Guid("fcc79e87-cd8e-431c-b38f-3135fabff3e2"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        });
                 });
 
             modelBuilder.Entity("Iot.Auth.Domain.Roles.Functions.UserRoleFunction", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserInfoId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserInfoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id");
+                    b.HasKey("UserInfoId", "RoleId");
 
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("UserInfoId");
+                    b.HasIndex("UserInfoId", "RoleId");
 
                     b.ToTable("UserRoleFunctions", (string)null);
 
                     b.HasComment("用户角色配置");
+
+                    b.HasData(
+                        new
+                        {
+                            UserInfoId = new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3"),
+                            RoleId = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791")
+                        });
                 });
 
             modelBuilder.Entity("Iot.Auth.Domain.Roles.Menu", b =>
@@ -90,7 +126,18 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .IsConcurrencyToken()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<string>("ExtraProperties")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
 
                     b.Property<string>("Icon")
                         .HasColumnType("nvarchar(max)");
@@ -99,7 +146,10 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -123,6 +173,133 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.ToTable("Menus", (string)null);
 
                     b.HasComment("菜单权限控制");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("5af12e31-2ce9-4160-84e0-c642b606e76d"),
+                            Component = "@/pages/home/index",
+                            ConcurrencyStamp = "eb465ace49a14e639b5a8fa6b615c2d2",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3661),
+                            ExtraProperties = "{}",
+                            Icon = "HomeOutlined",
+                            Index = 0,
+                            IsDeleted = false,
+                            Name = "首页",
+                            Path = "/admin",
+                            Title = "首页"
+                        },
+                        new
+                        {
+                            Id = new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"),
+                            Component = "",
+                            ConcurrencyStamp = "b0c9652638234eec87200ff38b53d939",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3666),
+                            ExtraProperties = "{}",
+                            Icon = "SettingOutlined",
+                            Index = 1,
+                            IsDeleted = false,
+                            Name = "权限管理",
+                            Path = "/admin/authority",
+                            Title = "权限管理"
+                        },
+                        new
+                        {
+                            Id = new Guid("b9a97cb5-3161-41fc-9d08-f1e2aebfbd2a"),
+                            Component = "@/pages/authority/roles/index",
+                            ConcurrencyStamp = "f6407f39e7f34fd097b823f871d78608",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3676),
+                            ExtraProperties = "{}",
+                            Index = 0,
+                            IsDeleted = false,
+                            Name = "角色管理",
+                            ParentId = new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"),
+                            Path = "/admin/authority/role",
+                            Title = "角色管理"
+                        },
+                        new
+                        {
+                            Id = new Guid("5c1939e7-3143-4c6f-8489-5f05c4d5d938"),
+                            Component = "@/pages/authority/users/index",
+                            ConcurrencyStamp = "f1bf35c59fbf49199d3d85b1694640cb",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3684),
+                            ExtraProperties = "{}",
+                            Index = 1,
+                            IsDeleted = false,
+                            Name = "用户管理",
+                            ParentId = new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"),
+                            Path = "/admin/authority/user",
+                            Title = "用户管理"
+                        },
+                        new
+                        {
+                            Id = new Guid("044b20ff-34ed-432f-a61c-84f46f1f5cbf"),
+                            Component = "@/pages/authority/menus/index",
+                            ConcurrencyStamp = "227cb7998c7f4d178e0fa857d5e64ff1",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3689),
+                            ExtraProperties = "{}",
+                            Index = 2,
+                            IsDeleted = false,
+                            Name = "菜单管理",
+                            ParentId = new Guid("f58d2feb-f9c7-4a5a-a761-78690fe3e895"),
+                            Path = "/admin/authority/menu",
+                            Title = "菜单管理"
+                        },
+                        new
+                        {
+                            Id = new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"),
+                            ConcurrencyStamp = "67fa0977e0f949b897ed874b5a886bca",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3693),
+                            ExtraProperties = "{}",
+                            Icon = "DashboardOutlined",
+                            Index = 2,
+                            IsDeleted = false,
+                            Name = "设备",
+                            Path = "/admin/devices",
+                            Title = "设备"
+                        },
+                        new
+                        {
+                            Id = new Guid("4b3b6690-d5d6-4693-83f8-fb41c1c47bdb"),
+                            Component = "@/pages/devices/template/index",
+                            ConcurrencyStamp = "3a85f04cda0d49399c9bab7d9f3b345d",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3702),
+                            ExtraProperties = "{}",
+                            Index = 0,
+                            IsDeleted = false,
+                            Name = "设备模板",
+                            ParentId = new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"),
+                            Path = "/admin/devices/template",
+                            Title = "设备模板"
+                        },
+                        new
+                        {
+                            Id = new Guid("fcc79e87-cd8e-431c-b38f-3135fabff3e2"),
+                            Component = "@/pages/devices/admin/index",
+                            ConcurrencyStamp = "63df7f5b74324fffb90a891f5f766fb9",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3714),
+                            ExtraProperties = "{}",
+                            Index = 2,
+                            IsDeleted = false,
+                            Name = "设备管理",
+                            ParentId = new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"),
+                            Path = "/admin/devices/admin",
+                            Title = "设备管理"
+                        },
+                        new
+                        {
+                            Id = new Guid("1d55c6a4-95ef-4ec7-924a-5f43a0dae42f"),
+                            Component = "@/pages/devices/running-log/index",
+                            ConcurrencyStamp = "2541dd6b6e0f47db86917db802146c56",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3710),
+                            ExtraProperties = "{}",
+                            Index = 1,
+                            IsDeleted = false,
+                            Name = "设备运行日志",
+                            ParentId = new Guid("5ed82239-c2d3-4391-ab67-e752448f3816"),
+                            Path = "/admin/devices/admin",
+                            Title = "设备运行日志"
+                        });
                 });
 
             modelBuilder.Entity("Iot.Auth.Domain.Roles.Role", b =>
@@ -136,17 +313,28 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasComment("编码");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .IsConcurrencyToken()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)")
+                        .HasColumnName("ConcurrencyStamp");
 
                     b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<string>("ExtraProperties")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ExtraProperties");
 
                     b.Property<int>("Index")
                         .HasColumnType("int")
                         .HasComment("排序");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("IsDeleted");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -166,6 +354,20 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.ToTable("Roles", (string)null);
 
                     b.HasComment("角色");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("bcb5daa3-2cd0-4a89-958c-ce525688b791"),
+                            Code = "admin",
+                            ConcurrencyStamp = "e4f30f8cc16b4e8888a9ff5df7b00a8a",
+                            CreationTime = new DateTime(2022, 9, 4, 23, 16, 51, 615, DateTimeKind.Local).AddTicks(3561),
+                            ExtraProperties = "{}",
+                            Index = 0,
+                            IsDeleted = false,
+                            Name = "管理员",
+                            Remark = "系统管理员"
+                        });
                 });
 
             modelBuilder.Entity("Iot.Device.Devices", b =>
@@ -225,13 +427,13 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1c53df06-641c-4125-97dd-b10ebcc22fbc"),
+                            Id = new Guid("fee8dc18-d869-4e9a-b345-98fe148065ca"),
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DeviceTemplateId = new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"),
+                            DeviceTemplateId = new Guid("58815bdd-614a-4d71-a1e0-d999c40479d0"),
                             IsDeleted = false,
                             Remark = "",
                             Stats = 1,
-                            UserInfoId = new Guid("7f730715-c83e-4998-ac60-fb326e769bf2")
+                            UserInfoId = new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3")
                         });
                 });
 
@@ -317,14 +519,14 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"),
+                            Id = new Guid("58815bdd-614a-4d71-a1e0-d999c40479d0"),
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Icon = "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
                             IsDeleted = false,
                             Name = "温度计",
                             Remark = "",
                             Type = 0,
-                            UserId = new Guid("7f730715-c83e-4998-ac60-fb326e769bf2")
+                            UserId = new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3")
                         });
                 });
 
@@ -397,7 +599,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7f730715-c83e-4998-ac60-fb326e769bf2"),
+                            Id = new Guid("4754a271-42d5-4e0d-8298-41b19dd00ab3"),
                             AccountNumber = "admin",
                             Avatar = "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg",
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
