@@ -5,7 +5,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Iot.Devices;
 
-public interface IDevicesRepository : IRepository<IotDevices, Guid>
+public interface IDevicesRepository : IRepository<Device.Devices, Guid>
 {
     /// <summary>
     /// 获取设备列表
@@ -15,7 +15,7 @@ public interface IDevicesRepository : IRepository<IotDevices, Guid>
     /// <param name="skipCount"></param>
     /// <param name="maxResultCount"></param>
     /// <returns></returns>
-    Task<List<IotDevices>> GetListAsync(Guid userId, string keywords, int skipCount, int maxResultCount);
+    Task<List<Device.Devices>> GetListAsync(Guid userId, string keywords, int skipCount, int maxResultCount);
 
     /// <summary>
     /// 获取设备列表数量

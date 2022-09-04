@@ -46,4 +46,11 @@ public interface IDevicesService
     /// <param name="input"></param>
     /// <returns></returns>
     Task<PagedResultDto<DeviceLogDto>> GetDeviceLogListAsync(GetDeviceLogListInput input);
+
+    /// <summary>
+    /// 绑定设备
+    /// </summary>
+    /// <param name="device"></param>
+    /// <returns></returns>
+    Task BinDeviceAsync(Guid device);
 }

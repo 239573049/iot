@@ -8,9 +8,11 @@ public class DevicesAutoMapperProfile : Profile
 {
     public DevicesAutoMapperProfile()
     {
-        CreateMap<CreateDeviceInput, IotDevices>();
-        CreateMap<IotDevicesDto, IotDevices>();
-        CreateMap<IotDevices,IotDevicesDto>();
+        CreateMap<CreateDeviceInput, Device.Devices>();
+        CreateMap<IotDevicesDto, Device.Devices>();
+        CreateMap<Device.Devices,IotDevicesDto>();
         CreateMap<DeviceLogView,DeviceLogDto>();
+
+        CreateMap<CreateDeviceTemplate, DeviceTemplate>();
     }
 }

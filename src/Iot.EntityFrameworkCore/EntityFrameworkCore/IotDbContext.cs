@@ -17,10 +17,12 @@ public class IotDbContext :
 
     #region Entities from the modules
 
-    public DbSet<IotDevices> IotDevices { get; set; }
+    public DbSet<Device.Devices> IotDevices { get; set; }
 
-    public DbSet<DHTxxLogs> DhTxxLogs { get; set; }
+    public DbSet<DeviceTemplate> DeviceTemplates { get; set; }
 
+    public DbSet<DeviceRunLog> DeviceRunLogs { get; set; }
+    
     public DbSet<UserInfo> UserInfo { get; set; }
 
     #endregion

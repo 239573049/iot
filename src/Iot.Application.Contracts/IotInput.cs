@@ -1,3 +1,5 @@
+using System;
+
 namespace Iot;
 
 public class IotInput : PagedRequestDto
@@ -6,4 +8,8 @@ public class IotInput : PagedRequestDto
     /// 关键字
     /// </summary>
     public string Keywords { get; set; }
+    
+    public DateTime? StartTime { get; set; }
+
+    public DateTime? EndTime { get; set; }
 }

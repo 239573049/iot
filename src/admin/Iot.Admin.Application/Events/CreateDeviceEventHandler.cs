@@ -15,12 +15,10 @@ public class CreateDeviceEventHandler : IDistributedEventHandler<CreateDevicesEt
     private readonly ILogger<CreateDeviceEventHandler> _logger;
     private readonly IUnitOfWorkManager _uowManager;
     private readonly IDevicesRepository _devicesRepository;
-    private readonly IDHTLogsRepository _dhtLogsRepository;
-    public CreateDeviceEventHandler(ILogger<CreateDeviceEventHandler> logger,  IDevicesRepository devicesRepository, IDHTLogsRepository dhtLogsRepository, IUnitOfWorkManager uowManager)
+    public CreateDeviceEventHandler(ILogger<CreateDeviceEventHandler> logger,  IDevicesRepository devicesRepository, IUnitOfWorkManager uowManager)
     {
         _logger = logger;
         _devicesRepository = devicesRepository;
-        _dhtLogsRepository = dhtLogsRepository;
         _uowManager = uowManager;
     }
 
@@ -37,30 +35,7 @@ public class CreateDeviceEventHandler : IDistributedEventHandler<CreateDevicesEt
             return;
         }
 
-        switch (device.Type)
-        {
-            case DeviceType.DHT:
-                await DHTxxx(eventData);
-                break;
-        }
-
         await uow.CompleteAsync();
     }
 
-    /// <summary>
-    /// 处理DHT日志
-    /// </summary>
-    /// <param name="data"></param>
-    private async Task DHTxxx(CreateDevicesEto data)
-    {
-        var dto = JsonConvert.DeserializeObject<DHTDto>(data.Data.ToString());
-
-        _logger.LogWarning("添加Dht日志 {data}", dto);
-        var dht = new DHTxxLogs(Guid.NewGuid(), data.DeviceId);
-        
-        dht.Logs.Add(nameof(dto.Humidity), dto.Humidity);
-        dht.Logs.Add(nameof(dto.Temperature), dto.Temperature);
-        dht.IsDeleted = false;
-        await _dhtLogsRepository.InsertAsync(dht);
-    }
 }

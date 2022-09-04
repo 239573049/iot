@@ -5,8 +5,8 @@ namespace Iot;
 public enum DeviceType
 {
     /// <summary>
-    /// DHTxx温度计
+    /// 温度计
     /// </summary>
-    [Description("DHTxx温度计")]
-    DHT,
+    [Description("温度计")]
+    Thermometer,
 }

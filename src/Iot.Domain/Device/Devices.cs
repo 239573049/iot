@@ -1,36 +1,33 @@
 using System;
+using Iot.Devices;
 using Iot.Users;
 using Volo.Abp;
 
-namespace Iot.Devices;
+namespace Iot.Device;
 
-public class IotDevices : IotAggregateRoot<Guid>
+public class Devices : IotAggregateRoot<Guid>
 {
-    /// <summary>
-    /// 设备名称
-    /// </summary>
-    public string? Name { get; protected set; }
-
-    /// <summary>
-    /// 设备图标
-    /// </summary>
-    public string? Icon { get; protected set; }
-
-    /// <summary>
-    /// 设备类型
-    /// </summary>
-    public DeviceType Type { get; protected set; }
 
     /// <summary>
     /// 备注
     /// </summary>
-    public string? Remark { get; protected set; }
+    public string Remark { get; protected set; }
 
     /// <summary>
     /// 状态
     /// </summary>
     public DeviceStats Stats { get; protected set; }
 
+    /// <summary>
+    /// 设备名称
+    /// </summary>
+    public string Name { get; set; }
+    
+    /// <summary>
+    /// 最后活跃时间
+    /// </summary>
+    public DateTime? LastTime { get; set; }
+    
     public void SetStats(DeviceStats stats)
     {
         if (stats == Stats)
@@ -46,6 +43,11 @@ public class IotDevices : IotAggregateRoot<Guid>
     /// </summary>
     public Guid? UserInfoId { get; protected set; }
 
+    /// <summary>
+    /// 设备模板
+    /// </summary>
+    public Guid? DeviceTemplateId { get; set; }
+
     public void SetUserInfoId(Guid userInfoId)
     {
         if (userInfoId == Guid.Empty)
@@ -56,19 +58,17 @@ public class IotDevices : IotAggregateRoot<Guid>
 
     public virtual UserInfo UserInfo { get; set; }
 
-    public IotDevices()
+    public virtual DeviceTemplate DeviceTemplate { get; set; }
+    
+    public Devices()
     {
     }
 
-    public IotDevices(Guid id, string name, string icon, DeviceType type, string remark, DeviceStats stats,
-        Guid? userInfoId)
+    public Devices(string remark, DeviceStats stats, Guid? userInfoId, Guid deviceTemplateId)
     {
-        Id = id;
-        Name = name;
-        Icon = icon;
-        Type = type;
         Remark = remark;
         Stats = stats;
         UserInfoId = userInfoId;
+        DeviceTemplateId = deviceTemplateId;
     }
 }

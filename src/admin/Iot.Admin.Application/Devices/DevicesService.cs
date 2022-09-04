@@ -29,7 +29,7 @@ public class DevicesService : ApplicationService, IDevicesService
     public async Task CreateAsync(CreateDeviceInput input)
     {
         var userId = _accessor.GetUserId();
-        var data = ObjectMapper.Map<CreateDeviceInput, IotDevices>(input);
+        var data = ObjectMapper.Map<CreateDeviceInput, Device.Devices>(input);
         data.SetUserInfoId(userId);
         data.SetStats(DeviceStats.OffLine);
         await _devicesRepository.InsertAsync(data);
@@ -40,7 +40,7 @@ public class DevicesService : ApplicationService, IDevicesService
     {
         var data = await _devicesRepository.GetAsync(id);
 
-        var dto = ObjectMapper.Map<IotDevices, IotDevicesDto>(data);
+        var dto = ObjectMapper.Map<Device.Devices, IotDevicesDto>(data);
 
         return dto;
     }
@@ -68,7 +68,7 @@ public class DevicesService : ApplicationService, IDevicesService
 
         var count = await _devicesRepository.GetCountAsync(userId, input.Keywords);
 
-        var dto = ObjectMapper.Map<List<IotDevices>, List<IotDevicesDto>>(result);
+        var dto = ObjectMapper.Map<List<Device.Devices>, List<IotDevicesDto>>(result);
 
         return new PagedResultDto<IotDevicesDto>(count, dto);
     }
@@ -94,5 +94,12 @@ public class DevicesService : ApplicationService, IDevicesService
         var dto = ObjectMapper.Map<List<DeviceLogView>, List<DeviceLogDto>>(result);
 
         return new PagedResultDto<DeviceLogDto>(count, dto);
+    }
+
+    public Task BinDeviceAsync(Guid device)
+    {
+        var userId = _accessor.GetUserId();
+
+        throw new BusinessException();
     }
 }

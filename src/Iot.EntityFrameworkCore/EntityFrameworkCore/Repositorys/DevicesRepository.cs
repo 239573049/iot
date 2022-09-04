@@ -12,13 +12,14 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace Iot.EntityFrameworkCore.Repositorys;
 
-public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid>, IDevicesRepository
+public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, Guid>, IDevicesRepository
 {
     public DevicesRepository(IDbContextProvider<IotDbContext> dbContextProvider) : base(dbContextProvider)
     {
     }
 
-    public async Task<List<IotDevices>> GetListAsync(Guid userId, string keywords, int skipCount, int maxResultCount)
+    public async Task<List<Device.Devices>> GetListAsync(Guid userId, string keywords, int skipCount,
+        int maxResultCount)
     {
         var query = await CreateQueryAsync(userId, keywords);
 
@@ -41,13 +42,6 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
         if (device == null)
         {
             throw new NoNullAllowedException("device");
-        }
-
-        switch (device.Type)
-        {
-            case DeviceType.DHT:
-                return await (await CreateDHTxxAsync(deviceId)).FirstOrDefaultAsync();
-                break;
         }
 
 
@@ -82,47 +76,18 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, IotDevices, Guid
             throw new NoNullAllowedException("device");
         }
 
-        switch (device.Type)
-        {
-            case DeviceType.DHT:
-                return (await CreateDHTxxAsync(deviceId))
-                    .WhereIf(startTime.HasValue, x => x.CreationTime > startTime)
-                    .WhereIf(endTime.HasValue, x => x.CreationTime < endTime);
-                break;
-        }
-        
+
         throw new BusinessException(message: "未存在设备类型");
     }
 
-    /// <summary>
-    /// 创建查询DHT日志
-    /// </summary>
-    /// <param name="deviceId"></param>
-    /// <returns></returns>
-    private async Task<IQueryable<DeviceLogView>> CreateDHTxxAsync(Guid deviceId)
-    {
-        var dbContext = await GetDbContextAsync();
-
-        var query = dbContext.DhTxxLogs.Where(x => x.DeviceId == deviceId)
-                .OrderByDescending(x => x.CreationTime).Select(x => new DeviceLogView
-                {
-                    Id = x.Id,
-                    Type = DeviceType.DHT,
-                    CreationTime = x.CreationTime,
-                    Data = JsonConvert.SerializeObject(x.Logs)
-                })
-            ;
-
-        return query;
-    }
-
-    private async Task<IQueryable<IotDevices>> CreateQueryAsync(Guid userId, string keywords)
+    private async Task<IQueryable<Device.Devices>> CreateQueryAsync(Guid userId, string keywords)
     {
         var dbContext = await GetDbContextAsync();
 
         var query = dbContext.IotDevices
             .Where(x => x.UserInfoId == userId)
-            .WhereIf(!keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords))
+            .WhereIf(!keywords.IsNullOrEmpty(),
+                x => x.DeviceTemplate.Name.Contains(keywords) || x.Remark.Contains(keywords))
             .OrderByDescending(x => x.CreationTime);
 
         return query;
