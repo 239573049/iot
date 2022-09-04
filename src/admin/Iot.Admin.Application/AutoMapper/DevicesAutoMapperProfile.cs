@@ -14,5 +14,6 @@ public class DevicesAutoMapperProfile : Profile
         CreateMap<DeviceLogView,DeviceLogDto>();
 
         CreateMap<CreateDeviceTemplate, DeviceTemplate>();
+        CreateMap<DeviceTemplate, DeviceTemplateDto>();
     }
 }
