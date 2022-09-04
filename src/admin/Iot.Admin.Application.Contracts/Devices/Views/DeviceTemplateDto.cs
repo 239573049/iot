@@ -1,3 +1,5 @@
+using Iot.Common.Core.Extensions;
+
 namespace Iot.Admin.Application.Contracts.Devices.Views;
 
 public class DeviceTemplateDto 
@@ -18,6 +20,8 @@ public class DeviceTemplateDto
     /// 设备类型
     /// </summary>
     public DeviceType Type { get; protected set; }
+
+    public string TypeName => Type.GetDescription();
 
     /// <summary>
     /// 备注

@@ -1,8 +1,6 @@
-using Iot.Admin.Application.Contracts.Events;
-using Iot.Devices;
+using Iot.Device;
 using Iot.Events;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.EventBus.Distributed;
