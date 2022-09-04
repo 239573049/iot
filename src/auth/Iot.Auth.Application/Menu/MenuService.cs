@@ -54,7 +54,7 @@ public class MenuService : ApplicationService, IMenuService
         {
             throw new ArgumentNullException(nameof(Domain.Roles.Menu));
         }
-
+        
         if (menus.All(x => x.Id != menu.Id))
         {
             menus.Add(menu);

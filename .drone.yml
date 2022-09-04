@@ -71,7 +71,7 @@ steps:
     commands:
       - docker-compose down && docker-compose up -d
       - docker system prune -f
-      - docker restart main-nginx
+      - docker restart nginx
 
 volumes:
   - name: dockersock
