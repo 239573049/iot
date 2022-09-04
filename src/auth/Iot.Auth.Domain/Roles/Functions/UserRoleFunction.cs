@@ -3,7 +3,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace Iot.Auth.Domain.Roles.Functions;
 
-public class UserRoleFunction : AggregateRoot<Guid>
+public class UserRoleFunction 
 {
     public Guid UserInfoId { get; set; }
 

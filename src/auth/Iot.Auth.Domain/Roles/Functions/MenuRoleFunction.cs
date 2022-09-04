@@ -2,7 +2,7 @@ using Volo.Abp.Domain.Entities;
 
 namespace Iot.Auth.Domain.Roles.Functions;
 
-public class MenuRoleFunction : AggregateRoot<Guid>
+public class MenuRoleFunction 
 {
     /// <summary>
     ///

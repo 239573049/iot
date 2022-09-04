@@ -7,7 +7,6 @@ namespace Iot.Device;
 
 public class Devices : IotAggregateRoot<Guid>
 {
-
     /// <summary>
     /// 备注
     /// </summary>
@@ -22,12 +21,12 @@ public class Devices : IotAggregateRoot<Guid>
     /// 设备名称
     /// </summary>
     public string Name { get; set; }
-    
+
     /// <summary>
     /// 最后活跃时间
     /// </summary>
     public DateTime? LastTime { get; set; }
-    
+
     public void SetStats(DeviceStats stats)
     {
         if (stats == Stats)
@@ -59,13 +58,14 @@ public class Devices : IotAggregateRoot<Guid>
     public virtual UserInfo UserInfo { get; set; }
 
     public virtual DeviceTemplate DeviceTemplate { get; set; }
-    
+
     public Devices()
     {
     }
 
-    public Devices(string remark, DeviceStats stats, Guid? userInfoId, Guid deviceTemplateId)
+    public Devices(Guid id, string remark, DeviceStats stats, Guid? userInfoId, Guid deviceTemplateId)
     {
+        Id = id;
         Remark = remark;
         Stats = stats;
         UserInfoId = userInfoId;

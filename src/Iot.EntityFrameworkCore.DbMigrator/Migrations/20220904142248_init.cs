@@ -74,24 +74,19 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DHTLogs",
+                name: "DeviceRunLogs",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DeviceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Logs = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    DeletionTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ExtraProperties = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true)
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DHTLogs", x => x.Id);
+                    table.PrimaryKey("PK_DeviceRunLogs", x => x.Id);
                 },
-                comment: "DHT运行记录");
+                comment: "设备运行信息");
 
             migrationBuilder.CreateTable(
                 name: "IotUserInfo",
@@ -209,16 +204,15 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "IotDevices",
+                name: "DeviceTemplates",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Icon = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Type = table.Column<int>(type: "int", nullable: false),
-                    Remark = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Stats = table.Column<int>(type: "int", nullable: false),
-                    UserInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "模板名称"),
+                    Icon = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "图标"),
+                    Type = table.Column<int>(type: "int", nullable: false, comment: "类型"),
+                    Remark = table.Column<string>(type: "nvarchar(max)", nullable: true, comment: "备注"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true, comment: "用户id"),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     DeletionTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -226,14 +220,14 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_IotDevices", x => x.Id);
+                    table.PrimaryKey("PK_DeviceTemplates", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_IotDevices_IotUserInfo_UserInfoId",
-                        column: x => x.UserInfoId,
+                        name: "FK_DeviceTemplates_IotUserInfo_UserId",
+                        column: x => x.UserId,
                         principalTable: "IotUserInfo",
                         principalColumn: "Id");
                 },
-                comment: "设备信息");
+                comment: "设备模板");
 
             migrationBuilder.CreateTable(
                 name: "menuRoleFunctions",
@@ -312,15 +306,52 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "IotDevices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Remark = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Stats = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UserInfoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DeviceTemplateId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    DeletionTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreationTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IotDevices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_IotDevices_DeviceTemplates_DeviceTemplateId",
+                        column: x => x.DeviceTemplateId,
+                        principalTable: "DeviceTemplates",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_IotDevices_IotUserInfo_UserInfoId",
+                        column: x => x.UserInfoId,
+                        principalTable: "IotUserInfo",
+                        principalColumn: "Id");
+                },
+                comment: "设备信息");
+
             migrationBuilder.InsertData(
                 table: "IotUserInfo",
                 columns: new[] { "Id", "AccountNumber", "Avatar", "CreationTime", "CreatorId", "DeletionTime", "Introduce", "Name", "Password", "PhoneNumber", "State", "WeChatOpenId" },
-                values: new object[] { new Guid("887607d2-c49a-4318-a878-500dac01f1ba"), "admin", "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "超级管理员", "管理员", "dd666666", "13049809673", 0, null });
+                values: new object[] { new Guid("7f730715-c83e-4998-ac60-fb326e769bf2"), "admin", "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "超级管理员", "管理员", "dd666666", "13049809673", 0, null });
+
+            migrationBuilder.InsertData(
+                table: "DeviceTemplates",
+                columns: new[] { "Id", "CreationTime", "CreatorId", "DeletionTime", "Icon", "Name", "Remark", "Type", "UserId" },
+                values: new object[] { new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png", "温度计", "", 0, new Guid("7f730715-c83e-4998-ac60-fb326e769bf2") });
 
             migrationBuilder.InsertData(
                 table: "IotDevices",
-                columns: new[] { "Id", "CreationTime", "CreatorId", "DeletionTime", "Icon", "Name", "Remark", "Stats", "Type", "UserInfoId" },
-                values: new object[] { new Guid("f5a5eb25-9e7c-4898-a94c-0e899b315d68"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png", "温度计", "", 1, 0, new Guid("887607d2-c49a-4318-a878-500dac01f1ba") });
+                columns: new[] { "Id", "CreationTime", "CreatorId", "DeletionTime", "DeviceTemplateId", "LastTime", "Name", "Remark", "Stats", "UserInfoId" },
+                values: new object[] { new Guid("1c53df06-641c-4125-97dd-b10ebcc22fbc"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"), null, null, "", 1, new Guid("7f730715-c83e-4998-ac60-fb326e769bf2") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AbpAuditLogActions_AuditLogId",
@@ -372,14 +403,24 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 filter: "[ProviderName] IS NOT NULL AND [ProviderKey] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DHTLogs_DeviceId",
-                table: "DHTLogs",
+                name: "IX_DeviceRunLogs_DeviceId",
+                table: "DeviceRunLogs",
                 column: "DeviceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DHTLogs_Id",
-                table: "DHTLogs",
+                name: "IX_DeviceRunLogs_Id",
+                table: "DeviceRunLogs",
                 column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DeviceTemplates_UserId",
+                table: "DeviceTemplates",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_IotDevices_DeviceTemplateId",
+                table: "IotDevices",
+                column: "DeviceTemplateId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_IotDevices_Id",
@@ -467,7 +508,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 name: "AbpSettings");
 
             migrationBuilder.DropTable(
-                name: "DHTLogs");
+                name: "DeviceRunLogs");
 
             migrationBuilder.DropTable(
                 name: "IotDevices");
@@ -482,16 +523,19 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                 name: "AbpEntityChanges");
 
             migrationBuilder.DropTable(
-                name: "Menus");
+                name: "DeviceTemplates");
 
             migrationBuilder.DropTable(
-                name: "IotUserInfo");
+                name: "Menus");
 
             migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "AbpAuditLogs");
+
+            migrationBuilder.DropTable(
+                name: "IotUserInfo");
         }
     }
 }

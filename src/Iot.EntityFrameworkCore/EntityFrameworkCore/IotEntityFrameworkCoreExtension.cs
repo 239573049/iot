@@ -88,7 +88,7 @@ public static class IotEntityFrameworkCoreExtension
         var iot = new DeviceTemplate(iotId, "温度计", "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
             DeviceType.Thermometer, "", userId);
 
-        var device = new Device.Devices("", DeviceStats.OffLine, userId, iotId);
+        var device = new Device.Devices(Guid.NewGuid(),"", DeviceStats.OffLine, userId, iotId);
 
         builder.Entity<DeviceTemplate>().HasData(iot);
         builder.Entity<Device.Devices>().HasData(device);

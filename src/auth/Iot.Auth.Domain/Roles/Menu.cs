@@ -42,4 +42,21 @@ public class Menu : AggregateRoot<Guid>,ISoftDelete,IHasCreationTime
     public bool IsDeleted { get; set; }
     
     public DateTime CreationTime { get; }
+
+    public Menu()
+    {
+    }
+
+    public Menu(Guid id, int index, string? component, string? title, string? name, string? icon, string? path, Guid? parentId) : base(id)
+    {
+        Index = index;
+        Component = component;
+        Title = title;
+        Name = name;
+        Icon = icon;
+        Path = path;
+        ParentId = parentId;
+        IsDeleted = false;
+        CreationTime = DateTime.Now;
+    }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
 {
     [DbContext(typeof(IotMigrationsDbContext))]
-    [Migration("20220828164010_init")]
+    [Migration("20220904142248_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,17 +168,11 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasComment("角色");
                 });
 
-            modelBuilder.Entity("Iot.Devices.DHTxxLogs", b =>
+            modelBuilder.Entity("Iot.Device.Devices", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)")
-                        .HasColumnName("ConcurrencyStamp");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime2")
@@ -192,18 +186,67 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletionTime");
 
-                    b.Property<Guid>("DeviceId")
+                    b.Property<Guid?>("DeviceTemplateId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ExtraProperties")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("ExtraProperties");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false)
                         .HasColumnName("IsDeleted");
+
+                    b.Property<DateTime?>("LastTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Stats")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("UserInfoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceTemplateId");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("UserInfoId");
+
+                    b.ToTable("IotDevices", (string)null);
+
+                    b.HasComment("设备信息");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1c53df06-641c-4125-97dd-b10ebcc22fbc"),
+                            CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DeviceTemplateId = new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"),
+                            IsDeleted = false,
+                            Remark = "",
+                            Stats = 1,
+                            UserInfoId = new Guid("7f730715-c83e-4998-ac60-fb326e769bf2")
+                        });
+                });
+
+            modelBuilder.Entity("Iot.Devices.DeviceRunLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreationTime");
+
+                    b.Property<Guid>("DeviceId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Logs")
                         .HasColumnType("nvarchar(max)");
@@ -214,12 +257,12 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
 
                     b.HasIndex("Id");
 
-                    b.ToTable("DHTLogs", (string)null);
+                    b.ToTable("DeviceRunLogs", (string)null);
 
-                    b.HasComment("DHT运行记录");
+                    b.HasComment("设备运行信息");
                 });
 
-            modelBuilder.Entity("Iot.Devices.IotDevices", b =>
+            modelBuilder.Entity("Iot.Devices.DeviceTemplate", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -238,7 +281,8 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasColumnName("DeletionTime");
 
                     b.Property<string>("Icon")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("图标");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -247,42 +291,40 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                         .HasColumnName("IsDeleted");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("模板名称");
 
                     b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Stats")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)")
+                        .HasComment("备注");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasComment("类型");
 
-                    b.Property<Guid?>("UserInfoId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasComment("用户id");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Id");
+                    b.HasIndex("UserId");
 
-                    b.HasIndex("UserInfoId");
+                    b.ToTable("DeviceTemplates", (string)null);
 
-                    b.ToTable("IotDevices", (string)null);
-
-                    b.HasComment("设备信息");
+                    b.HasComment("设备模板");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f5a5eb25-9e7c-4898-a94c-0e899b315d68"),
+                            Id = new Guid("a6c44d61-f63e-4775-b763-9b2abfdc283f"),
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Icon = "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
                             IsDeleted = false,
                             Name = "温度计",
                             Remark = "",
-                            Stats = 1,
                             Type = 0,
-                            UserInfoId = new Guid("887607d2-c49a-4318-a878-500dac01f1ba")
+                            UserId = new Guid("7f730715-c83e-4998-ac60-fb326e769bf2")
                         });
                 });
 
@@ -355,7 +397,7 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("887607d2-c49a-4318-a878-500dac01f1ba"),
+                            Id = new Guid("7f730715-c83e-4998-ac60-fb326e769bf2"),
                             AccountNumber = "admin",
                             Avatar = "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg",
                             CreationTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -734,13 +776,28 @@ namespace Iot.EntityFrameworkCore.Dbmigrator.Migrations
                     b.Navigation("UserInfo");
                 });
 
-            modelBuilder.Entity("Iot.Devices.IotDevices", b =>
+            modelBuilder.Entity("Iot.Device.Devices", b =>
                 {
+                    b.HasOne("Iot.Devices.DeviceTemplate", "DeviceTemplate")
+                        .WithMany()
+                        .HasForeignKey("DeviceTemplateId");
+
                     b.HasOne("Iot.Users.UserInfo", "UserInfo")
                         .WithMany()
                         .HasForeignKey("UserInfoId");
 
+                    b.Navigation("DeviceTemplate");
+
                     b.Navigation("UserInfo");
+                });
+
+            modelBuilder.Entity("Iot.Devices.DeviceTemplate", b =>
+                {
+                    b.HasOne("Iot.Users.UserInfo", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLogAction", b =>
