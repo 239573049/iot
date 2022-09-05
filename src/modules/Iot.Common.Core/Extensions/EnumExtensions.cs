@@ -12,14 +12,7 @@ public static class EnumExtensions
     /// <returns></returns>
     public static string GetDescription(this Enum value)
     {
-        if (value == null) return null;
 
-        var attributes= value.GetType().GetCustomAttributes<DescriptionAttribute>();
-        if (attributes?.Any()==true)
-        {
-            return attributes.FirstOrDefault().Description;
-        }
-
-        return value.ToString();
+        return value.GetType().GetMember(value.ToString()).FirstOrDefault()?.GetCustomAttribute<DescriptionAttribute>()?.Description ?? null;
     }
 }
