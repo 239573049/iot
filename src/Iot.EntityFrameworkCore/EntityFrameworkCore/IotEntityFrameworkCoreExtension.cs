@@ -85,7 +85,7 @@ public static class IotEntityFrameworkCoreExtension
 
         var iotId = Guid.NewGuid();
         var iot = new DeviceTemplate(iotId, "温度计", "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
-            DeviceType.Thermometer, "", Constants.AdminId);
+            "温度计", "备注", Constants.AdminId);
 
         var device = new Device.Devices(Guid.NewGuid(),"", DeviceStats.OffLine, Constants.AdminId, iotId);
 

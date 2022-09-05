@@ -15,7 +15,6 @@ public class DevicesAutoMapperProfile : Profile
         CreateMap<DeviceLogView, DeviceLogDto>();
 
         CreateMap<CreateDeviceTemplate, DeviceTemplate>();
-        CreateMap<DeviceTemplate, DeviceTemplateDto>()
-            .ForMember(x => x.Type, x => x.MapFrom(x => x.Type.GetDescription()));
+        CreateMap<DeviceTemplate, DeviceTemplateDto>();
     }
 }

@@ -18,7 +18,7 @@ public class DeviceTemplate : IotAggregateRoot<Guid>
     /// <summary>
     /// 设备类型
     /// </summary>
-    public DeviceType Type { get; protected set; }
+    public string Type { get; protected set; }
 
     /// <summary>
     /// 备注
@@ -32,7 +32,7 @@ public class DeviceTemplate : IotAggregateRoot<Guid>
 
     public virtual UserInfo User { get; set; }
 
-    public DeviceTemplate(Guid id,string name, string icon, DeviceType type, string remark, Guid? userId)
+    public DeviceTemplate(Guid id,string name, string icon, string type, string remark, Guid? userId)
     {
         Id = id;
         Name = name;
