@@ -29,7 +29,7 @@ public class Accessor : ITransientDependency
 
     public Guid ID => Guid.Parse(GetClaimValueByType(Constants.Id).FirstOrDefault() ?? Guid.Empty.ToString());
 
-    public Guid? GetDeviceId()
+    public Guid GetDeviceId()
     {
         var data = _contextAccessor.HttpContext?.Request.Headers[Constants.DeviceId];
         if (data.HasValue)
@@ -37,9 +37,25 @@ public class Accessor : ITransientDependency
             return Guid.Parse(data);
         }
 
-        return null;
+        throw new BusinessException(IotDomainErrorCodes.IsNullDeviceId);
     }
 
+    /// <summary>
+    /// 获取设备模板Id
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="BusinessException"></exception>
+    public Guid GetDeviceTemplateId()
+    {
+        var data = _contextAccessor.HttpContext?.Request.Headers[Constants.DeviceTemplateId];
+        if (data.HasValue)
+        {
+            return Guid.Parse(data);
+        }
+
+        throw new BusinessException(IotDomainErrorCodes.IsNullDeviceTemplateId);
+    }
+    
     public bool? IsAuthenticated()
     {
         return _contextAccessor.HttpContext?.User.Identity?.IsAuthenticated;
@@ -98,10 +114,18 @@ public class Accessor : ITransientDependency
         return JsonConvert.DeserializeObject<List<Guid>>(data);
     }
     
+    /// <summary>
+    /// 获取当前用户id
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="BusinessException">账号未授权</exception>
     public Guid GetUserId()
     {
         var user = ID;
-        if (user == Guid.Empty) throw new BusinessException("401", "账号未授权");
+        if (user == Guid.Empty)
+        {
+            throw new BusinessException("401", "账号未授权");
+        }
 
         return user;
     }

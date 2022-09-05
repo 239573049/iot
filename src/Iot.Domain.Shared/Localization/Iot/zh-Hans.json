@@ -4,6 +4,8 @@
       "Auth:NotUserName":"账号或者密码错误",
       "Admin:NotNullDeviceId":"设备id不能为空",
       "Admin:NotUserInfoId":"用户id不能为空",
+      "Admin:IsNullDeviceId":"设备Id为空",
+      "Admin:IsNullDeviceTemplateId":"设备模板id为空",
       "Auth:Unauthorized":"账号未授权"
     }
   }

@@ -1,4 +1,5 @@
-﻿using Iot.Devices;
+﻿using Iot.Device;
+using Iot.Devices;
 using Iot.Users;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;

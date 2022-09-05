@@ -16,6 +16,16 @@ public static class IotDomainErrorCodes
     /// </summary>
     public const string Unauthorized = Auth + "Unauthorized";
     
+    /// <summary>
+    /// 设备id为空
+    /// </summary>
+    public const string IsNullDeviceId = Auth + "IsNullDeviceId";
+    
+    /// <summary>
+    /// 设备模板id为空
+    /// </summary>
+    public const string IsNullDeviceTemplateId = Auth + "IsNullDeviceTemplateId";
+    
     #endregion
 
     #region Admin

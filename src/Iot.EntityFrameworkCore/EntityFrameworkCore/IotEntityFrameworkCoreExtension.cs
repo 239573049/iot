@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using Iot.Device;
 using Iot.Devices;
 using Iot.Users;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Volo.Abp.EntityFrameworkCore.Modeling;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Iot.EntityFrameworkCore;
 
@@ -36,16 +39,16 @@ public static class IotEntityFrameworkCoreExtension
             x.ToTable("DeviceRunLogs");
             x.HasComment("设备运行信息");
             x.ConfigureByConvention();
-            
+
             x.HasIndex(x => x.Id);
             x.HasKey(x => x.Id);
             x.HasIndex(x => x.DeviceId);
-        
+
             // 将字典类型转换字符串存储在数据库
             x.Property(x => x.Logs)
                 .HasConversion(x => JsonConvert.SerializeObject(x),
-                    x => JsonConvert.DeserializeObject<Dictionary<string, string>>(x) ??
-                         new Dictionary<string, string>());
+                    x => JsonSerializer.Deserialize<Dictionary<string, object>>(x, new JsonSerializerOptions()) ??
+                         new Dictionary<string, object>());
         });
 
         builder.Entity<DeviceTemplate>(x =>
@@ -60,7 +63,7 @@ public static class IotEntityFrameworkCoreExtension
             x.Property(x => x.Type).HasComment("类型");
             x.Property(x => x.UserId).HasComment("用户id");
         });
-        
+
         builder.Entity<Device.Devices>(x =>
         {
             x.ToTable("IotDevices");
@@ -87,7 +90,7 @@ public static class IotEntityFrameworkCoreExtension
         var iot = new DeviceTemplate(iotId, "温度计", "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
             "温度计", "备注", Constants.AdminId);
 
-        var device = new Device.Devices(Guid.NewGuid(),"", DeviceStats.OffLine, Constants.AdminId, iotId);
+        var device = new Device.Devices(Guid.NewGuid(), "", DeviceStats.OffLine, Constants.AdminId, iotId);
 
         builder.Entity<DeviceTemplate>().HasData(iot);
         builder.Entity<Device.Devices>().HasData(device);
