@@ -6,6 +6,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Iot</RootNamespace>
     <LangVersion>10</LangVersion>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

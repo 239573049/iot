@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
+using Swashbuckle.AspNetCore.SwaggerUI;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
@@ -63,21 +64,32 @@ public class IotAuthHttpApiHostModule : AbpModule
 
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
     {
-        context.Services.AddAbpSwaggerGen(options =>
+        context.Services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo { Title = "Iot API", Version = "v1" });
-            options.DocInclusionPredicate((docName, description) => true);
-            options.CustomSchemaIds(type => type.FullName);
+            
+            string[] files = Directory.GetFiles(AppContext.BaseDirectory, "*.xml");//获取api文档
+            string[] array = files;
+            foreach (string filePath in array)
+            {
+                options.IncludeXmlComments(filePath, true);
+            }
+
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {
                     new OpenApiSecurityScheme
                     {
-                        Reference = new OpenApiReference { Id = "Bearer", Type = ReferenceType.SecurityScheme }
+                        Reference = new OpenApiReference
+                        {
+                            Id = "Bearer",
+                            Type = ReferenceType.SecurityScheme
+                        }
                     },
                     Array.Empty<string>()
                 }
             });
+            
             options.AddSecurityDefinition("Bearer",
                 new OpenApiSecurityScheme
                 {
@@ -142,8 +154,13 @@ public class IotAuthHttpApiHostModule : AbpModule
         app.UseAuthorization();
 
         app.UseSwagger();
-        app.UseAbpSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "auth API"); });
-
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/1/swagger.json", "auth Api");
+            c.DocExpansion(DocExpansion.List);
+            c.DefaultModelsExpandDepth(-1);
+        });
+        
         app.UseHealthChecks("/healthCheck");
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
