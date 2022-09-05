@@ -19,9 +19,7 @@ public class DeviceTemplateDto
     /// <summary>
     /// 设备类型
     /// </summary>
-    public DeviceType Type { get; protected set; }
-
-    public string TypeName => Type.GetDescription();
+    public string Type { get; protected set; }
 
     /// <summary>
     /// 备注

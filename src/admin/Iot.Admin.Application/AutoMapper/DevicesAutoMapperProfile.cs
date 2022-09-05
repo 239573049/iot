@@ -1,5 +1,6 @@
 using AutoMapper;
 using Iot.Admin.Application.Contracts.Devices.Views;
+using Iot.Common.Core.Extensions;
 using Iot.Devices;
 
 namespace Iot.Admin.Application.AutoMapper;
@@ -10,10 +11,11 @@ public class DevicesAutoMapperProfile : Profile
     {
         CreateMap<CreateDeviceInput, Device.Devices>();
         CreateMap<IotDevicesDto, Device.Devices>();
-        CreateMap<Device.Devices,IotDevicesDto>();
-        CreateMap<DeviceLogView,DeviceLogDto>();
+        CreateMap<Device.Devices, IotDevicesDto>();
+        CreateMap<DeviceLogView, DeviceLogDto>();
 
         CreateMap<CreateDeviceTemplate, DeviceTemplate>();
-        CreateMap<DeviceTemplate, DeviceTemplateDto>();
+        CreateMap<DeviceTemplate, DeviceTemplateDto>()
+            .ForMember(x => x.Type, x => x.MapFrom(x => x.Type.GetDescription()));
     }
 }
