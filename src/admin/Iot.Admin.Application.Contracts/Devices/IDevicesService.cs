@@ -19,6 +19,5 @@ public interface IDevicesService
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    [DisplayName("添加设备运行日志")]
     Task SaveDeviceLogAsync(Dictionary<string,object> data);
 }

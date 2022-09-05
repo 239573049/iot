@@ -1,20 +1,16 @@
 using Iot.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
-using System;
-using System.IO;
-using System.Linq;
 using Iot.Admin.Application;
 using Iot.HttpApi;
 using Iot.Consul;
-using Swashbuckle.AspNetCore.SwaggerUI;
+using NSwag;
+using NSwag.Generation.Processors.Security;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
@@ -23,7 +19,6 @@ using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.Swashbuckle;
 using Volo.Abp.RabbitMQ;
 
 namespace Iot;
@@ -37,8 +32,7 @@ namespace Iot;
     typeof(IotApplicationModule),
     typeof(IotEntityFrameworkCoreModule),
     typeof(IotAdminHttpApiModule),
-    typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpSwashbuckleModule)
+    typeof(AbpAspNetCoreSerilogModule)
 )]
 public class IotHttpApiHostModule : AbpModule
 {
@@ -46,9 +40,9 @@ public class IotHttpApiHostModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
         var hostingEnvironment = context.Services.GetHostingEnvironment();
-        
+
         context.Services.AddHealthChecks();
-        
+
         ConfigureRabbitMq();
         ConfigureConventionalControllers();
         ConfigureLocalization();
@@ -83,40 +77,26 @@ public class IotHttpApiHostModule : AbpModule
 
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
     {
-        context.Services.AddSwaggerGen(options =>
+        context.Services.AddSwaggerDocument(options =>
         {
-            options.SwaggerDoc("v1", new OpenApiInfo { Title = "Iot API", Version = "v1" });
-            
-            string[] files = Directory.GetFiles(AppContext.BaseDirectory, "*.xml");//获取api文档
-            string[] array = files;
-            foreach (string filePath in array)
+            options.UseControllerSummaryAsTagDescription = true;
+            options.PostProcess = document =>
             {
-                options.IncludeXmlComments(filePath, true);
-            }
-
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Id = "Bearer",
-                            Type = ReferenceType.SecurityScheme
-                        }
-                    },
-                    Array.Empty<string>()
-                }
-            });
-            
-            options.AddSecurityDefinition("Bearer",
+                document.Info.Version = "v1.0.1";
+                document.Info.Title = "Iot 管理平台";
+                document.Info.Description = "Iot 管理平台 api";
+            };
+            options.AddSecurity("Bearer",
                 new OpenApiSecurityScheme
                 {
-                    Description = "请输入文字“Bearer”，后跟空格和JWT值，格式  : Bearer {token}",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
+                    Type = OpenApiSecuritySchemeType.ApiKey,
+                    Name = "Bearer",
+                    Description = "token"
                 });
+            
+            options.UseXmlDocumentation = true;
+
+            options.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("Bearer"));
         });
     }
 
@@ -172,15 +152,11 @@ public class IotHttpApiHostModule : AbpModule
 
         app.UseAuthorization();
 
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-            c.SwaggerEndpoint("/swagger/1/swagger.json", "auth Api");
-            c.DocExpansion(DocExpansion.List);
-            c.DefaultModelsExpandDepth(-1);
-        });
+        app.UseOpenApi();
+        app.UseSwaggerUi3();
+
         app.UseHealthChecks("/healthCheck");
-        
+
         app.UseAuditing();
         app.UseAbpSerilogEnrichers();
         app.UseUnitOfWork();

@@ -52,7 +52,6 @@ public class DevicesService : ApplicationService, IDevicesService
     }
 
     /// <inheritdoc />
-    [DisplayName("添加设备运行日志")]
     public async Task SaveDeviceLogAsync(Dictionary<string, object> data)
     {
         // 将日志添加到分布式事件总线处理
