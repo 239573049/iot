@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace Iot.Admin.Application.Contracts.Devices;
 
 /// <summary>

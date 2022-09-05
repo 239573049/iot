@@ -9,7 +9,9 @@ using Volo.Abp.EventBus.Distributed;
 
 namespace Iot.Admin.Application.Devices;
 
-/// <inheritdoc />
+/// <summary>
+/// 设备管理
+/// </summary>
 public class DevicesService : ApplicationService, IDevicesService
 {
     private readonly Accessor _accessor;
@@ -17,6 +19,7 @@ public class DevicesService : ApplicationService, IDevicesService
     private readonly IDevicesRepository _devicesRepository;
     private readonly IDistributedEventBus _distributedEventBus;
 
+    /// <inheritdoc />
     public DevicesService(Accessor accessor, IDevicesRepository devicesRepository,
         IDistributedEventBus distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository)
     {

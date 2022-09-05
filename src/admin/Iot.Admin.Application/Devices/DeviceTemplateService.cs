@@ -8,11 +8,15 @@ using Volo.Abp.Application.Services;
 
 namespace Iot.Admin.Application.Devices;
 
+/// <summary>
+/// 设备模板
+/// </summary>
 public class DeviceTemplateService : ApplicationService, IDeviceTemplateService
 {
     private readonly IDeviceTemplateRepository _deviceTemplateRepository;
     private readonly Accessor _accessor;
 
+    /// <inheritdoc />
     public DeviceTemplateService(IDeviceTemplateRepository deviceTemplateRepository, Accessor accessor)
     {
         _deviceTemplateRepository = deviceTemplateRepository;
