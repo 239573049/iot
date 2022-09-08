@@ -31,6 +31,7 @@ try
     await builder.AddApplicationAsync<IotAuthHttpApiHostModule>();
     var app = builder.Build();
     await app.InitializeApplicationAsync();
+    app.MapControllers();
     await app.RunAsync();
     return 0;
 }

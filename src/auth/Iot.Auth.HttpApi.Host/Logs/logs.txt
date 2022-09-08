@@ -64,3 +64,225 @@
 2022-09-08 23:31:50.202 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;+charset=utf-8 17.3409ms
 2022-09-08 23:31:50.308 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
 2022-09-08 23:31:50.734 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;+charset=utf-8 426.1936ms
+2022-09-08 23:47:58.589 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-09-08 23:48:04.926 +08:00 [INF] Loaded ABP modules:
+2022-09-08 23:48:04.926 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Iot.Consul.IotConsulModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-09-08 23:48:04.926 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-09-08 23:48:04.926 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-09-08 23:48:04.926 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-09-08 23:48:04.926 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-09-08 23:48:04.926 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-09-08 23:48:04.926 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-09-08 23:48:04.926 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-09-08 23:48:04.926 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-09-08 23:48:04.926 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-09-08 23:48:04.926 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-09-08 23:48:04.926 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-09-08 23:48:04.926 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-09-08 23:48:04.926 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-09-08 23:48:04.926 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-09-08 23:48:04.926 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-09-08 23:48:04.926 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-09-08 23:48:04.926 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-09-08 23:48:04.926 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-09-08 23:48:04.926 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-09-08 23:48:04.926 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-09-08 23:48:04.926 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-09-08 23:48:04.926 +08:00 [INF]     - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-09-08 23:48:04.926 +08:00 [INF]       - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-09-08 23:48:04.926 +08:00 [INF]       - Volo.Abp.Auditing.AbpAuditingModule
+2022-09-08 23:48:04.926 +08:00 [INF]         - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-09-08 23:48:04.926 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-09-08 23:48:04.927 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-09-08 23:48:04.927 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-09-08 23:48:04.927 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-09-08 23:48:04.927 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-09-08 23:48:04.927 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-09-08 23:48:04.927 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-09-08 23:48:04.927 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-09-08 23:48:04.927 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-09-08 23:48:04.927 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-09-08 23:48:04.927 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-09-08 23:48:04.927 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-09-08 23:48:04.927 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-09-08 23:48:04.927 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-09-08 23:48:04.927 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-09-08 23:48:04.927 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-09-08 23:48:04.927 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-09-08 23:48:04.927 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-09-08 23:48:04.927 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-09-08 23:48:05.906 +08:00 [INF] Initialized all ABP modules.
+2022-09-08 23:48:05.941 +08:00 [INF] User profile is available. Using 'C:\Users\23957\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-08 23:48:06.213 +08:00 [INF] Now listening on: https://localhost:7052
+2022-09-08 23:48:06.213 +08:00 [INF] Now listening on: http://localhost:5125
+2022-09-08 23:48:06.213 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-08 23:48:06.213 +08:00 [INF] Hosting environment: Development
+2022-09-08 23:48:06.213 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-09-08 23:48:06.348 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-09-08 23:48:06.886 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 404 0 - 538.3006ms
+2022-09-08 23:48:10.145 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:7052/api/Auth application/json 59
+2022-09-08 23:48:10.412 +08:00 [INF] AUDIT LOG: [404: POST   ] /api/Auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 1
+
+2022-09-08 23:48:10.457 +08:00 [INF] Request finished HTTP/1.1 POST https://localhost:7052/api/Auth application/json 59 - 404 0 - 311.4817ms
+2022-09-08 23:48:19.396 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-09-08 23:48:19.397 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 404 0 - 1.4955ms
+2022-09-08 23:48:22.486 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/index.html - -
+2022-09-08 23:48:22.504 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/index.html - - - 200 - text/html;+charset=utf-8 18.1381ms
+2022-09-08 23:48:22.611 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - -
+2022-09-08 23:48:23.625 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/swagger/v1/swagger.json - - - 200 - application/json;+charset=utf-8 1014.2580ms
+2022-09-08 23:48:27.145 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/Auth application/json 55
+2022-09-08 23:48:27.148 +08:00 [INF] CORS policy execution successful.
+2022-09-08 23:48:27.150 +08:00 [INF] AUDIT LOG: [404: POST   ] /api/Auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 0
+
+2022-09-08 23:48:27.151 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/Auth application/json 55 - 404 0 - 5.4660ms
+2022-09-08 23:48:42.568 +08:00 [INF] Starting Iot.Auth.HttpApi.Host.
+2022-09-08 23:48:43.947 +08:00 [INF] Loaded ABP modules:
+2022-09-08 23:48:43.947 +08:00 [INF] - Iot.Auth.HttpApi.Host.IotAuthHttpApiHostModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Iot.Consul.IotConsulModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-09-08 23:48:43.947 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Iot.Auth.HttpApi.IotAuthHttpApiModule
+2022-09-08 23:48:43.947 +08:00 [INF]     - Iot.Auth.Application.Contracts.IotAuthApplicationContractsModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Iot.Auth.Domain.IotAuthDomainModule
+2022-09-08 23:48:43.947 +08:00 [INF]     - Iot.Auth.Domain.Shared.IotAuthDomainSharedModule
+2022-09-08 23:48:43.947 +08:00 [INF]       - Iot.IotDomainSharedModule
+2022-09-08 23:48:43.947 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationModule
+2022-09-08 23:48:43.947 +08:00 [INF]           - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-09-08 23:48:43.947 +08:00 [INF]           - Volo.Abp.Settings.AbpSettingsModule
+2022-09-08 23:48:43.947 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-09-08 23:48:43.947 +08:00 [INF]             - Volo.Abp.Security.AbpSecurityModule
+2022-09-08 23:48:43.947 +08:00 [INF]             - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-09-08 23:48:43.947 +08:00 [INF]               - Volo.Abp.Data.AbpDataModule
+2022-09-08 23:48:43.947 +08:00 [INF]                 - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-09-08 23:48:43.947 +08:00 [INF]                   - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-09-08 23:48:43.947 +08:00 [INF]                 - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-09-08 23:48:43.947 +08:00 [INF]                 - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-09-08 23:48:43.947 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-09-08 23:48:43.947 +08:00 [INF]       - Volo.Abp.Threading.AbpThreadingModule
+2022-09-08 23:48:43.947 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-09-08 23:48:43.947 +08:00 [INF]       - Volo.Abp.Json.AbpJsonModule
+2022-09-08 23:48:43.947 +08:00 [INF]         - Volo.Abp.Timing.AbpTimingModule
+2022-09-08 23:48:43.947 +08:00 [INF]   - Iot.Auth.Application.IotAuthApplicationModule
+2022-09-08 23:48:43.947 +08:00 [INF]     - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-09-08 23:48:43.947 +08:00 [INF]       - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-09-08 23:48:43.947 +08:00 [INF]       - Volo.Abp.Auditing.AbpAuditingModule
+2022-09-08 23:48:43.947 +08:00 [INF]         - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-09-08 23:48:43.947 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-09-08 23:48:43.948 +08:00 [INF]   - Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.IotAuthEntityFrameworkCoreModule
+2022-09-08 23:48:43.948 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-09-08 23:48:43.948 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-09-08 23:48:43.948 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-09-08 23:48:43.948 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-09-08 23:48:43.948 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-09-08 23:48:43.948 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-09-08 23:48:43.948 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-09-08 23:48:43.948 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-09-08 23:48:43.948 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-09-08 23:48:43.948 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-09-08 23:48:43.948 +08:00 [INF]     - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-09-08 23:48:43.948 +08:00 [INF]       - Volo.Abp.Http.AbpHttpModule
+2022-09-08 23:48:43.948 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-09-08 23:48:43.948 +08:00 [INF]         - Volo.Abp.Minify.AbpMinifyModule
+2022-09-08 23:48:43.948 +08:00 [INF]       - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-09-08 23:48:43.948 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-09-08 23:48:43.948 +08:00 [INF]       - Volo.Abp.Validation.AbpValidationModule
+2022-09-08 23:48:45.619 +08:00 [INF] Initialized all ABP modules.
+2022-09-08 23:48:45.742 +08:00 [INF] User profile is available. Using 'C:\Users\23957\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-08 23:48:45.838 +08:00 [INF] Now listening on: https://localhost:7052
+2022-09-08 23:48:45.838 +08:00 [INF] Now listening on: http://localhost:5125
+2022-09-08 23:48:45.838 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-08 23:48:45.838 +08:00 [INF] Hosting environment: Development
+2022-09-08 23:48:45.838 +08:00 [INF] Content root path: D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\
+2022-09-08 23:48:45.917 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7052/api/Auth application/json 55
+2022-09-08 23:48:45.958 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7052/ - -
+2022-09-08 23:48:45.969 +08:00 [INF] CORS policy execution successful.
+2022-09-08 23:48:46.049 +08:00 [INF] Executing endpoint 'Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync (Iot.Auth.HttpApi.Host)'
+2022-09-08 23:48:46.059 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7052/ - - - 404 0 - 100.4922ms
+2022-09-08 23:48:46.068 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] AuthAsync(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.HttpApi.Host.Controllers.AuthController (Iot.Auth.HttpApi.Host).
+2022-09-08 23:48:48.306 +08:00 [ERR] message:Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.Repositorys.EfCoreRoleRepository.GetAuthUserInfoAsync(String accountNumber, String password) in D:\net core\Iot\src\auth\Iot.Auth.EntityFrameworkCore\EntityFrameworkCore\Repositorys\EfCoreRoleRepository.cs:line 31
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Auth.Application.Auth.AuthService.AuthAsync(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 29
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Validation.ValidationInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Auditing.AuditingInterceptor.ProceedByLoggingAsync(IAbpMethodInvocation invocation, IAuditingHelper auditingHelper, IAuditLogScope auditLogScope)
+   at Volo.Abp.Auditing.AuditingInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\Controllers\AuthController.cs:line 29
+   at lambda_method717(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2022-09-08 23:48:48.309 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-09-08 23:48:48.315 +08:00 [INF] Executed action Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync (Iot.Auth.HttpApi.Host) in 2244.4592ms
+2022-09-08 23:48:48.316 +08:00 [INF] Executed endpoint 'Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync (Iot.Auth.HttpApi.Host)'
+2022-09-08 23:48:48.330 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-09-08 23:48:48.349 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/Auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : 127.0.0.1
+- ExecutionDuration      : 2307
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.AuthAsync (1669 ms.)
+    {"input":{"accountNumber":"string","password":"string"}}
+- Exceptions:
+  - Exception of type 'Volo.Abp.BusinessException' was thrown.
+    Volo.Abp.BusinessException: Exception of type 'Volo.Abp.BusinessException' was thrown.
+   at Iot.Auth.EntityFrameworkCore.EntityFrameworkCore.Repositorys.EfCoreRoleRepository.GetAuthUserInfoAsync(String accountNumber, String password) in D:\net core\Iot\src\auth\Iot.Auth.EntityFrameworkCore\EntityFrameworkCore\Repositorys\EfCoreRoleRepository.cs:line 31
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Auth.Application.Auth.AuthService.AuthAsync(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.Application\Auth\AuthService.cs:line 29
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Validation.ValidationInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Auditing.AuditingInterceptor.ProceedByLoggingAsync(IAbpMethodInvocation invocation, IAuditingHelper auditingHelper, IAuditLogScope auditLogScope)
+   at Volo.Abp.Auditing.AuditingInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync(AuthInput input) in D:\net core\Iot\src\auth\Iot.Auth.HttpApi.Host\Controllers\AuthController.cs:line 29
+   at lambda_method717(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+
+2022-09-08 23:48:48.350 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/Auth application/json 55 - 200 - application/json;+charset=utf-8 2433.4014ms
