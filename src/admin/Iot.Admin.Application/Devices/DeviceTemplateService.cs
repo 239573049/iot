@@ -57,4 +57,14 @@ public class DeviceTemplateService : ApplicationService, IDeviceTemplateService
 
         return new PagedResultDto<DeviceTemplateDto>(count, dto);
     }
+
+    /// <inheritdoc />
+    public async Task UpdateAsync(DeviceTemplateDto dto)
+    {
+        var data = await _deviceTemplateRepository.GetAsync(dto.Id);
+
+        ObjectMapper.Map(dto, data);
+
+        await _deviceTemplateRepository.UpdateAsync(data);
+    }
 }

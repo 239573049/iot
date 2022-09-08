@@ -286,3 +286,20 @@
    at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
 
 2022-09-08 23:48:48.350 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7052/api/Auth application/json 55 - 200 - application/json;+charset=utf-8 2433.4014ms
+2022-09-08 23:52:37.805 +08:00 [INF] Request starting HTTP/1.1 POST https://localhost:7052/api/Auth application/json 59
+2022-09-08 23:52:37.880 +08:00 [INF] Executing endpoint 'Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync (Iot.Auth.HttpApi.Host)'
+2022-09-08 23:52:37.880 +08:00 [INF] Route matched with {action = "Auth", controller = "Auth", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] AuthAsync(Iot.Auth.Application.Contracts.Auth.Views.AuthInput) on controller Iot.Auth.HttpApi.Host.Controllers.AuthController (Iot.Auth.HttpApi.Host).
+2022-09-08 23:52:37.973 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-09-08 23:52:37.974 +08:00 [INF] Executing ObjectResult, writing value of type 'Iot.HttpApi.Result'.
+2022-09-08 23:52:37.975 +08:00 [INF] Executed action Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync (Iot.Auth.HttpApi.Host) in 95.0325ms
+2022-09-08 23:52:37.975 +08:00 [INF] Executed endpoint 'Iot.Auth.HttpApi.Host.Controllers.AuthController.AuthAsync (Iot.Auth.HttpApi.Host)'
+2022-09-08 23:52:37.975 +08:00 [DBG] Added 0 entity changes to the current audit log
+2022-09-08 23:52:37.977 +08:00 [INF] AUDIT LOG: [200: POST   ] /api/Auth
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 97
+- Actions:
+  - Iot.Auth.Application.Auth.AuthService.AuthAsync (91 ms.)
+    {"input":{"accountNumber":"admin","password":"dd666666"}}
+
+2022-09-08 23:52:37.977 +08:00 [INF] Request finished HTTP/1.1 POST https://localhost:7052/api/Auth application/json 59 - 200 - application/json;+charset=utf-8 172.3612ms

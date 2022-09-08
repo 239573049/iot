@@ -3,6 +3,9 @@ using Volo.Abp.Application.Dtos;
 
 namespace Iot.Admin.Application.Contracts.Devices;
 
+/// <summary>
+/// 模板
+/// </summary>
 public interface IDeviceTemplateService
 {
     /// <summary>
@@ -25,4 +28,11 @@ public interface IDeviceTemplateService
     /// <param name="input"></param>
     /// <returns></returns>
     Task<PagedResultDto<DeviceTemplateDto>> GetListAsync(GetDeviceTemplateInput input);
+
+    /// <summary>
+    /// 编辑模块
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    Task UpdateAsync(DeviceTemplateDto dto);
 }
