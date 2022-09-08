@@ -27,10 +27,10 @@ try
         .AddConsul("iot/auth")
         .UseAutofac()
         .UseSerilog();
+    builder.Services.AddControllers();
     await builder.AddApplicationAsync<IotAuthHttpApiHostModule>();
     var app = builder.Build();
     await app.InitializeApplicationAsync();
-    
     await app.RunAsync();
     return 0;
 }

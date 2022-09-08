@@ -37,7 +37,7 @@ public class IotAuthHttpApiHostModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
 
         context.Services.AddHealthChecks();
-        ConfigureConventionalControllers();
+
         ConfigureLocalization();
         ConfigureCache(configuration);
         ConfigureDataProtection(context, configuration, hostingEnvironment);
@@ -50,14 +50,6 @@ public class IotAuthHttpApiHostModule : AbpModule
         Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Iot:"; });
     }
 
-
-    private void ConfigureConventionalControllers()
-    {
-        Configure<AbpAspNetCoreMvcOptions>(options =>
-        {
-            options.ConventionalControllers.Create(typeof(IotAuthApplicationModule).Assembly);
-        });
-    }
 
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
     {
@@ -133,8 +125,6 @@ public class IotAuthHttpApiHostModule : AbpModule
         app.UseRouting();
         app.UseCors(Constants.CorsPolicy);
         app.UseAuthentication();
-
-        app.UseAuthorization();
 
         app.UseOpenApi();
         app.UseSwaggerUi3();

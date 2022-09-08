@@ -150,7 +150,6 @@ public class IotHttpApiHostModule : AbpModule
         app.UseCors(Constants.CorsPolicy);
         app.UseAuthentication();
 
-        app.UseAuthorization();
 
         app.UseOpenApi();
         app.UseSwaggerUi3();

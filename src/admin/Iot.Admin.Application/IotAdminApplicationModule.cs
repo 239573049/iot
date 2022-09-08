@@ -19,7 +19,6 @@ public class IotAdminApplicationModule : AbpModule
         Configure<AbpAutoMapperOptions>(options =>
         {
             options.AddMaps<IotAdminApplicationModule>();
-            
             options.AddProfile<DevicesAutoMapperProfile>();
         });
     }
