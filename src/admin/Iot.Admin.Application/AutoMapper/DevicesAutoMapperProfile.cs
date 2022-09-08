@@ -16,5 +16,6 @@ public class DevicesAutoMapperProfile : Profile
 
         CreateMap<CreateDeviceTemplate, DeviceTemplate>();
         CreateMap<DeviceTemplate, DeviceTemplateDto>();
+        CreateMap<DeviceTemplateDto,DeviceTemplate>();
     }
 }

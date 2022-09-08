@@ -8,6 +8,7 @@ using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
 using Volo.Abp.AspNetCore.Mvc.Validation;
 using Volo.Abp.Json;
 using Volo.Abp.Modularity;
+using Volo.Abp.Validation;
 
 namespace Iot.HttpApi;
 
@@ -22,30 +23,22 @@ public class IotHttpApiModule : AbpModule
             options.Filters.Add<IotResponseFilter>();
             options.Filters.Add<IotExceptionFilter>();
         });
-        
-        Configure<AbpJsonOptions>(x =>
-        {
-            x.DefaultDateTimeFormat = Constants.DefaultFullDateFormat;
-        });
 
-        Configure<AbpAntiForgeryOptions>(x =>
-        {
-            x.AutoValidate = false;
-        });
+        Configure<AbpJsonOptions>(x => { x.DefaultDateTimeFormat = Constants.DefaultFullDateFormat; });
+
+        Configure<AbpAntiForgeryOptions>(x => { x.AutoValidate = false; });
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
     {
-        
         var app = context.GetApplicationBuilder();
-        
+
         var ops = app.ApplicationServices.GetRequiredService<IOptions<MvcOptions>>().Value;
-        var abpExceptionFilter = ops.Filters.FirstOrDefault(a => (a as ServiceFilterAttribute)?.ServiceType == (typeof(AbpExceptionFilter)));
+        var abpExceptionFilter =
+            ops.Filters.Where(a =>
+                (a as ServiceFilterAttribute)?.ServiceType == (typeof(AbpExceptionFilter)) ||
+                (a as ServiceFilterAttribute)?.ServiceType == (typeof(AbpValidationActionFilter))).ToList();
 
-        if (abpExceptionFilter != null)
-        {
-            ops.Filters.Remove(abpExceptionFilter);
-        }
-
+        ops.Filters.RemoveAll(abpExceptionFilter);
     }
 }

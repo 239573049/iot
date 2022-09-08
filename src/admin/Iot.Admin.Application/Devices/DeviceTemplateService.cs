@@ -61,9 +61,7 @@ public class DeviceTemplateService : ApplicationService, IDeviceTemplateService
     /// <inheritdoc />
     public async Task UpdateAsync(DeviceTemplateDto dto)
     {
-        var data = await _deviceTemplateRepository.GetAsync(dto.Id);
-
-        ObjectMapper.Map(dto, data);
+        var data = ObjectMapper.Map<DeviceTemplateDto, DeviceTemplate>(dto);
 
         await _deviceTemplateRepository.UpdateAsync(data);
     }

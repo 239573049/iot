@@ -12,10 +12,10 @@ public class IotResponseFilter : ActionFilterAttribute
             if (context.Result is ObjectResult)
             {
                 ObjectResult? objectResult = context.Result as ObjectResult;
-                 if (objectResult?.Value?.GetType().Name == nameof(Result))
+                if (objectResult?.Value?.GetType().Name == nameof(Result))
                 {
                     Result? modelStateResult = objectResult.Value as Result;
-                    
+
                     context.Result = new ObjectResult(modelStateResult);
                 }
                 else
@@ -32,6 +32,11 @@ public class IotResponseFilter : ActionFilterAttribute
                 context.Result = new ObjectResult(modelStateResult2);
             }
         }
+        else
+        {
+            context.Result = new OkObjectResult(new Result("200"));
+        }
+
         base.OnActionExecuted(context);
     }
 }
