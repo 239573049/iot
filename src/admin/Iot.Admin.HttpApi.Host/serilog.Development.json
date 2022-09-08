@@ -1,0 +1,183 @@
+{
+  "Serilog": {
+    "Using": [
+      "Serilog.Sinks.Console",
+      "Serilog.Sinks.File",
+      "Serilog.Filters.Expressions"
+    ],
+    "MinimumLevel": {
+      "Default": "Debug",
+      "Override": {
+        "Microsoft": "Warning",
+        "Microsoft.AspNetCore": "Information",
+        "Microsoft.Hosting": "Information",
+        "System": "Warning"
+      }
+    },
+    "WriteTo:Async": {
+      "Name": "Async",
+      "Args": {
+        "configure": [
+          {
+            "Name": "Elasticsearch",
+            "Args": {
+              "nodeUris": "http://elastic:changeme@localhost:9200",
+              "indexFormat": "yellowback-{0:yyyy.MM.dd}",
+              "batchPostingLimit": 50,
+              "period": 2,
+              "inlineFields": true,
+              "restrictedToMinimumLevel": "Debug",
+              "connectionTimeout": 5,
+              "emitEventFailure": "WriteToFailureSink",
+              "queueSizeLimit": "100000",
+              "autoRegisterTemplate": true,
+              "autoRegisterTemplateVersion": "ESv2",
+              "overwriteTemplate": false,
+              "registerTemplateFailure": "IndexAnyway",
+              "deadLetterIndexName": "deadletter-{0:yyyy.MM.dd}",
+              "numberOfShards": 20,
+              "numberOfReplicas": 10,
+              "templateCustomSettings": [
+                {
+                  "index.mapping.total_fields.limit": "10000000"
+                }
+              ]
+            }
+          },
+          {
+            "Name": "Console",
+            "Args": {
+              "theme": "Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console",
+              "outputTemplate": "{Timestamp:HH:mm:ss} [{Level:u4}] {SourceContext} {Message}{NewLine}{Exception}"
+            }
+          },
+          {
+            "Name": "Logger",
+            "Args": {
+              "configureLogger": {
+                "Filter": [
+                  {
+                    "Name": "ByIncludingOnly",
+                    "Args": {
+                      "expression": "@Level = 'Debug'"
+                    }
+                  }
+                ],
+                "WriteTo": [
+                  {
+                    "Name": "File",
+                    "Args": {
+                      "path": "logs/debug/debug_.log",
+                      "rollingInterval": "Day",
+                      "rollOnFileSizeLimit": true,
+                      "fileSizeLimitBytes": 20971520,
+                      "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u4}] {CorrelationId} {SourceContext} {Message:lj}{NewLine}{Exception}"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Name": "Logger",
+            "Args": {
+              "configureLogger": {
+                "Filter": [
+                  {
+                    "Name": "ByIncludingOnly",
+                    "Args": {
+                      "expression": "@Level = 'Information'"
+                    }
+                  }
+                ],
+                "WriteTo": [
+                  {
+                    "Name": "File",
+                    "Args": {
+                      "path": "logs/info/info_.log",
+                      "rollingInterval": "Day",
+                      "rollOnFileSizeLimit": true,
+                      "fileSizeLimitBytes": 20971520,
+                      "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u4}] {CorrelationId} {SourceContext} {Message:lj}{NewLine}{Exception}"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Name": "Logger",
+            "Args": {
+              "configureLogger": {
+                "Filter": [
+                  {
+                    "Name": "ByIncludingOnly",
+                    "Args": {
+                      "expression": "@Level = 'Warning'"
+                    }
+                  }
+                ],
+                "WriteTo": [
+                  {
+                    "Name": "File",
+                    "Args": {
+                      "path": "logs/warning/warning_.log",
+                      "rollingInterval": "Day",
+                      "rollOnFileSizeLimit": true,
+                      "fileSizeLimitBytes": 20971520,
+                      "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u4}] {CorrelationId} {SourceContext} {Message:lj}{NewLine}{Exception}"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "Name": "Logger",
+            "Args": {
+              "configureLogger": {
+                "Filter": [
+                  {
+                    "Name": "ByIncludingOnly",
+                    "Args": {
+                      "expression": "@Level in ['Error', 'Fatal']"
+                    }
+                  }
+                ],
+                "WriteTo": [
+                  {
+                    "Name": "File",
+                    "Args": {
+                      "path": "logs/error/err_.log",
+                      "rollingInterval": "Day",
+                      "rollOnFileSizeLimit": true,
+                      "fileSizeLimitBytes": 20971520,
+                      "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u4}] {CorrelationId} {SourceContext} {Message:lj}{NewLine}{Exception}"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "Enrich": [
+      "FromLogContext"
+    ],
+    "Destructure": [
+      {
+        "Name": "ToMaximumDepth",
+        "Args": {
+          "maximumDestructuringDepth": 3
+        }
+      },
+      {
+        "Name": "ToMaximumCollectionCount",
+        "Args": {
+          "maximumCollectionCount": 5
+        }
+      }
+    ]
+  }
+}
