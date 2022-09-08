@@ -1,3 +1,6 @@
+using Iot.Admin.Application.Contracts.Devices.Views;
+using Volo.Abp.Application.Dtos;
+
 namespace Iot.Admin.Application.Contracts.Devices;
 
 /// <summary>
@@ -18,4 +21,11 @@ public interface IDevicesService
     /// <param name="data"></param>
     /// <returns></returns>
     Task SaveDeviceLogAsync(Dictionary<string,object> data);
+
+    /// <summary>
+    /// 获取设备列表
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task<PagedResultDto<DeviceDto>> GetListAsync(GetDeviceInput input);
 }

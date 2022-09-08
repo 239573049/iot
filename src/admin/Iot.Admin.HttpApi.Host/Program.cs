@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
-using Winton.Extensions.Configuration.Consul;
 
 Log.Logger = new LoggerConfiguration()
 #if DEBUG

@@ -1,8 +1,10 @@
 using System.ComponentModel;
 using Iot.Admin.Application.Contracts.Devices;
+using Iot.Admin.Application.Contracts.Devices.Views;
 using Iot.Common.Jwt;
 using Iot.Device;
 using Iot.Events;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.EventBus.Distributed;
@@ -60,5 +62,22 @@ public class DevicesService : ApplicationService, IDevicesService
         // 将日志添加到分布式事件总线处理
         await _distributedEventBus.PublishAsync(new CreateDevicesEto(_accessor.GetDeviceId(), data,
             _accessor.GetDeviceTemplateId()));
+    }
+
+    /// <inheritdoc />
+    public async Task<PagedResultDto<DeviceDto>> GetListAsync(GetDeviceInput input)
+    {
+        var userId = _accessor.GetUserId();
+        var result = await _devicesRepository.GetListAsync(input.Keywords, input.Stats, userId, input.TemplateId,
+            input.StartTime,
+            input.EndTime, input.SkipCount, input.MaxResultCount);
+
+        var count = await _devicesRepository.GetCountAsync(input.Keywords, input.Stats, userId, input.TemplateId,
+            input.StartTime,
+            input.EndTime);
+
+        var dto = ObjectMapper.Map<List<Device.Devices>, List<DeviceDto>>(result);
+
+        return new PagedResultDto<DeviceDto>(count, dto);
     }
 }

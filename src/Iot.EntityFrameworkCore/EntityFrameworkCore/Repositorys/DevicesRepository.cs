@@ -93,4 +93,41 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
 
         return query;
     }
+
+    public async Task<List<Device.Devices>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
+        DateTime? startTime, DateTime? endTime, int skipCount,
+        int maxResultCount)
+    {
+        
+        var query = await CreateQueryAsync(keywords,stats, userId, templateId, startTime, endTime);
+
+        return await query.PageBy(skipCount, maxResultCount).ToListAsync();
+    }
+
+    public async Task<int> GetCountAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
+        DateTime? startTime,
+        DateTime? endTime)
+    {
+        var query = await CreateQueryAsync(keywords,stats, userId, templateId, startTime, endTime);
+
+        return await query.CountAsync();
+    }
+
+    private async Task<IQueryable<Device.Devices>> CreateQueryAsync(string keywords,DeviceStats? stats, Guid userId, Guid? templateId,
+        DateTime? startTime, DateTime? endTime)
+    {
+        var dbContext = await GetDbContextAsync();
+
+        var query = dbContext.IotDevices
+            .AsSplitQuery()
+            .WhereIf(keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords))
+            .WhereIf(templateId.HasValue, x => x.DeviceTemplateId == templateId)
+            .Where(x => x.UserInfoId == userId)
+            .WhereIf(startTime.HasValue, x => x.CreationTime >= startTime)
+            .WhereIf(endTime.HasValue, x => x.CreationTime <= endTime)
+            .WhereIf(stats.HasValue,x=>x.Stats==stats)
+            .Include(x => x.DeviceTemplate);
+
+        return query;
+    }
 }
