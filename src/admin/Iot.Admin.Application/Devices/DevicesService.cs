@@ -3,6 +3,7 @@ using Iot.Admin.Application.Contracts.Devices;
 using Iot.Admin.Application.Contracts.Devices.Views;
 using Iot.Common.Jwt;
 using Iot.Device;
+using Iot.EntityFrameworkCore.Repositorys;
 using Iot.Events;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -76,8 +77,25 @@ public class DevicesService : ApplicationService, IDevicesService
             input.StartTime,
             input.EndTime);
 
-        var dto = ObjectMapper.Map<List<Device.Devices>, List<DeviceDto>>(result);
+        var dto = ObjectMapper.Map<List<DeviceView>, List<DeviceDto>>(result);
 
         return new PagedResultDto<DeviceDto>(count, dto);
+    }
+
+    /// <inheritdoc />
+    public async Task CreateAsync(CreateDeviceInput input)
+    {
+        var userId = _accessor.GetUserId();
+        var template = await _deviceTemplateRepository.AnyAsync(x => x.Id == input.DeviceTemplateId);
+
+        if (!template)
+        {
+            throw new ArgumentNullException(nameof(input.DeviceTemplateId));
+        }
+
+        var data = ObjectMapper.Map<CreateDeviceInput, Device.Devices>(input);
+        data.SetUserInfoId(userId);
+
+        data = await _devicesRepository.InsertAsync(data);
     }
 }

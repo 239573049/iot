@@ -28,4 +28,11 @@ public interface IDevicesService
     /// <param name="input"></param>
     /// <returns></returns>
     Task<PagedResultDto<DeviceDto>> GetListAsync(GetDeviceInput input);
+
+    /// <summary>
+    /// 创建设备
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task CreateAsync(CreateDeviceInput input);
 }

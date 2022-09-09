@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Iot.EntityFrameworkCore.Repositorys;
 using Volo.Abp.Domain.Repositories;
 
 namespace Iot.Device;
@@ -19,7 +20,7 @@ public interface IDevicesRepository : IRepository<Device.Devices, Guid>
     /// <param name="skipCount"></param>
     /// <param name="maxResultCount"></param>
     /// <returns></returns>
-    Task<List<Devices>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
+    Task<List<DeviceView>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
         DateTime? startTime,
         DateTime? endTime,
         int skipCount, int maxResultCount);

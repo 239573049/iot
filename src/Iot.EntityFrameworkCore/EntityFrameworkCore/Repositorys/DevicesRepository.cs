@@ -94,12 +94,11 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
         return query;
     }
 
-    public async Task<List<Device.Devices>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
+    public async Task<List<DeviceView>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
         DateTime? startTime, DateTime? endTime, int skipCount,
         int maxResultCount)
     {
-        
-        var query = await CreateQueryAsync(keywords,stats, userId, templateId, startTime, endTime);
+        var query = await CreateQueryAsync(keywords, stats, userId, templateId, startTime, endTime);
 
         return await query.PageBy(skipCount, maxResultCount).ToListAsync();
     }
@@ -108,25 +107,31 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
         DateTime? startTime,
         DateTime? endTime)
     {
-        var query = await CreateQueryAsync(keywords,stats, userId, templateId, startTime, endTime);
+        var query = await CreateQueryAsync(keywords, stats, userId, templateId, startTime, endTime);
 
         return await query.CountAsync();
     }
 
-    private async Task<IQueryable<Device.Devices>> CreateQueryAsync(string keywords,DeviceStats? stats, Guid userId, Guid? templateId,
+    private async Task<IQueryable<DeviceView>> CreateQueryAsync(string keywords, DeviceStats? stats, Guid userId,
+        Guid? templateId,
         DateTime? startTime, DateTime? endTime)
     {
         var dbContext = await GetDbContextAsync();
 
-        var query = dbContext.IotDevices
+        var devices = dbContext.IotDevices
             .AsSplitQuery()
             .WhereIf(keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords))
             .WhereIf(templateId.HasValue, x => x.DeviceTemplateId == templateId)
             .Where(x => x.UserInfoId == userId)
             .WhereIf(startTime.HasValue, x => x.CreationTime >= startTime)
             .WhereIf(endTime.HasValue, x => x.CreationTime <= endTime)
-            .WhereIf(stats.HasValue,x=>x.Stats==stats)
-            .Include(x => x.DeviceTemplate);
+            .WhereIf(stats.HasValue, x => x.Stats == stats);
+
+        var query =
+            from d in devices
+            join template in dbContext.DeviceTemplates on d.DeviceTemplateId equals template.Id
+            select new DeviceView(d.Id, d.Remark, d.Stats, d.Name, d.LastTime, d.UserInfoId, d.DeviceTemplateId,
+                template.Icon, template.Type);
 
         return query;
     }

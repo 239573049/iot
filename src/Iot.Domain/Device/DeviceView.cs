@@ -1,24 +1,24 @@
-using Volo.Abp.Application.Dtos;
-using Volo.Abp.Auditing;
+using System;
+using Volo.Abp.Domain.Entities;
 
-namespace Iot.Admin.Application.Contracts.Devices.Views;
+namespace Iot.EntityFrameworkCore.Repositorys;
 
-public class DeviceDto : EntityDto<Guid>, IHasCreationTime
+public class DeviceView : Entity<Guid>
 {
     /// <summary>
     /// 备注
     /// </summary>
-    public string? Remark { get; set; }
+    public string Remark { get; set; }
 
     /// <summary>
     /// 状态
     /// </summary>
-    public string? Stats { get; set; }
+    public DeviceStats Stats { get; set; }
 
     /// <summary>
     /// 设备名称
     /// </summary>
-    public string? Name { get; set; }
+    public string Name { get; set; }
 
     /// <summary>
     /// 最后活跃时间
@@ -34,9 +34,7 @@ public class DeviceDto : EntityDto<Guid>, IHasCreationTime
     /// 设备模板
     /// </summary>
     public Guid? DeviceTemplateId { get; set; }
-
-    public DateTime CreationTime { get; set; }
-
+    
     /// <summary>
     /// 设备图标
     /// </summary>
@@ -46,4 +44,16 @@ public class DeviceDto : EntityDto<Guid>, IHasCreationTime
     /// 设备类型
     /// </summary>
     public string Type { get;  set; }
+
+    public DeviceView(Guid id, string remark, DeviceStats stats, string name, DateTime? lastTime, Guid? userInfoId, Guid? deviceTemplateId, string icon, string type) : base(id)
+    {
+        Remark = remark;
+        Stats = stats;
+        Name = name;
+        LastTime = lastTime;
+        UserInfoId = userInfoId;
+        DeviceTemplateId = deviceTemplateId;
+        Icon = icon;
+        Type = type;
+    }
 }
