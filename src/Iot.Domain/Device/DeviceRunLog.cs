@@ -21,7 +21,7 @@ public class DeviceRunLog : Entity<Guid>, IHasCreationTime
     /// 创建时间
     /// </summary>
 
-    public DateTime CreationTime { get; protected set; }
+    public DateTime CreationTime { get;  set; }
 
     public DeviceRunLog()
     {
@@ -32,6 +32,5 @@ public class DeviceRunLog : Entity<Guid>, IHasCreationTime
     {
         DeviceId = deviceId;
         Logs = logs;
-        CreationTime = DateTime.Now;
     }
 }

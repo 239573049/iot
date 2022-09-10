@@ -27,59 +27,6 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
         return await query.PageBy(skipCount, maxResultCount).ToListAsync();
     }
 
-    public async Task<int> GetCountAsync(Guid userId, string keywords)
-    {
-        var query = await CreateQueryAsync(userId, keywords);
-
-        return await query.CountAsync();
-    }
-
-    public async Task<DeviceLogView> GetDeviceLogAsync(Guid deviceId)
-    {
-        var dbContext = await GetDbContextAsync();
-
-        var device = await dbContext.IotDevices.Where(x => x.Id == deviceId).OrderByDescending(x => x.CreationTime)
-            .FirstOrDefaultAsync();
-        if (device == null)
-        {
-            throw new NoNullAllowedException("device");
-        }
-
-
-        throw new BusinessException(message: "未存在设备类型");
-    }
-
-    /// <inheritdoc />
-    public async Task<List<DeviceLogView>> GetDeviceLogListAsync(Guid deviceId, DateTime? startTime, DateTime? endTime,
-        int skipCount, int maxResultCount)
-    {
-        var query = await CreateLogAsync(deviceId, startTime, endTime);
-
-        return await query.PageBy(skipCount, maxResultCount).ToListAsync();
-    }
-
-    /// <inheritdoc />
-    public async Task<int> GetDeviceLogCountAsync(Guid deviceId, DateTime? startTime, DateTime? endTime)
-    {
-        var query = await CreateLogAsync(deviceId, startTime, endTime);
-
-        return await query.CountAsync();
-    }
-
-    private async Task<IQueryable<DeviceLogView>> CreateLogAsync(Guid deviceId, DateTime? startTime, DateTime? endTime)
-    {
-        var dbContext = await GetDbContextAsync();
-
-        var device = await dbContext.IotDevices.Where(x => x.Id == deviceId).OrderByDescending(x => x.CreationTime)
-            .FirstOrDefaultAsync();
-        if (device == null)
-        {
-            throw new NoNullAllowedException("device");
-        }
-
-
-        throw new BusinessException(message: "未存在设备类型");
-    }
 
     private async Task<IQueryable<Device.Devices>> CreateQueryAsync(Guid userId, string keywords)
     {

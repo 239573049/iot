@@ -22,4 +22,12 @@ public class IotAggregateRoot<T> : BasicAggregateRoot<T>, IHasDeletionTime, IHas
     {
     }
 
+    public IotAggregateRoot(T id, bool isDeleted, DateTime? deletionTime, DateTime creationTime, Guid? creatorId) : base(id)
+    {
+        IsDeleted = isDeleted;
+        DeletionTime = deletionTime;
+        CreationTime = creationTime;
+        CreatorId = creatorId;
+        ExtraProperties = new ExtraPropertyDictionary();
+    }
 }
