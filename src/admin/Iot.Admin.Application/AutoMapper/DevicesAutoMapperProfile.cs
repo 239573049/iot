@@ -14,7 +14,9 @@ public class DevicesAutoMapperProfile : Profile
             .ForMember(x => x.Stats, opt => opt.MapFrom(x => x.Stats.GetDescription()));
         CreateMap<Device.Devices, IotDevicesDto>();
         CreateMap<DeviceLogView, DeviceLogDto>();
-
+        CreateMap<CreateDeviceInput, Device.Devices>();
+        
+        
         CreateMap<CreateDeviceTemplate, DeviceTemplate>();
         CreateMap<DeviceTemplate, DeviceTemplateDto>();
         CreateMap<DeviceTemplateDto, DeviceTemplate>();

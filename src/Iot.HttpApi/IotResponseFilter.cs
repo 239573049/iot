@@ -25,13 +25,17 @@ public class IotResponseFilter : ActionFilterAttribute
             }
             else if (context.Result is EmptyResult)
             {
-                // context.Result = new ObjectResult(new Result("200"));
+                context.Result = new ObjectResult(new Result("200"))
+                {
+                    StatusCode = 200
+                };
             }
             else if (context.Result is Result modelStateResult2)
             {
                 context.Result = new ObjectResult(modelStateResult2);
             }
         }
+
         base.OnActionExecuted(context);
     }
 }
