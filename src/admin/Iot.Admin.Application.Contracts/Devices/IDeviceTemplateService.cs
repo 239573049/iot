@@ -41,5 +41,5 @@ public interface IDeviceTemplateService
     /// </summary>
     /// <param name="keywords"></param>
     /// <returns></returns>
-    Task<List<DeviceTemplateDto>> GetAllAsync(string keywords);
+    Task<List<DeviceTemplateDto>> GetDeviceAllAsync(string keywords);
 }

@@ -67,7 +67,7 @@ public class DeviceTemplateService : ApplicationService, IDeviceTemplateService
     }
 
     /// <inheritdoc />
-    public async Task<List<DeviceTemplateDto>> GetAllAsync(string keywords)
+    public async Task<List<DeviceTemplateDto>> GetDeviceAllAsync(string keywords)
     {
         var result =
             await _deviceTemplateRepository.GetListAsync(x =>
