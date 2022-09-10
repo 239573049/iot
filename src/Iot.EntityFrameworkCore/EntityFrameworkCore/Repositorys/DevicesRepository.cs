@@ -120,7 +120,7 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
 
         var devices = dbContext.IotDevices
             .AsSplitQuery()
-            .WhereIf(keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords))
+            .WhereIf(!keywords.IsNullOrEmpty(), x => x.Name.Contains(keywords) || x.Remark.Contains(keywords))
             .WhereIf(templateId.HasValue, x => x.DeviceTemplateId == templateId)
             .Where(x => x.UserInfoId == userId)
             .WhereIf(startTime.HasValue, x => x.CreationTime >= startTime)
