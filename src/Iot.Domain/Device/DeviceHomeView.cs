@@ -18,7 +18,7 @@ public class DeviceHomeView
     public int TotalCount { get; set; }
 
     /// <summary>
-    /// 用户模板数据
+    /// 用户模板数量
     /// </summary>
     public int TemplateCount { get; set; }
 }

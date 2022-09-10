@@ -102,6 +102,7 @@ public class DevicesService : ApplicationService, IDevicesService
         data = await _devicesRepository.InsertAsync(data, true);
     }
 
+    /// <inheritdoc />
     public async Task<DeviceHomeDto> GetDeviceHomeAsync()
     {
         var userId = _accessor.GetUserId();

@@ -68,6 +68,7 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
 
         var device = dbContext.IotDevices.Where(x => x.UserInfoId == userId);
 
+        home.TemplateCount = await dbContext.DeviceTemplates.CountAsync(x => x.UserId == userId);
         home.DeviceCount = await device.CountAsync();
 
         var total = from runLog in dbContext.DeviceRunLogs
