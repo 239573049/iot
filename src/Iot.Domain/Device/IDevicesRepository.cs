@@ -37,4 +37,11 @@ public interface IDevicesRepository : IRepository<Device.Devices, Guid>
     /// <returns></returns>
     Task<int> GetCountAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId, DateTime? startTime,
         DateTime? endTime);
+
+    /// <summary>
+    /// 获取用户基本设备数量
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    Task<DeviceHomeView> GetDeviceHomeAsync(Guid userId);
 }

@@ -59,6 +59,29 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
         return await query.CountAsync();
     }
 
+    public async Task<DeviceHomeView> GetDeviceHomeAsync(Guid userId)
+    {
+        var dbContext = await GetDbContextAsync();
+
+        var now = DateTime.Now;
+        var home = new DeviceHomeView();
+
+        var device = dbContext.IotDevices.Where(x => x.UserInfoId == userId);
+
+        home.DeviceCount = await device.CountAsync();
+
+        var total = from runLog in dbContext.DeviceRunLogs
+            join d in device on runLog.DeviceId equals d.Id
+            select runLog;
+
+        home.TotalCount = await total.CountAsync();
+        home.TodayLogCount = await total
+            .Where(x => x.CreationTime.Year == now.Year && x.CreationTime.Month == now.Month &&
+                        x.CreationTime.Day == now.Day).CountAsync();
+
+        return home;
+    }
+
     private async Task<IQueryable<DeviceView>> CreateQueryAsync(string keywords, DeviceStats? stats, Guid userId,
         Guid? templateId,
         DateTime? startTime, DateTime? endTime)

@@ -35,4 +35,10 @@ public interface IDevicesService
     /// <param name="input"></param>
     /// <returns></returns>
     Task CreateAsync(CreateDeviceInput input);
+
+    /// <summary>
+    /// 获取用户首页展示数据
+    /// </summary>
+    /// <returns></returns>
+    Task<DeviceHomeDto> GetDeviceHomeAsync();
 }

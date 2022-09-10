@@ -6,7 +6,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Iot.Device;
 
-public interface IDeviceRunLogRepository : IRepository<DeviceRunLog,Guid>
+public interface IDeviceRunLogRepository : IRepository<DeviceRunLog, Guid>
 {
     /// <summary>
     /// 设备列表

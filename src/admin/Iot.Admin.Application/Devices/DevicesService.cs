@@ -21,15 +21,18 @@ public class DevicesService : ApplicationService, IDevicesService
     private readonly IDeviceTemplateRepository _deviceTemplateRepository;
     private readonly IDevicesRepository _devicesRepository;
     private readonly IDistributedEventBus _distributedEventBus;
+    private readonly IDeviceRunLogRepository _deviceRunLogRepository;
 
     /// <inheritdoc />
     public DevicesService(Accessor accessor, IDevicesRepository devicesRepository,
-        IDistributedEventBus distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository)
+        IDistributedEventBus distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository,
+        IDeviceRunLogRepository deviceRunLogRepository)
     {
         _accessor = accessor;
         _devicesRepository = devicesRepository;
         _distributedEventBus = distributedEventBus;
         _deviceTemplateRepository = deviceTemplateRepository;
+        _deviceRunLogRepository = deviceRunLogRepository;
     }
 
     /// <inheritdoc />
@@ -96,7 +99,17 @@ public class DevicesService : ApplicationService, IDevicesService
         var data = ObjectMapper.Map<CreateDeviceInput, Device.Devices>(input);
         data.SetUserInfoId(userId);
 
-        data = await _devicesRepository.InsertAsync(data,true);
+        data = await _devicesRepository.InsertAsync(data, true);
+    }
 
+    public async Task<DeviceHomeDto> GetDeviceHomeAsync()
+    {
+        var userId = _accessor.GetUserId();
+        
+        var result = await _devicesRepository.GetDeviceHomeAsync(userId);
+
+        var dto = ObjectMapper.Map<DeviceHomeView, DeviceHomeDto>(result);
+        
+        return dto;
     }
 }
