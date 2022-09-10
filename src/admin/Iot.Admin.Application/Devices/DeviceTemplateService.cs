@@ -65,4 +65,16 @@ public class DeviceTemplateService : ApplicationService, IDeviceTemplateService
 
         await _deviceTemplateRepository.UpdateAsync(data);
     }
+
+    /// <inheritdoc />
+    public async Task<List<DeviceTemplateDto>> GetAllAsync(string keywords)
+    {
+        var result =
+            await _deviceTemplateRepository.GetListAsync(x =>
+                string.IsNullOrEmpty(keywords) || x.Name.Contains(keywords));
+
+        var dto = ObjectMapper.Map<List<DeviceTemplate>, List<DeviceTemplateDto>>(result);
+
+        return dto;
+    }
 }

@@ -35,4 +35,11 @@ public interface IDeviceTemplateService
     /// <param name="dto"></param>
     /// <returns></returns>
     Task UpdateAsync(DeviceTemplateDto dto);
+
+    /// <summary>
+    /// 获取所有模板
+    /// </summary>
+    /// <param name="keywords"></param>
+    /// <returns></returns>
+    Task<List<DeviceTemplateDto>> GetAllAsync(string keywords);
 }
