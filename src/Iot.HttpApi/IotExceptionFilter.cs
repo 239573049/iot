@@ -36,10 +36,14 @@ public class IotExceptionFilter : ExceptionFilterAttribute
         }
 
         _logger.LogError("message:{0}", context.Exception);
-        context.Result = new ObjectResult(new Result(code: code, message: error));
+        context.Result = new ObjectResult(new Result(code: code, message: error))
+        {
+            StatusCode = 500
+        };
 
         context.ExceptionHandled = true;
 
+        
         return Task.CompletedTask;
     }
 }

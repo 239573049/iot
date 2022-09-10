@@ -61,10 +61,12 @@ public class Devices : IotAggregateRoot<Guid>
 
     public Devices()
     {
+        CreationTime = DateTime.Now;
     }
 
     public Devices(Guid id, string remark, DeviceStats stats, Guid? userInfoId, Guid deviceTemplateId)
     {
+        CreationTime = DateTime.Now;
         Id = id;
         Remark = remark;
         Stats = stats;

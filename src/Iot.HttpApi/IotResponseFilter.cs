@@ -32,11 +32,6 @@ public class IotResponseFilter : ActionFilterAttribute
                 context.Result = new ObjectResult(modelStateResult2);
             }
         }
-        else
-        {
-            context.Result = new OkObjectResult(new Result("200"));
-        }
-
         base.OnActionExecuted(context);
     }
 }

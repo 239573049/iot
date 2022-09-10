@@ -96,6 +96,7 @@ public class DevicesService : ApplicationService, IDevicesService
         var data = ObjectMapper.Map<CreateDeviceInput, Device.Devices>(input);
         data.SetUserInfoId(userId);
 
-        data = await _devicesRepository.InsertAsync(data);
+        data = await _devicesRepository.InsertAsync(data,true);
+
     }
 }

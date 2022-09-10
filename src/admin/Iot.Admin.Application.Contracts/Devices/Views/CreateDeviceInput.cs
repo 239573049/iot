@@ -16,11 +16,6 @@ public class CreateDeviceInput
     public string? Remark { get; set; }
 
     /// <summary>
-    /// 状态
-    /// </summary>
-    public DeviceStats Stats { get; set; }
-
-    /// <summary>
     /// 设备名称
     /// </summary>
     public string? Name { get; set; }
