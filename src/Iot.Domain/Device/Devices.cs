@@ -53,6 +53,8 @@ public class Devices : IotAggregateRoot<Guid>
         {
             throw new BusinessException(IotDomainErrorCodes.NotUserInfoId);
         }
+
+        UserInfoId = userInfoId;
     }
 
     public virtual UserInfo UserInfo { get; set; }
