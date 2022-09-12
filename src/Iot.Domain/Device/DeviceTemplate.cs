@@ -32,6 +32,10 @@ public class DeviceTemplate : IotAggregateRoot<Guid>
 
     public virtual UserInfo User { get; set; }
 
+    public DeviceTemplate()
+    {
+    }
+
     public DeviceTemplate(Guid id,string name, string icon, string type, string remark, Guid? userId)
     {
         Id = id;

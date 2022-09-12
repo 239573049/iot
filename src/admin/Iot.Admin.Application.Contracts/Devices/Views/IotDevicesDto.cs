@@ -19,16 +19,8 @@ public class IotDevicesDto
     /// <summary>
     /// 设备类型
     /// </summary>
-    public DeviceType Type { get; set; }
+    public string Type { get; set; }
     
-    public string TypeName
-    {
-        get
-        {
-            return Type.GetDescription();
-        }
-    }
-
     /// <summary>
     /// 备注
     /// </summary>
