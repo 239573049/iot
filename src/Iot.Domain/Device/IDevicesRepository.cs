@@ -20,7 +20,7 @@ public interface IDevicesRepository : IRepository<Device.Devices, Guid>
     /// <param name="skipCount"></param>
     /// <param name="maxResultCount"></param>
     /// <returns></returns>
-    Task<List<DeviceView>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
+    Task<List<DeviceView>> GetListAsync(string keywords, Guid userId, DeviceStats? stats, Guid? templateId,
         DateTime? startTime,
         DateTime? endTime,
         int skipCount, int maxResultCount);

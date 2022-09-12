@@ -6,6 +6,7 @@
       "Admin:NotUserInfoId":"用户id不能为空",
       "Admin:IsNullDeviceId":"设备Id为空",
       "Admin:IsNullDeviceTemplateId":"设备模板id为空",
-      "Auth:Unauthorized":"账号未授权"
+      "Auth:Unauthorized":"账号未授权",
+      "Admin:ExistTreeDeviceTitle": "当前文件夹存在相同名称名称"
     }
   }

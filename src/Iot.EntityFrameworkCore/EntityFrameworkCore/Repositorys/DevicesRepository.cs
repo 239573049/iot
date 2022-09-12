@@ -41,9 +41,9 @@ public class DevicesRepository : EfCoreRepository<IotDbContext, Device.Devices, 
         return query;
     }
 
-    public async Task<List<DeviceView>> GetListAsync(string keywords, DeviceStats? stats, Guid userId, Guid? templateId,
-        DateTime? startTime, DateTime? endTime, int skipCount,
-        int maxResultCount)
+    public async Task<List<DeviceView>> GetListAsync(string keywords, Guid userId, DeviceStats? stats=null, Guid? templateId=null,
+        DateTime? startTime=null, DateTime? endTime=null, int skipCount=0,
+        int maxResultCount = int.MaxValue)
     {
         var query = await CreateQueryAsync(keywords, stats, userId, templateId, startTime, endTime);
 

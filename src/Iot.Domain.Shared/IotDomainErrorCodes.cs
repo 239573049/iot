@@ -36,5 +36,10 @@ public static class IotDomainErrorCodes
 
     public const string NotNullDeviceId = Admin + "NotNullDeviceId";
 
+    /// <summary>
+    /// 当前文件夹存在相同名称
+    /// </summary>
+    public const string ExistTreeDeviceTitle = Admin + "ExistTreeDeviceTitle";
+
     #endregion
 }

@@ -9,8 +9,6 @@ public class UserRoleFunction
 
     public Guid RoleId { get; set; }
 
-    public virtual UserInfo UserInfo { get; set; }
-
     public virtual Role Role { get; set; }
 
     public UserRoleFunction()

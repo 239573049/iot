@@ -39,7 +39,8 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
     {
         var dbContext = await GetDbContextAsync();
 
-        var deviceRunLogs = dbContext.DeviceRunLogs.Where(x => x.DeviceId == deviceId)
+        var deviceRunLogs = dbContext.DeviceRunLogs
+            .WhereIf(deviceId.HasValue, x => x.DeviceId == deviceId)
             .WhereIf(startTime.HasValue, x => x.CreationTime >= startTime)
             .WhereIf(endTime.HasValue, x => x.CreationTime <= endTime);
 
@@ -47,7 +48,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
             from runLog in deviceRunLogs
             join device in dbContext.IotDevices on runLog.DeviceId equals device.Id
             where string.IsNullOrEmpty(keywords) || device.Name.Contains(keywords) || device.Remark.Contains(keywords)
-            select new DeviceRunLogView(runLog.Id, runLog.CreationTime, device.Name,  device.Id, runLog.Logs);
+            select new DeviceRunLogView(runLog.Id, runLog.CreationTime, device.Name, device.Id, runLog.Logs);
 
         return query;
     }

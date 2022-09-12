@@ -72,7 +72,7 @@ public class DevicesService : ApplicationService, IDevicesService
     public async Task<PagedResultDto<DeviceDto>> GetListAsync(GetDeviceInput input)
     {
         var userId = _accessor.GetUserId();
-        var result = await _devicesRepository.GetListAsync(input.Keywords, input.Stats, userId, input.TemplateId,
+        var result = await _devicesRepository.GetListAsync(input.Keywords, userId, input.Stats, input.TemplateId,
             input.StartTime,
             input.EndTime, input.SkipCount, input.MaxResultCount);
 
@@ -106,11 +106,11 @@ public class DevicesService : ApplicationService, IDevicesService
     public async Task<DeviceHomeDto> GetDeviceHomeAsync()
     {
         var userId = _accessor.GetUserId();
-        
+
         var result = await _devicesRepository.GetDeviceHomeAsync(userId);
 
         var dto = ObjectMapper.Map<DeviceHomeView, DeviceHomeDto>(result);
-        
+
         return dto;
     }
 }

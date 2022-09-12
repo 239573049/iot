@@ -77,6 +77,19 @@ public static class IotEntityFrameworkCoreExtension
             x.HasIndex(x => x.UserInfoId);
         });
 
+        builder.Entity<TreeDevice>(x =>
+        {
+            x.ToTable("TreeDevices");
+            x.HasComment("设备树形");
+            x.ConfigureByConvention();
+            
+            x.HasIndex(x => x.Id);
+            x.HasKey(x => x.Id);
+
+            x.HasIndex(x => x.UserId);
+            x.HasIndex(x => x.ParentId);
+        });
+        
         builder.ConfigureIotData();
     }
 
@@ -86,13 +99,5 @@ public static class IotEntityFrameworkCoreExtension
             "https://xiaohuchat.oss-cn-beijing.aliyuncs.com/ima/admin.jpg", "超级管理员", UserInfoState.InUse, "管理员");
         builder.Entity<UserInfo>().HasData(iotUser);
 
-        var iotId = Guid.NewGuid();
-        var iot = new DeviceTemplate(iotId, "温度计", "https://tokeniot.oss-cn-shenzhen.aliyuncs.com/icon/Dht.png",
-            "温度计", "备注", Constants.AdminId);
-
-        var device = new Device.Devices(Guid.NewGuid(), "", DeviceStats.OffLine, Constants.AdminId, iotId);
-
-        builder.Entity<DeviceTemplate>().HasData(iot);
-        builder.Entity<Device.Devices>().HasData(device);
     }
 }

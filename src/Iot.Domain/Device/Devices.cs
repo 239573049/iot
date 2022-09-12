@@ -47,6 +47,11 @@ public class Devices : IotAggregateRoot<Guid>
     /// </summary>
     public Guid? DeviceTemplateId { get; set; }
 
+    /// <summary>
+    /// 树形id
+    /// </summary>
+    public Guid? TreeId { get; set; }
+    
     public void SetUserInfoId(Guid userInfoId)
     {
         if (userInfoId == Guid.Empty)
