@@ -5,8 +5,10 @@ namespace Iot.Admin.Application.Contracts.Devices.Views;
 /// <summary>
 /// 树形结构模型
 /// </summary>
-public class TreeDeviceDto : EntityDto<Guid>
+public class TreeDeviceDto 
 {
+    public Guid Key { get; set; }
+    
     /// <summary>
     /// 标题
     /// </summary>
@@ -36,9 +38,9 @@ public class TreeDeviceDto : EntityDto<Guid>
     }
 
     /// <inheritdoc />
-    public TreeDeviceDto(Guid id,string? title, string? icon, Guid? parentId, bool isLeaf = false)
+    public TreeDeviceDto(Guid key,string? title, string? icon, Guid? parentId, bool isLeaf = false)
     {
-        Id = id;
+        Key = key;
         Title = title;
         Icon = icon;
         IsLeaf = isLeaf;
