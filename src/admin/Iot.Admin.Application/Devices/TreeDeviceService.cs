@@ -78,4 +78,21 @@ public class TreeDeviceService : ApplicationService, ITreeDeviceService
 
         return treeDevice;
     }
+
+    /// <inheritdoc />
+    public async Task UpdateParentAsync(UpdateParentInput input)
+    {
+        if (input.Device)
+        {
+            var device = await _devicesRepository.GetAsync(x => x.Id == input.Id);
+            device.TreeId = input.ParentId;
+            await _devicesRepository.UpdateAsync(device);
+        }
+        else
+        {
+            var tree = await _treeDeviceRepository.GetAsync(x => x.Id == input.Id);
+            tree.ParentId = input.ParentId;
+            await _treeDeviceRepository.UpdateAsync(tree);
+        }
+    }
 }

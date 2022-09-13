@@ -34,4 +34,11 @@ public interface ITreeDeviceService
     /// <param name="input"></param>
     /// <returns></returns>
     Task<List<TreeDeviceDto>> GetTreeAsync(GetTreeDeviceInput input);
+
+    /// <summary>
+    /// 修改绑定的父级
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    Task UpdateParentAsync(UpdateParentInput input);
 }
