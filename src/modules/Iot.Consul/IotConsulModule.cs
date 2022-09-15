@@ -37,9 +37,9 @@ public class IotConsulModule :AbpModule
             Check = new AgentServiceCheck()
             {
                 DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),//服务启动多久后注册
-                Interval = TimeSpan.FromSeconds(10),//健康检查时间间隔
+                Interval = TimeSpan.FromSeconds(200),//健康检查时间间隔
                 HTTP = consulOption.ServiceHealthCheck,//健康检查地址
-                Timeout = TimeSpan.FromSeconds(5)
+                Timeout = TimeSpan.FromSeconds(200)
             }
         };
         
