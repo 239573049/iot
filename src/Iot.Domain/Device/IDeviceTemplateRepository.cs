@@ -6,7 +6,7 @@ using Volo.Abp.Domain.Repositories;
 
 namespace Iot.Device;
 
-public interface IDeviceTemplateRepository : IRepository<DeviceTemplate,Guid>
+public interface IDeviceTemplateRepository : IRepository<DeviceTemplate, Guid>
 {
     /// <summary>
     /// 获取列表

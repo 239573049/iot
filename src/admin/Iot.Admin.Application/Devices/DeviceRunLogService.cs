@@ -23,10 +23,10 @@ public class DeviceRunLogService : ApplicationService, IDeviceRunLogService
     /// <inheritdoc />
     public async Task<PagedResultDto<DeviceRunLogDto>> GetListAsync(GetDeviceLogListInput input)
     {
-        var result = await _deviceRunLogRepository.GetDeviceRunLogListAsync(input.Keywords, input.DeviceId,
+        var result = await _deviceRunLogRepository.GetDeviceRunLogListAsync(input.Keywords, input.Device, input.DeviceId,
             input.StartTime, input.EndTime, input.SkipCount, input.MaxResultCount);
 
-        var count = await _deviceRunLogRepository.GetDeviceRunLogCountAsync(input.Keywords, input.DeviceId,
+        var count = await _deviceRunLogRepository.GetDeviceRunLogCountAsync(input.Device, input.Keywords, input.DeviceId,
             input.StartTime, input.EndTime);
 
         var dto = ObjectMapper.Map<List<DeviceRunLogView>, List<DeviceRunLogDto>>(result);

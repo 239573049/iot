@@ -26,6 +26,8 @@ public class IotDbContext :
     
     public DbSet<UserInfo> UserInfo { get; set; }
 
+    public DbSet<TreeDevice> TreeDevices { get; set; }
+    
     #endregion
 
     public IotDbContext(DbContextOptions<IotDbContext> options)

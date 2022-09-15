@@ -16,7 +16,8 @@ public class DeviceTemplateRepository : EfCoreRepository<IotDbContext, DeviceTem
     {
     }
 
-    public async Task<List<DeviceTemplate>> GetListAsync(string keywords, Guid userId, DateTime? startTime, DateTime? endTime,
+    public async Task<List<DeviceTemplate>> GetListAsync(string keywords, Guid userId, DateTime? startTime,
+        DateTime? endTime,
         int skipCount, int maxResultCount)
     {
         var query = await CreateQueryAsync(keywords, userId, startTime, endTime);
@@ -30,6 +31,7 @@ public class DeviceTemplateRepository : EfCoreRepository<IotDbContext, DeviceTem
 
         return await query.CountAsync();
     }
+
 
     private async Task<IQueryable<DeviceTemplate>> CreateQueryAsync(string keywords, Guid userId, DateTime? startTime,
         DateTime? endTime)

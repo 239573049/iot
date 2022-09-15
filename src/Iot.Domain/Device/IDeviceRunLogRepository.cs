@@ -12,7 +12,7 @@ public interface IDeviceRunLogRepository : IRepository<DeviceRunLog, Guid>
     /// 设备列表
     /// </summary>
     /// <returns></returns>
-    Task<List<DeviceRunLogView>> GetDeviceRunLogListAsync(string keywords, Guid? deviceId,
+    Task<List<DeviceRunLogView>> GetDeviceRunLogListAsync(string keywords, bool? device, Guid? deviceId,
         DateTime? startTime,
         DateTime? endTime,
         int skipCount, int maxResultCount);
@@ -21,7 +21,7 @@ public interface IDeviceRunLogRepository : IRepository<DeviceRunLog, Guid>
     /// 设备总数
     /// </summary>
     /// <returns></returns>
-    Task<int> GetDeviceRunLogCountAsync(string keywords, Guid? deviceId,
+    Task<int> GetDeviceRunLogCountAsync(bool? device, string keywords, Guid? deviceId,
         DateTime? startTime,
         DateTime? endTime);
 }
