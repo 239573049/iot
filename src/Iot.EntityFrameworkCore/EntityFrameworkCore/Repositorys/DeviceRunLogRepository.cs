@@ -59,7 +59,9 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
             join template in dbContext.DeviceTemplates on device.DeviceTemplateId equals template.Id
             where string.IsNullOrEmpty(keywords) || device.Name.Contains(keywords) ||
                   device.Remark.Contains(keywords) &&
-                  (isDevice != false || (ids.Contains((Guid)device.TreeId) || (deviceId == null)))
+                  (isDevice == false
+                      ? ids.Contains((Guid)device.TreeId) || (deviceId == null)
+                      : (deviceId != null && device.Id == deviceId))
             select new DeviceRunLogView(runLog.Id, runLog.CreationTime, device.Name, device.Id, runLog.Logs)
             {
                 Remark = device.Remark,
