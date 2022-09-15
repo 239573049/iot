@@ -17,9 +17,9 @@ public class CreateDevicesEto
     /// </summary>
     public Guid DeviceTemplateId { get; }
     
-    public Dictionary<string,object> Data { get; }
+    public Dictionary<string,string> Data { get; }
 
-    public CreateDevicesEto(Guid deviceId, Dictionary<string,object> data, Guid deviceTemplateId)
+    public CreateDevicesEto(Guid deviceId, Dictionary<string,string> data, Guid deviceTemplateId)
     {
         DeviceId = deviceId;
         Data = data;

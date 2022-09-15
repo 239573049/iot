@@ -47,8 +47,8 @@ public static class IotEntityFrameworkCoreExtension
             // 将字典类型转换字符串存储在数据库
             x.Property(x => x.Logs)
                 .HasConversion(x => JsonConvert.SerializeObject(x),
-                    x => JsonSerializer.Deserialize<Dictionary<string, object>>(x, new JsonSerializerOptions()) ??
-                         new Dictionary<string, object>());
+                    x => JsonSerializer.Deserialize<Dictionary<string, string>>(x, new JsonSerializerOptions()) ??
+                         new Dictionary<string, string>());
         });
 
         builder.Entity<DeviceTemplate>(x =>

@@ -15,7 +15,7 @@ public class DeviceRunLog : Entity<Guid>, IHasCreationTime
     /// <summary>
     /// 运行信息
     /// </summary>
-    public Dictionary<string, object> Logs { get; protected set; }
+    public Dictionary<string, string> Logs { get; protected set; }
 
     /// <summary>
     /// 创建时间
@@ -25,10 +25,10 @@ public class DeviceRunLog : Entity<Guid>, IHasCreationTime
 
     public DeviceRunLog()
     {
-        Logs = new Dictionary<string, object>();
+        Logs = new Dictionary<string, string>();
     }
 
-    public DeviceRunLog(Guid id, Guid deviceId, Dictionary<string, object> logs) : base(id)
+    public DeviceRunLog(Guid id, Guid deviceId, Dictionary<string, string> logs) : base(id)
     {
         DeviceId = deviceId;
         Logs = logs;

@@ -61,7 +61,7 @@ public class DevicesService : ApplicationService, IDevicesService
     }
 
     /// <inheritdoc />
-    public async Task SaveDeviceLogAsync(Dictionary<string, object> data)
+    public async Task SaveDeviceLogAsync(Dictionary<string, string> data)
     {
         // 将日志添加到分布式事件总线处理
         await _distributedEventBus.PublishAsync(new CreateDevicesEto(_accessor.GetDeviceId(), data,

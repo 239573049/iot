@@ -20,7 +20,7 @@ public interface IDevicesService
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    Task SaveDeviceLogAsync(Dictionary<string,object> data);
+    Task SaveDeviceLogAsync(Dictionary<string,string> data);
 
     /// <summary>
     /// 获取设备列表

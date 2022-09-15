@@ -33,10 +33,10 @@ public class DeviceRunLogView : IotAggregateRoot<Guid>
     /// <summary>
     /// 运行信息
     /// </summary>
-    public Dictionary<string, object> Logs { get; set; }
+    public Dictionary<string, string> Logs { get; set; }
 
     public DeviceRunLogView(Guid id,DateTime creationTime,
-        string name, Guid deviceId, Dictionary<string, object> logs)
+        string name, Guid deviceId, Dictionary<string, string> logs)
     {
         id = id;
         CreationTime = creationTime;
