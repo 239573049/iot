@@ -9,6 +9,9 @@ using Volo.Abp.Uow;
 
 namespace Iot.Admin.Application.Events;
 
+/// <summary>
+/// 新增日志
+/// </summary>
 public class CreateDeviceEventHandler : IDistributedEventHandler<CreateDevicesEto>, ITransientDependency
 {
     private readonly ILogger<CreateDeviceEventHandler> _logger;
@@ -28,6 +31,7 @@ public class CreateDeviceEventHandler : IDistributedEventHandler<CreateDevicesEt
         _deviceRunLogRepository = deviceRunLogRepository;
     }
 
+    /// <inheritdoc />
     public async Task HandleEventAsync(CreateDevicesEto eventData)
     {
         using var uow = _uowManager.Begin(new AbpUnitOfWorkOptions(), true);
