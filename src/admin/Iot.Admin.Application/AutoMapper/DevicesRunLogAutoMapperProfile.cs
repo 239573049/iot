@@ -1,6 +1,8 @@
+using System.Text.Json;
 using AutoMapper;
 using Iot.Admin.Application.Contracts.Devices.Views;
 using Iot.Device;
+using Newtonsoft.Json;
 
 namespace Iot.Admin.Application.AutoMapper;
 
@@ -12,6 +14,7 @@ public class DevicesRunLogAutoMapperProfile : Profile
     /// <inheritdoc />
     public DevicesRunLogAutoMapperProfile()
     {
-        CreateMap<DeviceRunLogView, DeviceRunLogDto>();
+        CreateMap<DeviceRunLogView, DeviceRunLogDto>()
+            .ForMember(x => x.Logs, x => x.MapFrom(a => JsonConvert.SerializeObject(a.Logs)));
     }
 }

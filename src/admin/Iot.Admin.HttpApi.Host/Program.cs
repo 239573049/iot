@@ -31,6 +31,7 @@ try
         .AddConsul("iot/admin")
         .UseAutofac()
         .UseSerilog();
+    
     await builder.AddApplicationAsync<IotHttpApiHostModule>();
     var app = builder.Build();
     await app.InitializeApplicationAsync();

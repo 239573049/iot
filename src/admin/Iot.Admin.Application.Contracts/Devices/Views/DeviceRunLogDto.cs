@@ -18,8 +18,23 @@ public class DeviceRunLogDto : EntityDto<Guid>
     /// <summary>
     /// 运行信息
     /// </summary>
-    public Dictionary<string, object> Logs { get;  set; }
+    public string Logs { get;  set; }
 
+    /// <summary>
+    /// 设备类型
+    /// </summary>
+    public string Type { get;  set; }
+    
+    /// <summary>
+    /// 设备图标
+    /// </summary>
+    public string Icon { get; set; }
+
+    /// <summary>
+    /// 备注
+    /// </summary>
+    public string Remark { get;  set; }
+    
     /// <summary>
     /// 创建时间
     /// </summary>
