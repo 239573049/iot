@@ -62,6 +62,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
                   (isDevice == false
                       ? ids.Contains((Guid)device.TreeId) || (deviceId == null)
                       : (deviceId != null && device.Id == deviceId))
+            orderby runLog.CreationTime descending 
             select new DeviceRunLogView(runLog.Id, runLog.CreationTime, device.Name, device.Id, runLog.Logs)
             {
                 Remark = device.Remark,
