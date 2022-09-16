@@ -19,7 +19,7 @@ using Volo.Abp.Modularity;
 namespace Iot.Auth.HttpApi.Host;
 
 [DependsOn(
-    typeof(IotConsulModule),
+    // typeof(IotConsulModule), // 默认不使用Consul
     typeof(AbpAutofacModule),
     typeof(IotAuthHttpApiModule),
     typeof(IotHttpApiModule),
@@ -39,19 +39,19 @@ public class IotAuthHttpApiHostModule : AbpModule
         context.Services.AddHealthChecks();
 
         ConfigureLocalization();
-        ConfigureCache(configuration);
+        ConfigureCache();
         ConfigureDataProtection(context, configuration, hostingEnvironment);
         ConfigureCors(context);
-        ConfigureSwaggerServices(context, configuration);
+        ConfigureSwaggerServices(context);
     }
 
-    private void ConfigureCache(IConfiguration configuration)
+    private void ConfigureCache()
     {
         Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Iot:"; });
     }
 
 
-    private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
+    private static void ConfigureSwaggerServices(ServiceConfigurationContext context)
     {
         context.Services.AddSwaggerDocument(options =>
         {

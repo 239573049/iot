@@ -1,13 +1,22 @@
 ﻿using System;
+using System.IO;
 using Iot;
 using Iot.Consul;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 
-Log.Logger = new LoggerConfiguration() 
+var config = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("serilog.json", optional: true, reloadOnChange: true)
+    .AddJsonFile("serilog.Development.json", optional: true, reloadOnChange: true)
+    .Build();
+
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(config)
 #if DEBUG
     .MinimumLevel.Debug()
 #else
@@ -25,7 +34,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Starting Iot.Admin.HttpApi.Host.");
+    Log.Information("Starting Iot.Admin.HttpApi.Host");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
         .AddConsul("iot/admin")

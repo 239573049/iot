@@ -24,7 +24,7 @@ using Volo.Abp.RabbitMQ;
 namespace Iot;
 
 [DependsOn(
-    typeof(IotConsulModule),
+    // typeof(IotConsulModule), // 默认不使用Consul
     typeof(AbpAutofacModule),
     typeof(IotHttpApiModule),
     typeof(IotAdminApplicationModule),
@@ -46,13 +46,13 @@ public class IotHttpApiHostModule : AbpModule
         ConfigureRabbitMq();
         ConfigureConventionalControllers();
         ConfigureLocalization();
-        ConfigureCache(configuration);
+        ConfigureCache();
         ConfigureDataProtection(context, configuration, hostingEnvironment);
         ConfigureCors(context, configuration);
-        ConfigureSwaggerServices(context, configuration);
+        ConfigureSwaggerServices(context);
     }
 
-    private void ConfigureCache(IConfiguration configuration)
+    private void ConfigureCache()
     {
         Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Iot:"; });
     }
@@ -75,7 +75,7 @@ public class IotHttpApiHostModule : AbpModule
         });
     }
 
-    private static void ConfigureSwaggerServices(ServiceConfigurationContext context, IConfiguration configuration)
+    private static void ConfigureSwaggerServices(ServiceConfigurationContext context)
     {
         context.Services.AddSwaggerDocument(options =>
         {
