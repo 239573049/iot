@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using Iot.Admin.Application.Contracts.Devices;
 using Iot.Admin.Application.Contracts.Devices.Views;
 using Iot.Common.Jwt;
@@ -21,18 +20,15 @@ public class DevicesService : ApplicationService, IDevicesService
     private readonly IDeviceTemplateRepository _deviceTemplateRepository;
     private readonly IDevicesRepository _devicesRepository;
     private readonly IDistributedEventBus _distributedEventBus;
-    private readonly IDeviceRunLogRepository _deviceRunLogRepository;
 
     /// <inheritdoc />
     public DevicesService(Accessor accessor, IDevicesRepository devicesRepository,
-        IDistributedEventBus distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository,
-        IDeviceRunLogRepository deviceRunLogRepository)
+        IDistributedEventBus distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository)
     {
         _accessor = accessor;
         _devicesRepository = devicesRepository;
         _distributedEventBus = distributedEventBus;
         _deviceTemplateRepository = deviceTemplateRepository;
-        _deviceRunLogRepository = deviceRunLogRepository;
     }
 
     /// <inheritdoc />

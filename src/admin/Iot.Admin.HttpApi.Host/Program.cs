@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
 
-Log.Logger = new LoggerConfiguration()
+Log.Logger = new LoggerConfiguration() 
 #if DEBUG
     .MinimumLevel.Debug()
 #else

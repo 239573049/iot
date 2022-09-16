@@ -20,6 +20,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
     }
 
 
+    /// <inheritdoc />
     public async Task<List<DeviceRunLogView>> GetDeviceRunLogListAsync(string keywords, bool? device, Guid? deviceId,
         DateTime? startTime, DateTime? endTime,
         int skipCount, int maxResultCount)
@@ -29,6 +30,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
         return await query.PageBy(skipCount, maxResultCount).ToListAsync();
     }
 
+    /// <inheritdoc />
     public async Task<int> GetDeviceRunLogCountAsync(bool? device, string keywords, Guid? deviceId, DateTime? startTime,
         DateTime? endTime)
     {
@@ -57,8 +59,8 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
             from runLog in deviceRunLogs
             join device in dbContext.IotDevices on runLog.DeviceId equals device.Id
             join template in dbContext.DeviceTemplates on device.DeviceTemplateId equals template.Id
-            where string.IsNullOrEmpty(keywords) || device.Name.Contains(keywords) ||
-                  device.Remark.Contains(keywords) &&
+            where (string.IsNullOrEmpty(keywords) || device.Name.Contains(keywords) ||
+                   device.Remark.Contains(keywords)) &&
                   (isDevice == false
                       ? ids.Contains((Guid)device.TreeId) || (deviceId == null)
                       : (deviceId != null && device.Id == deviceId))
