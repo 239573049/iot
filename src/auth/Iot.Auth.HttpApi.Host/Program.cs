@@ -1,22 +1,5 @@
 using Iot.Auth.HttpApi.Host;
-using Iot.Consul;
 using Serilog;
-using Serilog.Events;
-
-// Log.Logger = new LoggerConfiguration()
-// #if DEBUG
-//     .MinimumLevel.Debug()
-// #else
-//                 .MinimumLevel.Information()
-// #endif
-//     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-//     .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-//     .Enrich.FromLogContext()
-// #if DEBUG
-//     .WriteTo.Async(c => c.Console())
-// #endif
-//     .CreateLogger();
-
 
 try
 {
@@ -25,7 +8,11 @@ try
     builder.Host.AddAppSettingsSecretsJson()
         // .AddConsul("iot/auth")
         .UseAutofac()
-        .UseSerilog();
+        .UseSerilog(((context, logger) =>
+        {
+            logger.ReadFrom.Configuration(context.Configuration)
+                .Enrich.FromLogContext();
+        }));
     
     builder.Services.AddControllers();
     await builder.AddApplicationAsync<IotAuthHttpApiHostModule>();
