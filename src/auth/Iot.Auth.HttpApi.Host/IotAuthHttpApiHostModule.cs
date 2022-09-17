@@ -35,7 +35,7 @@ public class IotAuthHttpApiHostModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
         var hostingEnvironment = context.Services.GetHostingEnvironment();
-
+        
         context.Services.AddHealthChecks();
 
         ConfigureLocalization();

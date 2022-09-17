@@ -53,6 +53,11 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
         if (isDevice == false)
         {
             ids = await _treeDeviceRepository.GetTreeRecursionAsync(deviceId);
+
+            if (deviceId != null)
+            {
+                ids.Add((Guid)deviceId);
+            }
         }
 
         var query =

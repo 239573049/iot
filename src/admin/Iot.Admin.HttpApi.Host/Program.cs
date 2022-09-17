@@ -1,6 +1,5 @@
 ﻿using System;
 using Iot;
-using Iot.Consul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

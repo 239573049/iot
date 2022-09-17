@@ -38034,3 +38034,97 @@ RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified end
    at System.Lazy`1.get_Value()
    at Volo.Abp.RabbitMQ.ConnectionPool.Get(String connectionName)
    at Volo.Abp.RabbitMQ.RabbitMqMessageConsumer.TryCreateChannelAsync()
+2022-09-17 23:20:41.774 +08:00 [INF] Starting Iot.Admin.HttpApi.Host
+2022-09-17 23:20:43.689 +08:00 [INF] Loaded ABP modules:
+2022-09-17 23:20:43.690 +08:00 [INF] - Iot.IotHttpApiHostModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Volo.Abp.Autofac.AbpAutofacModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.Castle.AbpCastleCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Iot.HttpApi.IotHttpApiModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Iot.Admin.Application.IotAdminApplicationModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Iot.Common.Jwt.IotCommonJwtModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.AutoMapper.AbpAutoMapperModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.ObjectMapping.AbpObjectMappingModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.ObjectExtending.AbpObjectExtendingModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Localization.AbpLocalizationAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Validation.AbpValidationAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.Auditing.AbpAuditingModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Data.AbpDataModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.Uow.AbpUnitOfWorkModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.EventBus.Abstractions.AbpEventBusAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Json.AbpJsonModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.Timing.AbpTimingModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.Localization.AbpLocalizationModule
+2022-09-17 23:20:43.690 +08:00 [INF]               - Volo.Abp.VirtualFileSystem.AbpVirtualFileSystemModule
+2022-09-17 23:20:43.690 +08:00 [INF]               - Volo.Abp.Settings.AbpSettingsModule
+2022-09-17 23:20:43.690 +08:00 [INF]                 - Volo.Abp.Security.AbpSecurityModule
+2022-09-17 23:20:43.690 +08:00 [INF]                 - Volo.Abp.MultiTenancy.AbpMultiTenancyModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Threading.AbpThreadingModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Auditing.AbpAuditingContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Iot.Admin.Application.Contracts.IotAdminApplicationContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Iot.IotApplicationContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Iot.IotDomainSharedModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainSharedModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.Validation.AbpValidationModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.Application.AbpDddApplicationContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.Authorization.AbpAuthorizationAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.SettingManagement.AbpSettingManagementApplicationContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.SettingManagement.AbpSettingManagementDomainSharedModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.Features.AbpFeaturesModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Iot.Common.Core.IotCommonCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Volo.Abp.Caching.StackExchangeRedis.AbpCachingStackExchangeRedisModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.Caching.AbpCachingModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.Serialization.AbpSerializationModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Iot.IotApplicationModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Iot.IotDomainModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementApplicationModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.FeatureManagement.AbpFeatureManagementDomainModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.Application.AbpDddApplicationModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Domain.AbpDddDomainModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.EventBus.AbpEventBusModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.Guids.AbpGuidsModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.BackgroundWorkers.AbpBackgroundWorkersModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.DistributedLocking.AbpDistributedLockingAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.ExceptionHandling.AbpExceptionHandlingModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.Specifications.AbpSpecificationsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Authorization.AbpAuthorizationModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.Http.AbpHttpAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.GlobalFeatures.AbpGlobalFeaturesModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementApplicationModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.SettingManagement.AbpSettingManagementDomainModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.Emailing.AbpEmailingModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.BackgroundJobs.AbpBackgroundJobsAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.TextTemplating.AbpTextTemplatingModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.TextTemplating.Scriban.AbpTextTemplatingScribanModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.TextTemplating.AbpTextTemplatingCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Iot.EntityFrameworkCore.IotEntityFrameworkCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.SettingManagement.EntityFrameworkCore.AbpSettingManagementEntityFrameworkCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.EntityFrameworkCore.SqlServer.AbpEntityFrameworkCoreSqlServerModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.AuditLogging.EntityFrameworkCore.AbpAuditLoggingEntityFrameworkCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.AuditLogging.AbpAuditLoggingDomainModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.AuditLogging.AbpAuditLoggingDomainSharedModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.FeatureManagement.EntityFrameworkCore.AbpFeatureManagementEntityFrameworkCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Iot.IotAdminHttpApiModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.FeatureManagement.AbpFeatureManagementHttpApiModule
+2022-09-17 23:20:43.690 +08:00 [INF]       - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.AspNetCore.AbpAspNetCoreModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.Http.AbpHttpModule
+2022-09-17 23:20:43.690 +08:00 [INF]             - Volo.Abp.Minify.AbpMinifyModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.ApiVersioning.AbpApiVersioningAbstractionsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.AspNetCore.Mvc.AbpAspNetCoreMvcContractsModule
+2022-09-17 23:20:43.690 +08:00 [INF]         - Volo.Abp.UI.Navigation.AbpUiNavigationModule
+2022-09-17 23:20:43.690 +08:00 [INF]           - Volo.Abp.UI.AbpUiModule
+2022-09-17 23:20:43.690 +08:00 [INF]     - Volo.Abp.SettingManagement.AbpSettingManagementHttpApiModule
+2022-09-17 23:20:43.690 +08:00 [INF]   - Volo.Abp.AspNetCore.Serilog.AbpAspNetCoreSerilogModule
+2022-09-17 23:20:43.976 +08:00 [INF] User profile is available. Using 'C:\Users\23957\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-17 23:20:44.026 +08:00 [INF] Initialized all ABP modules.
+2022-09-17 23:20:44.108 +08:00 [INF] Now listening on: http://0.0.0.0:44394
+2022-09-17 23:20:44.108 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-17 23:20:44.108 +08:00 [INF] Hosting environment: Development
+2022-09-17 23:20:44.108 +08:00 [INF] Content root path: D:\net core\Iot\src\admin\Iot.Admin.HttpApi.Host\
+2022-09-17 23:24:07.266 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:44394/api/app/device-run-log?DeviceId=b203dc7e-a7ad-ecde-48e8-3a06535c72a7&Device=false&Keywords=&StartTime=&EndTime=&Page=&PageSize= - -
+2022-09-17 23:24:09.890 +08:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2022-09-17 23:24:09.911 +08:00 [INF] Executing endpoint 'Iot.Admin.Application.Devices.DeviceRunLogService.GetListAsync (Iot.Admin.Application)'
+2022-09-17 23:24:09.951 +08:00 [INF] Route matched with {action = "GetList", controller = "DeviceRunLog", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Volo.Abp.Application.Dtos.PagedResultDto`1[Iot.Admin.Application.Contracts.Devices.Views.DeviceRunLogDto]] GetListAsync(Iot.Admin.Application.Contracts.Devices.Views.GetDeviceLogListInput) on controller Iot.Admin.Application.Devices.DeviceRunLogService (Iot.Admin.Application).
+2022-09-17 23:25:07.300 +08:00 [WRN] The property 'DeviceRunLog.Logs' is a collection or enumeration type with a value converter but with no value comparer. Set a value comparer to ensure the collection/enumeration elements are compared correctly.
