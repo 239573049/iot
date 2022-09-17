@@ -3,16 +3,7 @@ using Iot.Consul;
 using Serilog;
 using Serilog.Events;
 
-
-var config = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("serilog.json", optional: true, reloadOnChange: true)
-    .AddJsonFile("serilog.Development.json", optional: true, reloadOnChange: true)
-    .Build();
-
 Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(config)
-    
 #if DEBUG
     .MinimumLevel.Debug()
 #else

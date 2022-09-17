@@ -50,7 +50,6 @@ public class IotAuthHttpApiHostModule : AbpModule
         Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Iot:"; });
     }
 
-
     private static void ConfigureSwaggerServices(ServiceConfigurationContext context)
     {
         context.Services.AddSwaggerDocument(options =>
