@@ -26,7 +26,6 @@ public class DeviceRunLogService : ApplicationService, IDeviceRunLogService
     /// <inheritdoc />
     public async Task<PagedResultDto<DeviceRunLogDto>> GetListAsync(GetDeviceLogListInput input)
     {
-        _logger.LogDebug("测试测试");
         var result = await _deviceRunLogRepository.GetDeviceRunLogListAsync(input.Keywords, input.Device, input.DeviceId,
             input.StartTime, input.EndTime, input.SkipCount, input.MaxResultCount);
 
