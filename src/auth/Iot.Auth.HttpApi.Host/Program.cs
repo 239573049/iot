@@ -12,7 +12,6 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
     .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
     .Enrich.FromLogContext()
-    .WriteTo.Async(c => c.File("logs/logs.txt"))
 #if DEBUG
     .WriteTo.Async(c => c.Console())
 #endif
@@ -21,7 +20,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Log.Information("Starting Iot.Auth.HttpApi.Host.");
+    Log.Information("Starting Iot.Auth.HttpApi.Host");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
         // .AddConsul("iot/auth")
