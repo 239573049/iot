@@ -28,7 +28,7 @@ try
     Log.Information("Starting Iot.Admin.HttpApi.Host");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
-        .AddConsul("iot/admin")
+        // .AddConsul("iot/admin")
         .UseAutofac()
         .UseSerilog();
     

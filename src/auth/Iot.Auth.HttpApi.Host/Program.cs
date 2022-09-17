@@ -24,7 +24,7 @@ try
     Log.Information("Starting Iot.Auth.HttpApi.Host.");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
-        .AddConsul("iot/auth")
+        // .AddConsul("iot/auth")
         .UseAutofac()
         .UseSerilog();
     builder.Services.AddControllers();
