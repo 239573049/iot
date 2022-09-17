@@ -1,6 +1,7 @@
 using Iot.Admin.Application.Contracts.Devices;
 using Iot.Admin.Application.Contracts.Devices.Views;
 using Iot.Device;
+using Microsoft.Extensions.Logging;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
@@ -11,18 +12,21 @@ namespace Iot.Admin.Application.Devices;
 /// </summary>
 public class DeviceRunLogService : ApplicationService, IDeviceRunLogService
 {
+    private readonly ILogger<DeviceRunLogService> _logger;
     private readonly IDeviceRunLogRepository _deviceRunLogRepository;
 
     /// <inheritdoc />
-    public DeviceRunLogService(IDeviceRunLogRepository deviceRunLogRepository)
+    public DeviceRunLogService(IDeviceRunLogRepository deviceRunLogRepository, ILogger<DeviceRunLogService> logger)
     {
         _deviceRunLogRepository = deviceRunLogRepository;
+        _logger = logger;
     }
 
 
     /// <inheritdoc />
     public async Task<PagedResultDto<DeviceRunLogDto>> GetListAsync(GetDeviceLogListInput input)
     {
+        _logger.LogDebug("测试测试");
         var result = await _deviceRunLogRepository.GetDeviceRunLogListAsync(input.Keywords, input.Device, input.DeviceId,
             input.StartTime, input.EndTime, input.SkipCount, input.MaxResultCount);
 

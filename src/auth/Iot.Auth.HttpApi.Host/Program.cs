@@ -3,19 +3,19 @@ using Iot.Consul;
 using Serilog;
 using Serilog.Events;
 
-Log.Logger = new LoggerConfiguration()
-#if DEBUG
-    .MinimumLevel.Debug()
-#else
-                .MinimumLevel.Information()
-#endif
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-    .Enrich.FromLogContext()
-#if DEBUG
-    .WriteTo.Async(c => c.Console())
-#endif
-    .CreateLogger();
+// Log.Logger = new LoggerConfiguration()
+// #if DEBUG
+//     .MinimumLevel.Debug()
+// #else
+//                 .MinimumLevel.Information()
+// #endif
+//     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+//     .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+//     .Enrich.FromLogContext()
+// #if DEBUG
+//     .WriteTo.Async(c => c.Console())
+// #endif
+//     .CreateLogger();
 
 
 try

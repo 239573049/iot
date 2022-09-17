@@ -1,24 +1,11 @@
 ﻿using System;
 using Iot;
+using Iot.Common.Core.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
-
-Log.Logger = new LoggerConfiguration()
-#if DEBUG
-    .MinimumLevel.Debug()
-#else
-                .MinimumLevel.Information()
-#endif
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-    .Enrich.FromLogContext()
-#if DEBUG
-    .WriteTo.Async(c => c.Console())
-#endif
-    .CreateLogger();
 
 
 try
@@ -28,9 +15,14 @@ try
     builder.Host.AddAppSettingsSecretsJson()
         // .AddConsul("iot/admin")
         .UseAutofac()
-        .UseSerilog();
+        .UseSerilog(((context, logger) =>
+        {
+            logger.ReadFrom.Configuration(context.Configuration)
+                .Enrich.FromLogContext();
+        }));
     
     await builder.AddApplicationAsync<IotHttpApiHostModule>();
+
     var app = builder.Build();
     await app.InitializeApplicationAsync();
     await app.RunAsync();
