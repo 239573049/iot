@@ -1,38 +1,53 @@
 # Iot
 
-#### 介绍
-Token的Iot管理系统
+## 介绍
+Token的Iot管理后台服务器
 
-#### 软件架构
-软件架构说明
+当前项目是iot后台服务器
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+如果需要查看界面展示请前往 [iot-web](https://gitee.com/Simple-china/iot-web)
 
 
-#### 特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
 
+## 项目部署
+
+1. 在运行compose文件的时候请先创建一个docker网络
+
+2. 进入到./stack 中运行docker-compose.yml文件 
+
+3. 创建docker网络可以有效避免容器网络混乱问题
+
+```shell
+docker network create token  # 创建一个token的docker网络
+```
+
+项目所需依赖都在compose文件中
+conf.d/ 是nginx的配置
+cert/ 是证书文件夹
+
+```shell
+docker-compose up -d # 运行项目的基本依赖中间件
+```
+
+根目录的docker-compose文件是Iot后台服务的部署文件
+
+可以自行修改镜像地址
+
+iot-auth 项目是授权和权限管理服务
+
+iot-admin 是基本项目功能服务
+
+部署当前服务之前必须运行以上服务
+
+```shell
+docker-compose up -d # 运行项目服务
+```
+
+
+
+## 技术支持
+
+技术问题或者项目bug请进群聊讨论：737776595
+
+出现项目bug可以提Issue
