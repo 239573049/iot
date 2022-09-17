@@ -4,6 +4,7 @@ using Iot.Events;
 using Microsoft.Extensions.Logging;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
+using Volo.Abp.EventBus;
 using Volo.Abp.EventBus.Distributed;
 using Volo.Abp.Uow;
 
@@ -12,7 +13,7 @@ namespace Iot.Admin.Application.Events;
 /// <summary>
 /// 新增日志
 /// </summary>
-public class CreateDeviceEventHandler : IDistributedEventHandler<CreateDevicesEto>, ITransientDependency
+public class CreateDeviceEventHandler : ILocalEventHandler<CreateDevicesEto>, ITransientDependency
 {
     private readonly ILogger<CreateDeviceEventHandler> _logger;
     private readonly IUnitOfWorkManager _uowManager;

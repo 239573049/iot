@@ -8,7 +8,6 @@ using Microsoft.Extensions.Hosting;
 using StackExchange.Redis;
 using Iot.Admin.Application;
 using Iot.HttpApi;
-using Iot.Consul;
 using NSwag;
 using NSwag.Generation.Processors.Security;
 using Volo.Abp;
@@ -19,7 +18,6 @@ using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.RabbitMQ;
 
 namespace Iot;
 
@@ -43,27 +41,17 @@ public class IotHttpApiHostModule : AbpModule
 
         context.Services.AddHealthChecks();
 
-        ConfigureRabbitMq();
         ConfigureConventionalControllers();
         ConfigureLocalization();
         ConfigureCache();
         ConfigureDataProtection(context, configuration, hostingEnvironment);
-        ConfigureCors(context, configuration);
+        ConfigureCors(context);
         ConfigureSwaggerServices(context);
     }
 
     private void ConfigureCache()
     {
         Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "Iot:"; });
-    }
-
-    private void ConfigureRabbitMq()
-    {
-        Configure<AbpRabbitMqOptions>(options =>
-        {
-            options.Connections.Default.UserName = "iot";
-            options.Connections.Default.Password = "dd666666";
-        });
     }
 
     private void ConfigureConventionalControllers()
@@ -121,7 +109,7 @@ public class IotHttpApiHostModule : AbpModule
         }
     }
 
-    private void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
+    private void ConfigureCors(ServiceConfigurationContext context)
     {
         context.Services.AddCors(options =>
         {

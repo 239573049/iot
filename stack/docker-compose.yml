@@ -6,7 +6,6 @@ services:
     volumes:
       - ./conf.d:/etc/nginx/conf.d
       - ./cert:/cert
-      - ./wwwroot:/wwwroot
       - /etc/localtime:/etc/localtime
     ports:
       - 80:80
@@ -14,25 +13,13 @@ services:
     networks:
       - token
 
-  consul:
-    container_name: consul
-    restart: always
-    image: consul
-    volumes:
-      - ./consul:/consul/data
-    networks:
-      - token
-    ports:
-      - 8500:8500
-    command: ["consul","agent","-server","-bootstrap","-data-dir","/consul","-ui","-bind","127.0.0.1","-client","0.0.0.0"]
-    
     
   mssql:
       image: mcr.microsoft.com/mssql/server:2017-latest
       container_name: mssql
       restart: always
       volumes:
-        - /data/data/mssql:/var/opt/mssql/data
+        - ./data/mssql:/var/opt/mssql/data
         - /etc/localtime:/etc/localtime
       environment:
         - "MSSQL_SA_PASSWORD=dd666666"
@@ -43,7 +30,6 @@ services:
       networks:
         - token
 
-
   redis:
       image: redis
       container_name: redis
@@ -51,28 +37,8 @@ services:
       networks:
         - token
       volumes:
-        - /data/data/redis:/data
-        - /data/logs/redis:/logs
-        - ./conf/redis.conf:/etc/redis/redis.conf
         - /etc/localtime:/etc/localtime
 
-  rabbitmq:
-      image: rabbitmq:management
-      restart: always
-      container_name: rabbitmq
-      networks:
-        - token
-      ports:
-        - 5672:5672
-        - 15672:15672
-      environment:
-        TZ: Asia/Shanghai
-        RABBITMQ_DEFAULT_USER: token
-        RABBITMQ_DEFAULT_PASS: dd666666
-      volumes:
-        - ./data:/var/lib/rabbitmq
-        - ./rabbitmq:/etc/rabbitmq
-        
 networks:
   token:
     external: true

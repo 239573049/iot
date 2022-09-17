@@ -8,6 +8,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Volo.Abp.EventBus.Distributed;
+using Volo.Abp.EventBus.Local;
 
 namespace Iot.Admin.Application.Devices;
 
@@ -19,11 +20,11 @@ public class DevicesService : ApplicationService, IDevicesService
     private readonly Accessor _accessor;
     private readonly IDeviceTemplateRepository _deviceTemplateRepository;
     private readonly IDevicesRepository _devicesRepository;
-    private readonly IDistributedEventBus _distributedEventBus;
+    private readonly ILocalEventBus _distributedEventBus;
 
     /// <inheritdoc />
     public DevicesService(Accessor accessor, IDevicesRepository devicesRepository,
-        IDistributedEventBus distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository)
+        ILocalEventBus  distributedEventBus, IDeviceTemplateRepository deviceTemplateRepository)
     {
         _accessor = accessor;
         _devicesRepository = devicesRepository;
