@@ -10,11 +10,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Iot.EntityFrameworkCore\Iot.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Iot.TestBase\Iot.TestBase.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="5.3.3" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="5.3.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.1" />
   </ItemGroup>
 
 </Project>
