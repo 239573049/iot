@@ -1,4 +1,5 @@
 # Iot
+[![Build Status](https://drone.tokengo.top:442/api/badges/Simple-china/Iot/status.svg)](https://drone.tokengo.top:442/Simple-china/Iot)
 
 ## 介绍
 Token的Iot管理后台服务器
