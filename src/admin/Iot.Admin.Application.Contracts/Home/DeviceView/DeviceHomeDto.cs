@@ -1,4 +1,4 @@
-namespace Iot.Admin.Application.Contracts.Devices.Views;
+namespace Iot.Admin.Application.Contracts.Home.DeviceView;
 
 /// <summary>
 /// 首页展示数据

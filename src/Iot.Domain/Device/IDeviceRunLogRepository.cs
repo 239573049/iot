@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Iot.Devices;
 using Volo.Abp.Domain.Repositories;
@@ -23,5 +24,15 @@ public interface IDeviceRunLogRepository : IRepository<DeviceRunLog, Guid>
     /// <returns></returns>
     Task<int> GetDeviceRunLogCountAsync(bool? device, string keywords, Guid? deviceId,
         DateTime? startTime,
+        DateTime? endTime);
+
+    /// <summary>
+    /// 获取IQueryable
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <param name="startTime"></param>
+    /// <param name="endTime"></param>
+    /// <returns></returns>
+    Task<IQueryable<DeviceRunLog>> GetQueryAsync(Guid? userId, DateTime? startTime,
         DateTime? endTime);
 }

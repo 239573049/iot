@@ -1,5 +1,6 @@
 using AutoMapper;
 using Iot.Admin.Application.Contracts.Devices.Views;
+using Iot.Admin.Application.Contracts.Home.DeviceView;
 using Iot.Common.Core.Extensions;
 using Iot.Device;
 using Iot.Devices;

@@ -1,5 +1,6 @@
 using Iot.Admin.Application.Contracts.Devices;
 using Iot.Admin.Application.Contracts.Devices.Views;
+using Iot.Admin.Application.Contracts.Home.DeviceView;
 using Iot.Common.Jwt;
 using Iot.Device;
 using Iot.EntityFrameworkCore.Repositorys;
@@ -108,15 +109,4 @@ public class DevicesService : ApplicationService, IDevicesService
         data = await _devicesRepository.InsertAsync(data, true);
     }
 
-    /// <inheritdoc />
-    public async Task<DeviceHomeDto> GetDeviceHomeAsync()
-    {
-        var userId = _accessor.GetUserId();
-
-        var result = await _devicesRepository.GetDeviceHomeAsync(userId);
-
-        var dto = ObjectMapper.Map<DeviceHomeView, DeviceHomeDto>(result);
-
-        return dto;
-    }
 }
