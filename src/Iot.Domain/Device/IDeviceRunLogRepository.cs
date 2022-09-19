@@ -33,6 +33,6 @@ public interface IDeviceRunLogRepository : IRepository<DeviceRunLog, Guid>
     /// <param name="startTime"></param>
     /// <param name="endTime"></param>
     /// <returns></returns>
-    Task<IQueryable<DeviceRunLog>> GetQueryAsync(Guid? userId, DateTime? startTime,
+    Task<List<DeviceRunLog>> GetListAsync(Guid? userId, DateTime? startTime,
         DateTime? endTime);
 }

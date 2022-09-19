@@ -1,3 +1,4 @@
+using System.Linq.Dynamic.Core;
 using Iot.Admin.Application.Contracts.Home;
 using Iot.Admin.Application.Contracts.Home.DeviceView;
 using Iot.Common.Jwt;
@@ -45,14 +46,14 @@ public class HomeService : ApplicationService, IHomeService
         input.StartTime = now.AddDays(-7);
         input.EndTime = now;
 
-        var log = await _deviceRunLogRepository.GetQueryAsync(userId, input.StartTime, input.EndTime);
+        var log = await _deviceRunLogRepository.GetListAsync(userId, input.StartTime, input.EndTime);
 
         var deviceDateLogDto = new DeviceDateLogDto();
 
 
-        var devices = log.GroupBy(x => x.CreationTime.ToString("yyyy-MM-dd"));
+        var devices = log.GroupBy(x => x.CreationTime.Day).ToList();
 
-        deviceDateLogDto.Date.AddRange(devices.Select(x => x.Key));
+        deviceDateLogDto.Date.AddRange(devices.Select(x => x.FirstOrDefault()?.CreationTime.ToString("yyyy-MM-dd"))!);
 
         foreach (var device in devices)
         {

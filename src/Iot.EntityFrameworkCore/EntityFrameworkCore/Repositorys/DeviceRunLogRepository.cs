@@ -39,7 +39,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
         return await query.CountAsync();
     }
 
-    public async Task<IQueryable<DeviceRunLog>> GetQueryAsync(Guid? userId, DateTime? startTime, DateTime? endTime)
+    public async Task<List<DeviceRunLog>> GetListAsync(Guid? userId, DateTime? startTime, DateTime? endTime)
     {
         var dbContext = await GetDbContextAsync();
 
@@ -55,7 +55,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
             join iotDevice in device on runLog.DeviceId equals iotDevice.Id
             select runLog;
 
-        return query;
+        return await query.ToListAsync();
     }
 
     private async Task<IQueryable<DeviceRunLogView>> CreateDeviceRunLogQueryAsync(bool? isDevice, string keywords,
