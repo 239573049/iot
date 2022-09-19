@@ -62,6 +62,14 @@ public class Devices : IotAggregateRoot<Guid>
         UserInfoId = userInfoId;
     }
 
+    /// <summary>
+    /// 解绑设备
+    /// </summary>
+    public void UnbindDevice()
+    {
+        UserInfoId = null;
+    }
+    
     public virtual UserInfo UserInfo { get; set; }
 
     public virtual DeviceTemplate DeviceTemplate { get; set; }

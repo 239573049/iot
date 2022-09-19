@@ -49,8 +49,17 @@ public class DevicesService : ApplicationService, IDevicesService
         }
         else
         {
-            devices.SetUserInfoId(userId);
-            await _devicesRepository.UpdateAsync(devices);
+            // 如果已经绑定就解绑设备
+            if (devices.UserInfoId == userId)
+            {
+                devices.UnbindDevice();
+                await _devicesRepository.UpdateAsync(devices);
+            }
+            else
+            {
+                devices.SetUserInfoId(userId);
+                await _devicesRepository.UpdateAsync(devices);
+            }
         }
 
 
