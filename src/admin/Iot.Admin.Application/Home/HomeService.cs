@@ -55,13 +55,13 @@ public class HomeService : ApplicationService, IHomeService
 
         deviceDateLogDto.Date.AddRange(devices.Select(x => x.FirstOrDefault()?.CreationTime.ToString("yyyy-MM-dd"))!);
 
+        var series = new Series();
         foreach (var device in devices)
         {
-            var series = new Series();
             series.Data.Add(device.Count());
-            deviceDateLogDto.Series.Add(series);
         }
 
+        deviceDateLogDto.Series.Add(series);
 
         return deviceDateLogDto;
     }
