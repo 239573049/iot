@@ -1,11 +1,9 @@
 ﻿using System;
 using Iot;
-using Iot.Common.Core.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Events;
 
 
 try
@@ -13,7 +11,6 @@ try
     Log.Information("Starting Iot.Admin.HttpApi.Host");
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.AddAppSettingsSecretsJson()
-        // .AddConsul("iot/admin")
         .UseAutofac()
         .UseSerilog(((context, logger) =>
         {
@@ -25,6 +22,7 @@ try
 
     var app = builder.Build();
     await app.InitializeApplicationAsync();
+    
     await app.RunAsync();
     return 0;
 }

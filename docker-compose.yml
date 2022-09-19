@@ -8,6 +8,7 @@ services:
       - /etc/localtime:/etc/localtime
     environment:
       - "ASPNETCORE_ENVIRONMENT=Development"
+      - "TZ=Asia/Shanghai"
     networks:
       - token
 
@@ -19,6 +20,7 @@ services:
       - /etc/localtime:/etc/localtime
     environment:
       - "ASPNETCORE_ENVIRONMENT=Development"
+      - "TZ=Asia/Shanghai"
     networks:
       - token
       

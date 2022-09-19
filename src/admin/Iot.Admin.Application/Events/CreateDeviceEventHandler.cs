@@ -39,8 +39,10 @@ public class CreateDeviceEventHandler : ILocalEventHandler<CreateDevicesEto>, IT
 
         var device = await _devicesRepository.FirstOrDefaultAsync(x => x.Id == eventData.DeviceId);
 
+        // 如果设备不存在将注册设备
         if (device == null)
         {
+            // 获取设备模板
             var template = await _deviceTemplateRepository.FirstOrDefaultAsync(x => x.Id == eventData.DeviceTemplateId);
 
             if (template == null)
