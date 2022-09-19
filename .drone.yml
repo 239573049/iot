@@ -12,6 +12,8 @@ steps:
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
+      - name: localtime
+        path: /etc/localtime
     commands:
       - docker build -f ./src/auth/Iot.Auth.HttpApi.Host/Dockerfile -t registry.cn-shenzhen.aliyuncs.com/tokengo/iot-auth:dev .
 
@@ -19,6 +21,10 @@ volumes:
   - name: dockersock
     host:
       path: /var/run/docker.sock
+  - name: localtime
+    host:
+      path: /etc/localtime
+
       
 ---
 
@@ -36,6 +42,8 @@ steps:
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
+      - name: localtime
+        path: /etc/localtime
     commands:
       - docker build -f ./src/admin/Iot.Admin.HttpApi.Host/Dockerfile -t registry.cn-shenzhen.aliyuncs.com/tokengo/iot-admin:dev .
 
@@ -43,6 +51,9 @@ volumes:
   - name: dockersock
     host:
       path: /var/run/docker.sock
+  - name: localtime
+    host:
+      path: /etc/localtime
 
 
 
