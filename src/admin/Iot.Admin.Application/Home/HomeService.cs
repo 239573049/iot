@@ -51,9 +51,9 @@ public class HomeService : ApplicationService, IHomeService
         var deviceDateLogDto = new DeviceDateLogDto();
 
 
-        var devices = log.GroupBy(x => x.CreationTime.Day).ToList();
+        var devices = log.OrderBy(x=>x.CreationTime).GroupBy(x => x.CreationTime.ToString("yyyy-MM-dd")).ToList();
 
-        deviceDateLogDto.Date.AddRange(devices.Select(x => x.FirstOrDefault()?.CreationTime.ToString("yyyy-MM-dd"))!);
+        deviceDateLogDto.Date.AddRange(devices.Select(x => x.Key));
 
         var series = new Series();
         foreach (var device in devices)

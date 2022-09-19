@@ -53,7 +53,7 @@ public class DeviceRunLogRepository : EfCoreRepository<IotDbContext, DeviceRunLo
         var query =
             from runLog in logs
             join iotDevice in device on runLog.DeviceId equals iotDevice.Id
-            orderby runLog.CreationTime descending 
+            orderby runLog.CreationTime 
             select runLog;
 
         return await query.ToListAsync();
