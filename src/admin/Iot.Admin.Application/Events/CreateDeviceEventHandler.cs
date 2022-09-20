@@ -57,6 +57,13 @@ public class CreateDeviceEventHandler : ILocalEventHandler<CreateDevicesEto>, IT
             device = await _devicesRepository.InsertAsync(device);
         }
 
+        if (device != null)
+        {
+            // 设置最后活跃时间
+            device.LastTime = DateTime.Now;
+            await _devicesRepository.UpdateAsync(device);
+        }
+
         await _deviceRunLogRepository.InsertAsync(new DeviceRunLog(Guid.NewGuid(), device.Id, eventData.Data));
 
         await uow.CompleteAsync();
