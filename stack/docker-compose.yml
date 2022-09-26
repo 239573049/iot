@@ -42,3 +42,4 @@ services:
 networks:
   token:
     external: true
+# 指向外部docker网络，第一次执行需要创建网络  docker network create token
